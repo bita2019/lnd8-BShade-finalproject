@@ -1,4 +1,29 @@
+.MuiGrid-root{
+  margin: 20px;
+}
+
 *{
   margin: 0;
   padding: 0;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: darkslategray;
+  color: white;
+}
+
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+nav li{
+  color: white;
 }

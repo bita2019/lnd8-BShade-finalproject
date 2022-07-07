@@ -22,10 +22,10 @@ Rich & Refined
 A rich, medium roast with hints of dark chocolate and almonds
 Ideal for enjoying on an evening, after dinner
 Pack size: 227G`,
-        country: "Itally",
+        country: ["Itally"],
         price: 4.00,
         categories: [],
-        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/bd5376a7-2a7e-429e-aa8f-dc2e4abe8169/73a63992-0b37-488b-a98d-004edfdc7016_1372191263.jpeg?h=540&w=540",
+        image: "https://digitalcontent.api.tesco.com/v2/media/ghs/bd5376a7-2a7e-429e-aa8f-dc2e4abe8169/73a63992-0b37-488b-a98d-004edfdc7016_1372191263.jpeg?h=540&w=540",
         link_to_product: "https://www.tesco.com/groceries/en-GB/products/250761361"
 
     },
@@ -39,7 +39,7 @@ Pack size: 227G`,
 Galbani Burrata will take your love for mozzarella to the next level. Originating from the Apulia region in Southern Italy, Burrata is one of Italy's most beloved cheeses. It is mozzarella formed into a pouch and filled with cream and ribbons of mozzarella that give it a delicious soft texture. Galbani Burrata has a mild, smooth and fresh milk flavour that makes it very versatile. Enjoy it with moist tomatoes, basil, crusty bread and a drizzle of olive oil for the ultimate Italian taste experience. You can also serve Burrata in pasta, pizza or simply have it on its own with seasoning. The best way to fully taste the flavours of Burrata is to enjoy it at an ambient temperature.
 Galbani® is Italy's favourite cheesemaker, producing many of Italy's most loved cheeses since 1882.
 Pack size: 150G`,
-        country: "Itally",
+        country: ["Itally"],
         price: 5.75,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/c6c6f88a-2c7b-4f93-9e04-d5b8bfdf54f4/00c2ea04-4581-4704-aa88-736747ab3c32.jpeg?h=540&w=540",
@@ -55,7 +55,7 @@ Pack size: 150G`,
 A Taste of Italy Infused in a classic Italian inspired marinade for a sweet flavour.
 A Taste of Italy Infused in a classic Italian inspired marinade for a sweet flavour.
 Pack size: 170G`,
-        country: "Itally",
+        country: ["Itally"],
         price: 2.60,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/d65a378c-64c1-42d9-af0f-961fad4ce2ba/c83883bf-fa60-4502-829d-3ce0e28800d1_389453040.jpeg?h=540&w=540",
@@ -73,7 +73,7 @@ Freixenet Italian Rosé is a delicate blend of Glera and Pinot Noir grapes, care
 Wine of Italy
 Extra dry
 Pack size: 20CL`,
-        country: "Itally",
+        country: ["Itally"],
         price: 4.00,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/7a4a9e89-1e3b-44ed-be01-40e1e6bae190/aa9e7e1b-3d8e-4493-bada-2653110ff5a4.jpeg?h=540&w=540",
@@ -95,7 +95,7 @@ Produced under licence by The Premier Foods Group Ltd.
 A classic blend of sun ripened tomatoes and fragrant basil
 Suitable for vegetarians
 Pack size: 350G`,
-        country: "Itally",
+        country: ["Itally"],
         price: 1.90,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/fffec0b3-e3cc-4ae2-a1d6-55308d2e96c7/4d00a150-b36b-4efb-b68f-cc37871c0607_252697775.jpeg?h=540&w=540",
@@ -123,11 +123,11 @@ Suitable for Vegans
 Pack size: 135G
 Source of Fibre
 `,
-        country: "Mexico",
+        country: ["Mexico"],
         price: 1.75,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/5a789bbb-a817-4c6f-a69b-f93ee810737f/dde5269f-7c0b-4f02-80f0-367c673192a8_1714628850.jpeg?h=540&w=540",
-        link_to_product:"https://www.tesco.com/groceries/en-GB/products/310111055?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F5a789bbb-a817-4c6f-a69b-f93ee810737f%2Fdde5269f-7c0b-4f02-80f0-367c673192a8_1714628850.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/310111055?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F5a789bbb-a817-4c6f-a69b-f93ee810737f%2Fdde5269f-7c0b-4f02-80f0-367c673192a8_1714628850.jpeg%3Fh%3D540%26w%3D540"
 
     },
     {
@@ -151,7 +151,7 @@ Ben's Original™ Mexican Style microwave rice is suitable for vegetarians
 Ben's Original™ Rice is sustainably sourced
 Gently steamed for 2 servings of perfect rice every time
 Pack size: 250G`,
-        country: "Mexico",
+        country: ["Mexico"],
         price: 1.25,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/a5c1a10e-a816-47a3-94a8-3080922d5008/20a73c85-4764-466a-b18d-656e48f14de9_1234694007.jpeg?h=540&w=540",
@@ -170,7 +170,7 @@ http://www.oldelpaso.co.uk
 Preservative Free
 Suitable for Vegetarians
 Pack size: 156`,
-        country: "Mexico",
+        country: ["Mexico"],
         price: 1.45,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/c331319e-fd7c-404a-935b-e2b31947e666/234faba3-4de2-4c84-b58b-feaa8fdfdbf3_1693755233.jpeg?h=540&w=540",
@@ -194,11 +194,117 @@ No need to add oil
 Sweet & Spicy
 No artificial colours, flavours or preservatives
 Pack size: 40G`,
-        country: "Mexico",
+        country: ["Mexico"],
         price: 0.69,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/b80d1689-5580-4047-83de-4e6863b7bfa0/8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg?h=540&w=540",
         link_to_product: "https://www.tesco.com/groceries/en-GB/products/273982191?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Fb80d1689-5580-4047-83de-4e6863b7bfa0%2F8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg%3Fh%3D540%26w%3D540"
+
+    },
+    {
+        prod_id,
+        prod_name: "Herdez Salsa Casera 240G",
+        sell_id,
+        quantity: 4,
+        description: `Tomato and Coriander Salsa with Chilli Peppers
+Developed by Herdez, a Mexican family business with over 100 years of experience making authentic Mexican food.
+Try our different flavours
+Mexico's Favourite Salsa
+Chilli rating - Medium - 2
+No artificial colours and flavourings
+Suitable for vegetarians
+Pack size: 240G`,
+        country: ["Mexico"],
+        price: 2.50,
+        categories: [],
+        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/70df78a4-7a23-4323-92e3-ca84a6849949/83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg?h=540&w=540",
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/311440435?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F70df78a4-7a23-4323-92e3-ca84a6849949%2F83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg%3Fh%3D540%26w%3D540"
+
+    },
+    //GREEK PRODUCTS
+    {
+        prod_id,
+        prod_name: "Fage Total 0%Fat Greek Recipe Yogurt 450G",
+        sell_id,
+        quantity: 20,
+        description: `Fage Total 0%Fat Greek Recipe Yogurt 450G
+Natural Fat Free
+3g sugars, 10.3g protein, 54 kcal per 100g
+No added sugar - Contains naturally occurring sugars
+Pronounced: Fa-Yeh!
+Made with only milk and yoghurt cultures
+High in protein
+Source of calcium
+Gluten-free
+Additive and preservative free
+Vegetarian Society Approved
+Pack size: 450G`,
+        country: ["Grece"],
+        price: 2.75,
+        categories: [],
+        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/1bd74801-5d6e-405e-963e-c818c4395430/41b0908c-7ec5-4201-a91f-97e5e1094621.jpeg?h=540&w=540",
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/311229525?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F1bd74801-5d6e-405e-963e-c818c4395430%2F41b0908c-7ec5-4201-a91f-97e5e1094621.jpeg%3Fh%3D540%26w%3D540"
+    },
+    {
+        prod_id,
+        prod_name: "Deli Kitchen 4 Greek Style Flatbreads 320G",
+        sell_id,
+        quantity: 30,
+        description: `4 Plain Flatbreads
+Here at Deli Kitchen HQ our mission is to innovate mealtimes. We start each day with a "What If?" and end with our customer (That's You!). We asked 'What if sandwiches could be tastier, healthier, less boring?' we asked 'What if sandwiches could be, well, less bready?!' then we put our inventive, curious & slightly eccentric heads together and came up with a range of tasty, easy to use flatbreads. Start your day with a "What if?" and join us in innovating mealtimes.
+Packaged in a protective atmosphere.
+Pop Me in the Freezer
+Source of Fibre
+Perfect for kebabs
+Suitable for Vegetarians
+Pack size: 320G`,
+        country: ["Grece"],
+        price: 1.50,
+        categories: [],
+        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/29a1f18d-d049-4ad5-a0b6-3626d650fa47/9c008656-0643-4106-8dae-bb14a143ce4d.jpeg?h=540&w=540",
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/311229525?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F1bd74801-5d6e-405e-963e-c818c4395430%2F41b0908c-7ec5-4201-a91f-97e5e1094621.jpeg%3Fh%3D540%26w%3D54https://www.tesco.com/groceries/en-GB/products/305530793?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F29a1f18d-d049-4ad5-a0b6-3626d650fa47%2F9c008656-0643-4106-8dae-bb14a143ce4d.jpeg%3Fh%3D540%26w%3D540"
+
+    },
+    {
+        prod_id,
+        prod_name: "Vivera Veggie Greek Kebab 175G",
+        sell_id,
+        quantity: 30,
+        description: `Precooked plant-based slices made from rehydrated soya protein and seasoned with Greek kebab style herbs. This product contains added iron and vitamin B12.
+You've Got the Power to Do Good
+Congrats! By choosing this product you have just done your body, the planet and animals a big favour! Want to know more about the impact of eating less meat, look on the inside of this sleeve. Enthusiastic? Then let's inspire more people to join the Goodness Movement!
+Scan or head to vivera.com for the full recipe and instructions.
+Product packed in a protective atmosphere.
+Contains 15% Protein + Vitamin B12 & Iron
+Great Taste
+Morelife Lessmeat
+Easy Does It! Cook Me Please
+100% plant-based
+High in protein
+Source of iron and vitamin B12
+Prepared to a vegan recipe
+Vegan Friendly
+Suitable for vegans
+Pack size: 175G`,
+        country: ["Grece"],
+        price: 2.50,
+        categories: [],
+        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/37e36d0c-093c-4a36-99ad-3dde9cabfd23/5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg?h=540&w=540",
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/303543032?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F37e36d0c-093c-4a36-99ad-3dde9cabfd23%2F5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg%3Fh%3D540%26w%3D540"
+
+    },
+    {
+        prod_id,
+        prod_name: "Oatly Greek Style Oatgurt 400G",
+        sell_id,
+        quantity: 35,
+        description: `Fermented oat product, Greek style, with added vitamins and minerals.
+So if we wanted to incorporate geography into the name of this product, why not Oatgurt Landskrona Style? It would have been more logical, since this product was both invented and manufactured in Landskrona, Sweden. And even though this amazing stuff is used in the same way as Greek yogurt, it is far from Greek yogurt — theoretically, even further from the yogurt part than from the Greek part, since it is completely free of dairy, while the Greek city of Thessaloniki is only 2,399 kilometres from our factory in Landskrona. Of course all of this is really, really far off from what we are here to tell you about on this webpage which is that Oatgurt Greek Style has a thick, smooth and creamy texture combined with a fresh and pleasantly sour flavour. Not to brag, but this is among the best* products we have ever created, if not the best webpage copy.`,
+        country: ["Grece"],
+        price: 2.50,
+        categories: [],
+        images: "https://digitalcontent.api.tesco.com/v2/media/ghs/24193c9d-99c3-440e-99dd-b6de0b9d90ea/65185b15-c6fa-47ec-8ce5-b0e39f4dbd33_1755983584.jpeg?h=540&w=540",
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/305965900?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F24193c9d-99c3-440e-99dd-b6de0b9d90ea%2F65185b15-c6fa-47ec-8ce5-b0e39f4dbd33_1755983584.jpeg%3Fh%3D540%26w%3D540"
 
     },
 ]
