@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Box, Grid, Card, CardActions, CardContent, CardMedia, Button, Typography } from "@mui/material"
-
+import {
+  Box,
+  Grid,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@mui/material";
 
 function ProductPage() {
   useEffect(() => {
@@ -28,7 +36,7 @@ function ProductPage() {
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
-                <CardMedia 
+                <CardMedia
                   component="img"
                   height="400"
                   src={item.image}
@@ -41,9 +49,7 @@ function ProductPage() {
                     {item.name}
                   </Typography>
                 </Link>
-                <Typography variant="body2" color="text.secondary">
-                 
-                </Typography>
+                <Typography variant="body2" color="text.secondary"></Typography>
               </CardContent>
 
               <CardActions>

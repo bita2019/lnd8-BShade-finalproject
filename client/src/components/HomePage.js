@@ -1,16 +1,17 @@
 import React from "react";
+
 import "./Style.css";
 import myData from "./data.json";
+import Searchbar from "./Searchbar";
 
 function HomePage() {
   return (
     <>
       <div className="root">
         <h1>This is the home page</h1>
-        <input type="text" placeholder="Search ... " />
-        <button color="blue">Search</button>
 
         <div>
+          <Searchbar />
           <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">
               Select a country :
@@ -52,6 +53,7 @@ function HomePage() {
       <div>
         <h1>Hujreh</h1>
       </div>
+      <Searchbar />
     </>
   );
 }
