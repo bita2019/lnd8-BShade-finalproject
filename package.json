@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@material-ui/icons": "^4.11.3",
-    "@mui/material": "^5.8.7",
-    "eslint": "^8.19.0"
-  }
-}

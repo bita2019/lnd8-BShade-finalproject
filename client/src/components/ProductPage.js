@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 import {
   Box,
   Grid,
@@ -18,6 +19,10 @@ function ProductPage() {
 
   const [items, setItems] = useState([]);
 
+  function handlesearch(value) {
+    console.log(value);
+  }
+
   const fetchItems = async () => {
     const data = await fetch("http://localhost:4444/inventory");
     const items = await data.json();
@@ -27,6 +32,7 @@ function ProductPage() {
 
   return (
     <Box sx={{ flexGrow: 1, margin: 20 }}>
+      <Searchbar handlesearch={handlesearch} />
       <Grid
         container
         spacing={{ xs: 3, md: 3 }}
