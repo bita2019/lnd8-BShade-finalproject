@@ -16,18 +16,17 @@ function ProductPage() {
   useEffect(() => {
     fetchItems();
   }, []);
-  const [searchInput, setSearchInput] = useState("");
 
   const [items, setItems] = useState([]);
-
+  const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
     console.log(value);
     setSearchInput(value);
   }
   const filtered = !searchInput
     ? items
-    : items.filter((items) =>
-        items.name.toLowerCase().includes(searchInput.toLowerCase())
+    : items.filter((item) =>
+        item.name.toLowerCase().includes(searchInput.toLowerCase())
       );
 
   const fetchItems = async () => {
