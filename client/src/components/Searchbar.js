@@ -4,17 +4,24 @@ import { Input, Button } from "@mui/material";
 
 const Searchbar = ({ handlesearch }) => {
   const [searchInput, setSearchInput] = useState("");
+
+  // setSearchInput = (handlesearch);
   return (
-    <div className="video-searchWraper">
-      <label for="search"> Search your product : </label>
+    <div>
+      <label for="search"> Search your product or Origin country : </label>
 
       <Input
         placeholder="Search...."
         name="search"
         type="text"
-        onChange={(e) => handlesearch(e.target.value)}
+        onChange={
+          (e) => handlesearch(e.target.value)
+          //
+          // })
+        }
       />
-      <Button>This button .</Button>
+
+      <Button>search</Button>
     </div>
   );
 };

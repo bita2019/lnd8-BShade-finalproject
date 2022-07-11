@@ -16,18 +16,17 @@ import formatCurrency from "format-currency";
 // import { Link } from "react-router-dom";
 
 function ProductDetails() {
-const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
   }, [id]);
 
   const [item, setItem] = useState([]);
-  
 
   const fetchItem = async (id) => {
     const data = await fetch(`http://localhost:4444/inventory/${id}`);
-    console.log(data)
+    console.log(data);
     const item = await data.json();
     console.log(item);
     setItem(item);
@@ -44,7 +43,7 @@ const { id } = useParams();
       >
         {item.map((value, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card sx={{ maxWidth:400 }}>
+            <Card sx={{ maxWidth: 400 }}>
               <CardMedia
                 component="img"
                 height="400"
@@ -64,7 +63,7 @@ const { id } = useParams();
                   for species of the genera Zizania.
                 </Typography>
               </CardContent>
-                <Rating />
+              <Rating />
               <CardActions>
                 <Button size="small">Add to cart</Button>
                 <Button size="small">Learn More</Button>
