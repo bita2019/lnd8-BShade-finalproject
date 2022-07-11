@@ -16,12 +16,19 @@ function ProductPage() {
   useEffect(() => {
     fetchItems();
   }, []);
+  const [searchInput, setSearchInput] = useState("");
 
   const [items, setItems] = useState([]);
 
   function handlesearch(value) {
     console.log(value);
+    setSearchInput(value);
   }
+  const filtered = !searchInput
+    ? items
+    : items.filter((items) =>
+        items.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
 
   const fetchItems = async () => {
     const data = await fetch("http://localhost:4444/inventory");
@@ -38,7 +45,7 @@ function ProductPage() {
         spacing={{ xs: 3, md: 3 }}
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
-        {items.map((item, index) => (
+        {filtered.map((item, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
