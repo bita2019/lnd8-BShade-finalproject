@@ -25,8 +25,12 @@ function ProductPage() {
   }
   const filtered = !searchInput
     ? items
-    : items.filter((item) =>
-        item.name.toLowerCase().includes(searchInput.toLowerCase())
+    : items.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
+          item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
+          item.country.toLowerCase().includes(searchInput.toLowerCase())
       );
 
   const fetchItems = async () => {

@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 //  import ProductDetails from "./ProductDetails";
-import { Input, Button } from "@mui/material";
+import { Input } from "@mui/material";
 
 const Searchbar = ({ handlesearch }) => {
-  const [searchInput, setSearchInput] = useState("");
-
-  // setSearchInput = (handlesearch);
   return (
     <div>
-      <label for="search"> Search your product or Origin country : </label>
+      <label for="search"> Search product or Origin country : </label>
 
       <Input
-        placeholder="Search...."
+        placeholder="Type here ...."
         name="search"
         type="text"
         onChange={
@@ -20,8 +17,6 @@ const Searchbar = ({ handlesearch }) => {
           // })
         }
       />
-
-      <Button>search</Button>
     </div>
   );
 };
