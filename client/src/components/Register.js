@@ -1,121 +1,68 @@
-import React, { useState } from "react";
-import {
-  Grid,
-  TextField,
-  FormControlLabel,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-  Select,
-  MenuItem,
-  Slider,
-  Button,
-} from "@mui/material";
+import React from "react";
+import { Grid, TextField, Button, IconButton, Stack } from "@mui/material";
 
-const defaultValues = {
-  name: "",
-  age: 0,
-  gender: "",
-  os: "",
-};
 const Register = () => {
-  const [formValues, setFormValues] = useState(defaultValues);
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
-  const handleSliderChange = (name) => (e, value) => {
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formValues);
-  };
   return (
-    <form onSubmit={handleSubmit}>
-      <Grid container alignItems="center" justify="center" direction="column">
-        <Grid item>
-          <TextField
-            id="name-input"
-            name="name"
-            label="Name"
-            type="text"
-            value={formValues.name}
-            onChange={handleInputChange}
-          />
-        </Grid>
-        <Grid item>
-          <TextField
-            id="age-input"
-            name="age"
-            label="Age"
-            type="number"
-            value={formValues.age}
-            onChange={handleInputChange}
-          />
-        </Grid>
-        <Grid item>
-          <FormControl>
-            <FormLabel>Gender</FormLabel>
-            <RadioGroup
-              name="gender"
-              value={formValues.gender}
-              onChange={handleInputChange}
-              row
-            >
-              <FormControlLabel
-                key="male"
-                value="male"
-                control={<Radio size="small" />}
-                label="Male"
-              />
-              <FormControlLabel
-                key="female"
-                value="female"
-                control={<Radio size="small" />}
-                label="Female"
-              />
-              <FormControlLabel
-                key="other"
-                value="other"
-                control={<Radio size="small" />}
-                label="Other"
-              />
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-        <Grid item>
-          <FormControl>
-            <Select
-              name="os"
-              value={formValues.os}
-              onChange={handleInputChange}
-            >
-              <MenuItem key="mac" value="mac">
-                Mac
-              </MenuItem>
-              <MenuItem key="windows" value="windows">
-                Windows
-              </MenuItem>
-              <MenuItem key="linux " value="linux">
-                Linux
-              </MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
+    <Grid>
+      <div>
+        <TextField
+          required
+          id="outlined-required"
+          label="Product name"
+          margin="dense"
+          style={{ marginTop: "20px" }}
+        />
+        <TextField
+          required
+          id="outlined-required"
+          label="Quantity"
+          margin="dense"
+          style={{ marginTop: "50px" }}
+        />
+        <TextField
+          required
+          id="outlined-required"
+          label="Country"
+          margin="dense"
+          style={{ marginTop: "50px" }}
+        />
 
-        <Button variant="contained" color="primary" type="submit">
+        <TextField
+          required
+          id="outlined-required"
+          label="Product Picture"
+          margin="dense"
+          style={{ marginTop: "50px" }}
+        />
+        <Stack direction="row" alignItems="center" spacing={2}>
+          <Button variant="contained" component="label">
+            Upload
+            <input hidden accept="image/*" multiple type="file" />
+          </Button>
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="label"
+          >
+            <input hidden accept="image/*" type="file" />
+          </IconButton>
+        </Stack>
+
+        <TextField
+          required
+          id="outlined-required"
+          label="Description"
+          margin="dense"
+          style={{ marginTop: "50px" }}
+        />
+      </div>
+      <Stack direction="row" alignItems="center" spacing={2}>
+        <Button variant="contained" size="medium">
           Submit
         </Button>
-      </Grid>
-    </form>
+      </Stack>
+    </Grid>
   );
 };
+
 export default Register;

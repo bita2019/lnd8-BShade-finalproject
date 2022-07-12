@@ -29,7 +29,7 @@ function ProductPage() {
         (item) =>
           item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-          item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
+          // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.country.toLowerCase().includes(searchInput.toLowerCase())
       );
 
