@@ -9,26 +9,45 @@ import {
   Button,
   Typography,
   Rating,
+
+  styled,
+  Collapse,
+
 } from "@mui/material";
 
 import { useParams } from "react-router-dom";
 import formatCurrency from "format-currency";
-
+import {useDispatchCart} from "../CartContext";
+// import { useContext } from "react";
+// import ProductPage from "./ProductPage";
+// import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-function ProductDetails() {
-const { id } = useParams();
+
+const ProductDetails = () => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const dispatch = useDispatchCart();
+  const addToCart = (item) => {
+    console.log(item)
+    dispatch({type: "ADD", item})
+  }
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
   }, [id]);
 
   const [item, setItem] = useState([]);
-  
 
   const fetchItem = async (id) => {
     const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
+
     console.log(data)
+
     const item = await data.json();
     console.log(item);
     setItem(item);
@@ -37,7 +56,8 @@ const { id } = useParams();
   let opts = { format: "%s%v", symbol: "£" };
 
   return (
-    <Box sx={{ flexGrow: 1, margin: 2 }}>
+
+    <Box sx={{ flexGrow: 1, pr: 5, ml: 8, mt: 5 }}>
       <Grid
         container
         spacing={{ xs: 3, md: 3 }}
@@ -66,9 +86,28 @@ const { id } = useParams();
                 </Typography>
                 
               </CardContent>
-                <Rating />
+
+              <Rating className="rate"/>
               <CardActions>
-                <Button size="small">Add to cart</Button>
+                {console.log(value.quantity)}
+                {value.quantity === 0 && (
+                  <Button disabled
+                    size="small"
+                  >
+                    Out of Stock
+                  </Button>
+                )}
+
+                {value.quantity > 0 && (
+                  <Button
+                    size="small"
+                    onClick={() =>
+                      addToCart(value)
+                    }
+                  >
+                    Add to Cart
+                  </Button>
+                )}
                 <Button size="small">Learn More</Button>
               </CardActions>
             </Card>
@@ -85,6 +124,6 @@ const { id } = useParams();
     //   </div>
     // })
   );
-}
+};
 
 export default ProductDetails;
