@@ -99,7 +99,7 @@ Pack size: 350G`,
         price: 1.90,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/fffec0b3-e3cc-4ae2-a1d6-55308d2e96c7/4d00a150-b36b-4efb-b68f-cc37871c0607_252697775.jpeg?h=540&w=540",
-        link_to_product: "https://www.tesco.com/groceries/en-GB/products/250742228?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Ffffec0b3-e3cc-4ae2-a1d6-55308d2e96c7%2F4d00a150-b36b-4efb-b68f-cc37871c0607_252697775.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/250742228?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Ffffec0b3-e3cc-4ae2-a1d6-55308d2e96c7%2F4d00a150-b36b-4efb-b68f-cc37871c0607_252697775.jpeg%3Fh%3D540%26w%3D540"
 
     },
     //MEXICAN PRODUCTS
@@ -174,7 +174,7 @@ Pack size: 156`,
         price: 1.45,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/c331319e-fd7c-404a-935b-e2b31947e666/234faba3-4de2-4c84-b58b-feaa8fdfdbf3_1693755233.jpeg?h=540&w=540",
-        link_to_product: "https://www.tesco.com/groceries/en-GB/products/265434265?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Fc331319e-fd7c-404a-935b-e2b31947e666%2F234faba3-4de2-4c84-b58b-feaa8fdfdbf3_1693755233.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/265434265?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Fc331319e-fd7c-404a-935b-e2b31947e666%2F234faba3-4de2-4c84-b58b-feaa8fdfdbf3_1693755233.jpeg%3Fh%3D540%26w%3D540"
 
     },
     {
@@ -198,7 +198,7 @@ Pack size: 40G`,
         price: 0.69,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/b80d1689-5580-4047-83de-4e6863b7bfa0/8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg?h=540&w=540",
-        link_to_product: "https://www.tesco.com/groceries/en-GB/products/273982191?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Fb80d1689-5580-4047-83de-4e6863b7bfa0%2F8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/273982191?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2Fb80d1689-5580-4047-83de-4e6863b7bfa0%2F8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg%3Fh%3D540%26w%3D540"
 
     },
     {
@@ -218,7 +218,7 @@ Pack size: 240G`,
         price: 2.50,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/70df78a4-7a23-4323-92e3-ca84a6849949/83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg?h=540&w=540",
-        link_to_product: "https://www.tesco.com/groceries/en-GB/products/311440435?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F70df78a4-7a23-4323-92e3-ca84a6849949%2F83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/311440435?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F70df78a4-7a23-4323-92e3-ca84a6849949%2F83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg%3Fh%3D540%26w%3D540"
 
     },
     //GREEK PRODUCTS
@@ -290,7 +290,7 @@ Pack size: 175G`,
         price: 2.50,
         categories: [],
         images: "https://digitalcontent.api.tesco.com/v2/media/ghs/37e36d0c-093c-4a36-99ad-3dde9cabfd23/5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg?h=540&w=540",
-        link_to_product: "https://www.tesco.com/groceries/en-GB/products/303543032?currentModal=ImageZoomModal&selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F37e36d0c-093c-4a36-99ad-3dde9cabfd23%2F5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg%3Fh%3D540%26w%3D540"
+        link_to_product: "https://www.tesco.com/groceries/en-GB/products/303543032?selectedUrl=https%3A%2F%2Fdigitalcontent.api.tesco.com%2Fv2%2Fmedia%2Fghs%2F37e36d0c-093c-4a36-99ad-3dde9cabfd23%2F5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg%3Fh%3D540%26w%3D540"
 
     },
     {

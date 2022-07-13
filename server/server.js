@@ -1,11 +1,27 @@
 const express = require("express");
 const app = express();
 app.use(express.json())
+require('dotenv').config()
 
 const cors = require("cors");
 app.use(cors());
 
-const port = process.env.PORT || 4444;  
+const { Pool } = require("pg");
+
+const port = process.env.PORT || 4444;
+
+
+//HEROKU DB CREDENTIALS
+//postgres://oxtkkbdctjjczo:b01d249eee4e33bff06247e837e11ce2121ac279ed452b01a1ee866468cddc4e@ec2-34-248-169-69.eu-west-1.compute.amazonaws.com:5432/d5cfpib7aao768
+
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+})
+
 
 let data = [
     {
@@ -163,44 +179,54 @@ let data = [
         "sell_id": null
     }
 ]
-//Get inventory
-app.get("/inventory",(req,res)=>{
-    res.send(data)
-})
-//Get by id
-app.get("/inventory/:id", (req, res) => {
-    const id = Number(req.params.id);
-    const filteredProduct = data.filter((product) => product.id === id)
-    res.send(filteredProduct);
-});
 
-
-//THE CONNECTION WITH THE DB ON LOCALL HOST
-// const pool = new Pool({
-//     user: 'codeyourfuture',
-//     host: 'localhost',
-//     database: 'hujreh',
-//     password: 'donashehu',
-//     port: 5432
-// });
-
+// //Get inventory
 // app.get("/inventory", (req, res) => {
-//     pool.query('SELECT * FROM products')
-//         .then((result) => res.json(result.rows))
-//         .catch((error) => {
-//             console.error(error);
-//             res.status(500).json(error);
-//         })
-// }) 
-
-// app.get("/inventory/:id", (req, res) => {
-//     const id = req.params.id
-//     pool.query("SELECT * FROM products WHERE id = $1", [id])
-//         .then((result) => res.json(result.rows))
-//         .catch((error)=>{
-//             console.error(error)
-//             res.status(500).json(error)
-//         })
+//     res.send(data)
 // })
+// //Get by id
+// app.get("/inventory/:id", (req, res) => {
+//     const id = Number(req.params.id);
+//     const filteredProduct = data.filter((product) => product.id === id)
+//     res.send(filteredProduct);
+// });
+// //Get products by seller id
+// app.get("/seller/:id/inventory", (req, res) => {
+//     const id = Number(req.params.id);
+//     const sellerProducts = data.filter((product) => product.sell_id === id);
+//     res.send(sellerProducts)
+// })
+
+//GET ALL INVENTORY
+app.get("/inventory", (req, res) => {
+    pool.query('SELECT * FROM products')
+        .then((result) => res.json(result.rows))
+        .catch((error) => {
+            console.error(error);
+            res.status(500).json(error);
+        })
+})
+
+//GET INVENTORY BY ID
+app.get("/inventory/:id", (req, res) => {
+    const id = req.params.id
+    pool.query("SELECT * FROM products WHERE id = $1", [id])
+        .then((result) => res.json(result.rows))
+        .catch((error) => {
+            console.error(error);
+            res.status(500).json(error);
+        })
+})
+
+//GET INVENTORY BY SELLER ID 
+app.get("/seller/:id/inventory", (req, res) => {
+    const id = Number(req.params.id)
+    pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
+        .then((result) => res.json(result.rows))
+        .catch((error) => {
+            console.error(error)
+            res.status(500).json(error)
+        })
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
