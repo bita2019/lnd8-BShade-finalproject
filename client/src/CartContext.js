@@ -1,21 +1,51 @@
-import { createContext, useState } from "react";
+import {useReducer, createContext, useContext } from "react";
 
 const CartContext = createContext();
+const CartDispatchContext = createContext();
 
-export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return [...state, action.item];
+    case "REMOVE":
+      const newArr = [...state];
+      newArr.splice(action.index, 1)
 
-  const addToCart = (name, price, image) => {
-    setItems((prevState) => [...prevState, { name, price, image }])
+      return newArr;
+    default:
+      throw new Error(`unknown action ${action.type}`)
   }
-
-const removeFromCart = (name, price, image) => {
-  const newItems = items.filter((item) => item.id !== item.name.id|| item.price.id||item.image.id);
-  setItems(newItems);
-};  
-  return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>{children}</CartContext.Provider>
-  );
 }
+
+export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, [])
+  return (
+    <CartDispatchContext.Provider value={dispatch}>
+      <CartContext.Provider value={state}>
+        {children}
+      </CartContext.Provider>
+    </CartDispatchContext.Provider>
+  )
+}
+
+
+export const useCart = () => useContext(CartContext);
+export const useDispatchCart = () => useContext(CartDispatchContext);
+
+// export function CartProvider({ children }) {
+//   const [items, setItems] = useState([]);
+
+//   const addToCart = (name, price, image, id) => {
+//     setItems((prevState) => [...prevState, { name, price, image, id }])
+//   }
+
+//   const removeFromCart = (id) => {
+//   console.log(JSON.stringify(items));
+//   setItems(items.filter(item => item.id !== id));
+// };  
+//   return (
+//     <CartContext.Provider value={{ items, addToCart, removeFromCart }}>{children}</CartContext.Provider>
+//   );
+// }
 
 export default CartContext

@@ -10,14 +10,15 @@ import {
   Typography,
   Rating,
   styled,
-  Collapse
+  Collapse,
 } from "@mui/material";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useParams } from "react-router-dom";
 import formatCurrency from "format-currency";
-import CartContext from "../CartContext"
-import { useContext } from "react";
+import {useDispatchCart} from "../CartContext";
+// import { useContext } from "react";
+// import ProductPage from "./ProductPage";
 // import { Link } from "react-router-dom";
 
 // eslint-disable-next-line no-unused-vars
@@ -36,27 +37,28 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function ProductDetails() {
-
+const ProductDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const { addToCart } = useContext(CartContext);
-
+  const dispatch = useDispatchCart();
+  const addToCart = (item) => {
+    console.log(item)
+    dispatch({type: "ADD", item})
+  }
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
   }, [id]);
 
   const [item, setItem] = useState([]);
-  
 
   const fetchItem = async (id) => {
-    const data = await fetch(`http://localhost:4444/inventory/${id}`);
-    console.log(data)
+    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
+    console.log(data);
     const item = await data.json();
     console.log(item);
     setItem(item);
@@ -65,7 +67,7 @@ const { id } = useParams();
   let opts = { format: "%s%v", symbol: "£" };
 
   return (
-    <Box sx={{ flexGrow: 1, pr: 5, ml:8, mt: 5}}>
+    <Box sx={{ flexGrow: 1, pr: 5, ml: 8, mt: 5 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -92,9 +94,27 @@ const { id } = useParams();
                   for species of the genera Zizania.
                 </Typography>
               </CardContent>
-              <Rating />
+              <Rating className="rate"/>
               <CardActions>
-                <Button size="small" onClick={(()=>addToCart(value.name, value.price, value.image))}>Add to cart</Button>
+                {console.log(value.quantity)}
+                {value.quantity === 0 && (
+                  <Button disabled
+                    size="small"
+                  >
+                    Out of Stock
+                  </Button>
+                )}
+
+                {value.quantity > 0 && (
+                  <Button
+                    size="small"
+                    onClick={() =>
+                      addToCart(value)
+                    }
+                  >
+                    Add to Cart
+                  </Button>
+                )}
                 <Button size="small">Learn More</Button>
                 <ExpandMore
                   expand={expanded}
@@ -145,6 +165,6 @@ const { id } = useParams();
     //   </div>
     // })
   );
-}
+};
 
 export default ProductDetails;

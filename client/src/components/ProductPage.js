@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardMedia, Typography, Grid, Box } from "@mui/material"
 // import { Card, Row, Col } from "react-bootstrap";
 
 
-function ProductPage() {
-  useEffect(() => {
-    fetchItems();
-  }, []);
+function ProductPage({ allProducts }) {
+  console.log(allProducts)
+  // useEffect(() => {
+  //   fetchItems();
+  // }, []);
 
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
 
-  const fetchItems = async () => {
-    const data = await fetch("http://localhost:4444/inventory");
-    const items = await data.json();
-    console.log(items);
-    setItems(items);
-  };
+  // const fetchItems = async () => {
+  //   const data = await fetch("http://localhost:4444/inventory");
+  //   const products = await data.json();
+  //   console.log(products);
+  //   setItems(products);
+  // };
 
   return (
     <Box sx={{ flexGrow: 1, mt: 5, ml: 8 }}>
@@ -25,13 +26,12 @@ function ProductPage() {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 1, sm: 8, md: 12 }}
       >
-        {items.map((item, index) => (
+        {allProducts.map((item, index) => (
           <Grid item xs={1} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 345 }}>
               <Link to={`/productpage/${item.id}`}>
                 <CardMedia
                   component="img"
-                  height="350"
                   image={item.image}
                   alt={item.name}
                 />

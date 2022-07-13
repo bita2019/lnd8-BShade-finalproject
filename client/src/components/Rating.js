@@ -1,6 +1,6 @@
 import { Stack, Rating } from "@mui/material";
 
-function Review() {
+const Review =()=> {
   return <Stack spacing={2}>
 <Rating precision={0.5} />
   </Stack>;
