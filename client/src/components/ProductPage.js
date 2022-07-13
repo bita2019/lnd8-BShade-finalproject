@@ -4,21 +4,24 @@ import { Card, CardContent, CardMedia, Typography, Grid, Box } from "@mui/materi
 // import { Card, Row, Col } from "react-bootstrap";
 
 
-function ProductPage() {
+function ProductPage({ searchInput }) {
+  const [items, setItems] = useState([]);
   useEffect(() => {
     fetchItems();
   }, []);
 
-  const [items, setItems] = useState([]);
+
 
   const fetchItems = async () => {
-    const data = await fetch("http://localhost:4444/inventory");
+    const data = await fetch("https://hujreh.herokuapp.com/inventory");
     const items = await data.json();
     console.log(items);
     setItems(items);
   };
-
+  console.log(searchInput)
+  
   return (
+
     <Box sx={{ flexGrow: 1, mt: 5, ml: 8 }}>
       <Grid
         container
@@ -26,6 +29,7 @@ function ProductPage() {
         columns={{ xs: 1, sm: 8, md: 12 }}
       >
         {items.map((item, index) => (
+
           <Grid item xs={1} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 345 }}>
               <Link to={`/productpage/${item.id}`}>
@@ -43,7 +47,6 @@ function ProductPage() {
                   </Typography>
                 </Link>
               </CardContent>
-
               {/* <CardActions>
                 <Button size="small">Add to cart</Button>
                 <Button size="small">Learn More</Button>
