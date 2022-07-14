@@ -14,13 +14,29 @@ const Register = () => {
   const [counttry, setCountry] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
+  const [pNameError, setPnameError] = useState(false);
+  const [quantityError, setQuantityError] = useState(false);
+  const [counttryError, setCountryError] = useState(false);
+  const [pictureError, setPictureError] = useState(false);
 
   const handleSubmit = (e) => {
-    /* next line <br /> */
+    e.preventDefault();
+    setPname(false);
+    setQuantity(false);
+    setPicture(false);
+    setCountry(false);
 
-    if (pName && quantity && counttry && picture && description) {
-      console.log("pName");
-      e.preventDefault();
+    if (pName === "") {
+      setPnameError(true);
+    }
+    if (quantity === "") {
+      setQuantityError(true);
+    }
+    if (counttry === "") {
+      setCountryError(true);
+    }
+    if (picture === "") {
+      setPictureError(true);
     }
   };
   return (
@@ -35,6 +51,7 @@ const Register = () => {
             label="Product name"
             margin="dense"
             style={{ marginTop: "20px" }}
+            error={pNameError}
           />
           <TextField
             onChange={(e) => setQuantity(e.target.value)}
@@ -43,6 +60,7 @@ const Register = () => {
             label="Quantity"
             margin="dense"
             style={{ marginTop: "50px" }}
+            error={quantityError}
           />
           <TextField
             onChange={(e) => setCountry(e.target.value)}
@@ -51,6 +69,7 @@ const Register = () => {
             label="Country"
             margin="dense"
             style={{ marginTop: "50px" }}
+            error={counttryError}
           />
 
           <TextField
@@ -60,6 +79,7 @@ const Register = () => {
             label="Product Picture"
             margin="dense"
             style={{ marginTop: "50px" }}
+            error={pictureError}
           />
           <Stack direction="row" alignItems="center" spacing={2}>
             <Button variant="contained" component="label" color="success">
