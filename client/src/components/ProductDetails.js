@@ -10,6 +10,7 @@ import {
   Typography,
   Rating,
 } from "@mui/material";
+
 import { useParams } from "react-router-dom";
 import formatCurrency from "format-currency";
 
@@ -46,11 +47,10 @@ function ProductDetails() {
             <Card sx={{ maxWidth: 400 }}>
               <CardMedia
                 component="img"
-                height="400"
+                height="350"
                 src={value.image}
                 alt="rice"
               />
-
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   <h4> {value.name.toUpperCase()} </h4>

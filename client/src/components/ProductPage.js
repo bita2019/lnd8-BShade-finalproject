@@ -5,19 +5,17 @@ import {
   Box,
   Grid,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
-  Button,
   Typography,
 } from "@mui/material";
 
-function ProductPage() {
+function ProductPage({ searchInput }) {
+  const [items, setItems] = useState([]);
   useEffect(() => {
     fetchItems();
   }, []);
 
-  const [items, setItems] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
     console.log(value);
@@ -34,19 +32,20 @@ function ProductPage() {
       );
 
   const fetchItems = async () => {
-    const data = await fetch("http://localhost:4444/inventory");
+    const data = await fetch("https://hujreh.herokuapp.com/inventory");
     const items = await data.json();
     console.log(items);
     setItems(items);
   };
+  console.log(searchInput);
 
   return (
     <Box sx={{ flexGrow: 1, margin: 20 }}>
       <Searchbar handlesearch={handlesearch} />
       <Grid
         container
-        spacing={{ xs: 3, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
       >
         {filtered.map((item, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
@@ -54,42 +53,31 @@ function ProductPage() {
               <Link to={`/productpage/${item.id}`}>
                 <CardMedia
                   component="img"
-                  height="400"
-                  src={item.image}
-                  alt="rice"
+                  height="350"
+                  image={item.image}
+                  alt={item.name}
                 />
               </Link>
               <CardContent>
-                <Link to={`/productpage/${item.id}`}>
-                  <Typography gutterBottom variant="h5" component="div">
+                <Link
+                  to={`/productpage/${item.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Typography gutterBottom variant="h6" component="div">
                     {item.name}
                   </Typography>
                 </Link>
                 <Typography variant="body2" color="text.secondary"></Typography>
               </CardContent>
-
-              <CardActions>
+              {/* <CardActions>
                 <Button size="small">Add to cart</Button>
                 <Button size="small">Learn More</Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Grid>
         ))}
       </Grid>
     </Box>
-
-    // <div>
-    //   {items.map((item) => (
-    //     <div key={item.prod_id}>
-    //       <h4>
-    //         <Link to={`/productpage/${item.prod_id}`}> {item.prod_name} </Link>
-    //       </h4>
-    //       <Link to={`/productpage/${item.prod_id}`}>
-    //         <img src={item.image} alt="" />
-    //       </Link>
-    //     </div>
-    //   ))}
-    // </div>
   );
 }
 

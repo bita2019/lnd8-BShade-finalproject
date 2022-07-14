@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import ProductDetails from "./components/ProductDetails";
 
 function App() {
-  //  const [item, setItem] = useState([]);
+
   return (
     <div className="App">
       <Navbar />
@@ -22,9 +22,19 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route
           path="/productpage/:id"
-          element={<ProductDetails/>}
+          element={<ProductDetails />}
         />
       </Routes>
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="productpage" exact element={<ProductPage />} />
+          <Route path="register" element={<Register />} />
+          <Route path="/productpage/:id" element={<ProductDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </CartProvider>
     </div>
   );
 }
