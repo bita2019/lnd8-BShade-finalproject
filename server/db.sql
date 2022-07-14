@@ -1,12 +1,10 @@
 CREATE DATABASE hujreh_database;
-
+-- droppin existant tables
 drop table if exists user;
 drop table if exists seller;
 drop table if exists products;
 drop table if exists categories;
-
 CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(30));
-
 CREATE TABLE seller(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
@@ -19,9 +17,13 @@ CREATE TABLE seller(
   registration_date timestamp default CURRENT_TIMESTAMP,
   email VARCHAR(25) NOT NULL
 );
-
-INSERT INTO seller (name,      location, logo, email) VALUES('DRENA','12 WOODIRING CLOSE','/','donashehu@gmai.com');
-
+INSERT INTO seller (name, location, logo, email)
+VALUES(
+    'DRENA',
+    '12 WOODIRING CLOSE',
+    '/',
+    'donashehu@gmai.com'
+  );
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -33,21 +35,17 @@ CREATE TABLE products (
   cat_id INT REFERENCES categories(id),
   image VARCHAR(500) NOT NULL
 );
-
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   location VARCHAR(50) NOT NULL,
   email VARCHAR(25) NOT NULL
 );
-
 INSERT INTO categories(name)
 VALUES ('food'),
   ('drink'),
   ('clothes'),
   ('fruits_vegetable');
-
 / / Mexican
 INSERT INTO products (
     name,
@@ -67,18 +65,8 @@ We believe that plant-based eating will change the world, and we want our delici
     1.75,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/5a789bbb-a817-4c6f-a69b-f93ee810737f/dde5269f-7c0b-4f02-80f0-367c673192a8_1714628850.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES (
+  ),
+  VALUES (
     'Ben`s Original Mexican Style Microwave Rice 250G',
     12,
     'Steamed parboiled long grain rice with jalapeno peppers and red peppers with Mexican style spices.
@@ -87,18 +75,8 @@ Visit BensOriginal.co.uk or BensOriginal.ie to find out more.',
     1.25,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/a5c1a10e-a816-47a3-94a8-3080922d5008/20a73c85-4764-466a-b18d-656e48f14de9_1234694007.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES (
+  ),
+  VALUES (
     'Old El Paso 12 Taco Shells 156G',
     2,
     '12 Crunchy Corn Taco Shells.
@@ -112,19 +90,8 @@ Pack size: 156',
     1.45,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/c331319e-fd7c-404a-935b-e2b31947e666/234faba3-4de2-4c84-b58b-feaa8fdfdbf3_1693755233.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-
-VALUES (
+  ),
+  VALUES (
     'Maggi So Juicy Mexican Chicken 40G',
     3,
     'Seasoning Mix for Mexican Chicken.
@@ -143,19 +110,8 @@ Pack size: 40G',
     0.69,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/b80d1689-5580-4047-83de-4e6863b7bfa0/8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-
-VALUES (
+  ),
+  VALUES (
     'Herdez Salsa Casera 240G',
     4,
     'Tomato and Coriander Salsa with Chilli Peppers
@@ -170,21 +126,11 @@ Pack size: 240G',
     2.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/70df78a4-7a23-4323-92e3-ca84a6849949/83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg?h=540&w=540',
     1
-  );
-
-  INSERT INTO products (
-      name,
-      quantity,
-      description,
-      country,
-      price,
-      image,
-      cat_id
-    )
+  ),
   VALUES (
-      'Taylors Rich Italian Ground Coffee',
-      5,
-      'Taylors Rich Italian Ground Coffee 227G
+    'Taylors Rich Italian Ground Coffee',
+    5,
+    'Taylors Rich Italian Ground Coffee 227G
           You can find our brew guides at taylorsofharrogate.co.uk
   Certified Carbon Neutral® product
   CarbonNeutral.com
@@ -200,21 +146,12 @@ Pack size: 240G',
   A rich, medium roast with hints of dark chocolate and almonds
   Ideal for enjoying on an evening, after dinner
   Pack size: 227G',
-      'Itally',
-      4.00,
-      'https://digitalcontent.api.tesco.com/v2/media/ghs/bd5376a7-2a7e-429e-aa8f-dc2e4abe8169/73a63992-0b37-488b-a98d-004edfdc7016_1372191263.jpeg?h=540&w=540',
-      2
-    );
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES (
+    'Itally',
+    4.00,
+    'https://digitalcontent.api.tesco.com/v2/media/ghs/bd5376a7-2a7e-429e-aa8f-dc2e4abe8169/73a63992-0b37-488b-a98d-004edfdc7016_1372191263.jpeg?h=540&w=540',
+    2
+  ),
+  VALUES (
     'Galbani Italian Burrata Cheese 150G',
     6,
     'Fresh stretched curd cheese with cream, in brine.
@@ -225,18 +162,8 @@ Pack size: 150G',
     5.75,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/c6c6f88a-2c7b-4f93-9e04-d5b8bfdf54f4/00c2ea04-4581-4704-aa88-736747ab3c32.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES (
+  ),
+  VALUES (
     'Italian Ro Asted Pepper Antipasti 285G',
     3,
     'Roasted peppers in a garlic flavoured sunflower oil marinade.
@@ -247,42 +174,8 @@ Pack size: 170G',
     2.60,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/d65a378c-64c1-42d9-af0f-961fad4ce2ba/c83883bf-fa60-4502-829d-3ce0e28800d1_389453040.jpeg?h=540&w=540',
     1
-  );
-
--- INSERT INTO products (
---     name,
---     quantity,
---     description,
---     country,
---     price,
---     image,
---     cat_id
---   )
--- VALUES (
---     'Freixenet Italian Rose 20Cl',
---     15,
---     'Rosé Italian Wine
--- Presented in a striking cut-glass bottle, Freixenet Italian Rosé blends superior quality with stunning beauty. Using its extensive sparkling winemaking expertise, Freixenet has created the Rosé sibling to Freixenet\'s widely successful Prosecco. A stand-out rosé that is perfect to make any occasion extra special.
--- Freixenet Italian Rosé is a delicate blend of Glera and Pinot Noir grapes, carefully selected from the finest Italian vineyards. Light and effervescent, with notes of red berries and underlying hints of white flowers and apples.
--- Wine of Italy
--- Extra dry
--- Pack size: 20CL',
---     'Itally',
---     4.00,
---     'https://digitalcontent.api.tesco.com/v2/media/ghs/7a4a9e89-1e3b-44ed-be01-40e1e6bae190/aa9e7e1b-3d8e-4493-bada-2653110ff5a4.jpeg?h=540&w=540',
---     2
---   );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES (
+  ),
+  VALUES (
     'Loyd Grossman Tomato & Basil Pasta Sauce 350G',
     8,
     'Tomato & Basil Sauce
@@ -299,18 +192,8 @@ Pack size: 350G',
     1.90,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/fffec0b3-e3cc-4ae2-a1d6-55308d2e96c7/4d00a150-b36b-4efb-b68f-cc37871c0607_252697775.jpeg?h=540&w=540',
     1
-  );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES(
+  ),
+  VALUES(
     'Fage Total 0%Fat Greek Recipe Yogurt 450G',
     20,
     'Fage Total 0%Fat Greek Recipe Yogurt 450G
@@ -329,76 +212,8 @@ Pack size: 450G',
     '2.75',
     'https://digitalcontent.api.tesco.com/v2/media/ghs/1bd74801-5d6e-405e-963e-c818c4395430/41b0908c-7ec5-4201-a91f-97e5e1094621.jpeg?h=540&w=540',
     1
-  );
--- INSERT INTO products (
---     name,
---     quantity,
---     description,
---     country,
---     price,
---     image,
---     cat_id
---   )
--- VALUES(
---     'Deli Kitchen 4 Greek Style Flatbreads 320G',
---     30,
---     '4 Plain Flatbreads
--- Here at Deli Kitchen HQ our mission is to innovate mealtimes. We start each day with a "What If?" and end with our customer (That`s You!). We asked What if sandwiches could be tastier, healthier, less boring? we asked `What if sandwiches could be, well, less bready?!` then we put our inventive, curious & slightly eccentric heads together and came up with a range of tasty, easy to use flatbreads. Start your day with a "What if?" and join us in innovating mealtimes.
--- Packaged in a protective atmosphere.
--- Pop Me in the Freezer
--- Source of Fibre
--- Perfect for kebabs
--- Suitable for Vegetarians
--- Pack size: 320G',
---     'Grece',
---     1.50,
---     'https://digitalcontent.api.tesco.com/v2/media/ghs/29a1f18d-d049-4ad5-a0b6-3626d650fa47/9c008656-0643-4106-8dae-bb14a143ce4d.jpeg?h=540&w=540',
---     1
---   );
---   INSERT INTO products (
---     name,
---     quantity,
---     description,
---     country,
---     price,
---     image,
---     cat_id
---   )
--- VALUES(
---     'Vivera Veggie Greek Kebab 175G',
---     30,
---     'Precooked plant-based slices made from rehydrated soya protein and seasoned with Greek kebab style herbs. This product contains added iron and vitamin B12.
--- You`ve Got the Power to Do Good
--- Congrats! By choosing this product you have just done your body, the planet and animals a big favour! Want to know more about the impact of eating less meat, look on the inside of this sleeve. Enthusiastic? Then let`s inspire more people to join the Goodness Movement!
--- Scan or head to vivera.com for the full recipe and instructions.
--- Product packed in a protective atmosphere.
--- Contains 15% Protein + Vitamin B12 & Iron
--- Great Taste
--- Morelife Lessmeat
--- Easy Does It! Cook Me Please
--- 100% plant-based
--- High in protein
--- Source of iron and vitamin B12
--- Prepared to a vegan recipe
--- Vegan Friendly
--- Suitable for vegans
--- Pack size: 175G',
---     'Grece',
---     2.50,
---     'https://digitalcontent.api.tesco.com/v2/media/ghs/37e36d0c-093c-4a36-99ad-3dde9cabfd23/5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg?h=540&w=540',
---     1
---   );
-
-INSERT INTO products (
-    name,
-    quantity,
-    description,
-    country,
-    price,
-    image,
-    cat_id
-  )
-VALUES(
+  ),
+  VALUES(
     'Oatly Greek Style Oatgurt 400G',
     35,
     'Fermented oat product, Greek style, with added vitamins and minerals.
