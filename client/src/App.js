@@ -9,6 +9,7 @@ import ProductDetails from "./components/ProductDetails";
 // import { CartProvider } from "./CartContext";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
+import Checkout from "./components/Checkout";
 
 function App() {
   //This fetches all products
@@ -30,15 +31,20 @@ function App() {
 
   return (
     <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="productpage" exact element={<ProductPage allProducts={allProducts}/>}/>
-          <Route path="register" element={<Register />} />
-          <Route path="/productpage/:id" element={<ProductDetails/>}/>
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route
+          path="productpage"
+          exact
+          element={<ProductPage allProducts={allProducts} />}
+        />
+        <Route path="register" element={<Register />} />
+        <Route path="/productpage/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Checkout />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }
