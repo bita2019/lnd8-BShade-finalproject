@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import {
@@ -51,12 +51,7 @@ function ProductPage({ handlesearch }) {
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
-                <CardMedia
-                  component="img"
-                  height="350"
-                  image={item.image}
-                  alt={item.name}
-                />
+                <CardMedia component="img" image={item.image} alt={item.name} />
               </Link>
               <CardContent>
                 <Link
