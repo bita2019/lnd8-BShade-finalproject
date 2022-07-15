@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-function ProductPage({ searchInput }) {
+function ProductPage({ handlesearch }) {
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetchItems();

@@ -8,33 +8,23 @@ import Navbar from "./components/Navbar";
 import ProductDetails from "./components/ProductDetails";
 
 function App() {
-
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" exact element={<HomePage />} />
-        <Route
-          path="productpage"
-          exact
-          element={<ProductPage />}
-        />
+        <Route path="productpage" exact element={<ProductPage />} />
         <Route path="register" element={<Register />} />
-        <Route
-          path="/productpage/:id"
-          element={<ProductDetails />}
-        />
+        <Route path="/productpage/:id" element={<ProductDetails />} />
       </Routes>
-      <CartProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="productpage" exact element={<ProductPage />} />
-          <Route path="register" element={<Register />} />
-          <Route path="/productpage/:id" element={<ProductDetails />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-      </CartProvider>
+
+      <Navbar />
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="productpage" exact element={<ProductPage />} />
+        <Route path="register" element={<Register />} />
+        <Route path="/productpage/:id" element={<ProductDetails />} />
+      </Routes>
     </div>
   );
 }
