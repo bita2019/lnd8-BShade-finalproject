@@ -17,18 +17,17 @@ import formatCurrency from "format-currency";
 // import { Link } from "react-router-dom";
 
 function ProductDetails() {
-const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
   }, [id]);
 
   const [item, setItem] = useState([]);
-  
 
   const fetchItem = async (id) => {
-    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
-    console.log(data)
+    const data = await fetch(`http://localhost:4444/inventory/${id}`);
+    console.log(data);
     const item = await data.json();
     console.log(item);
     setItem(item);
@@ -44,9 +43,8 @@ const { id } = useParams();
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
         {item.map((value, index) => (
-          
-          <Grid item xs={2} sm={4} md={4} key={index} >
-            <Card sx={{ maxWidth: 400 }} >
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Card sx={{ maxWidth: 400 }}>
               <CardMedia
                 component="img"
                 height="350"
@@ -64,9 +62,8 @@ const { id } = useParams();
                   commonly Oryza glaberrima. The name wild rice is usually used
                   for species of the genera Zizania.
                 </Typography>
-                
               </CardContent>
-                <Rating />
+              <Rating />
               <CardActions>
                 <Button size="small">Add to cart</Button>
                 <Button size="small">Learn More</Button>
