@@ -29,7 +29,7 @@ function ProductPage({ allProducts}) {
       );
 
   return (
-    <Box sx={{ flexGrow: 1, margin: 20 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Searchbar handlesearch={handlesearch} />
       <Grid
         container
