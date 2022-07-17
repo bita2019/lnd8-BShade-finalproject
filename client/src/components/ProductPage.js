@@ -10,9 +10,17 @@ import {
   Typography,
 } from "@mui/material";
 
+
 function ProductPage({ allProducts}) {
   const [items, setItems] = useState(allProducts);
  
+
+//function ProductPage({ handlesearch }) {
+ // const [items, setItems] = useState([]);
+ // useEffect(() => {
+  //  fetchItems();
+  //}, []);
+
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
     console.log(value);
@@ -40,11 +48,13 @@ function ProductPage({ allProducts}) {
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
+
                 <CardMedia
                   component="img"
                   image={item.image}
                   alt={item.name}
                 />
+
               </Link>
               <CardContent>
                 <Link

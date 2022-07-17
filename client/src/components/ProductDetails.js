@@ -42,7 +42,7 @@ const ProductDetails = () => {
   const [item, setItem] = useState([]);
 
   const fetchItem = async (id) => {
-    const data = await fetch(`http://localhost:4444/inventory/${id}`);
+    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
     console.log(data);
     const item = await data.json();
     console.log(item);
@@ -79,6 +79,7 @@ const ProductDetails = () => {
                   for species of the genera Zizania.
                 </Typography>
               </CardContent>
+
               <Rating className="rate"/>
               <CardActions>
                 {console.log(value.quantity)}
@@ -86,7 +87,7 @@ const ProductDetails = () => {
                   <Button disabled
                     size="small"
                   >
-                    Out of Stock
+   Out of Stock
                   </Button>
                 )}
 
