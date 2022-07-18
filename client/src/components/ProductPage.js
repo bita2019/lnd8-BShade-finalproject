@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import {
@@ -10,11 +10,16 @@ import {
   Typography,
 } from "@mui/material";
 
-function ProductPage({ searchInput }) {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    fetchItems();
-  }, []);
+
+function ProductPage({ allProducts}) {
+  const [items, setItems] = useState(allProducts);
+ 
+
+//function ProductPage({ handlesearch }) {
+ // const [items, setItems] = useState([]);
+ // useEffect(() => {
+  //  fetchItems();
+  //}, []);
 
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
@@ -31,14 +36,6 @@ function ProductPage({ searchInput }) {
           item.country.toLowerCase().includes(searchInput.toLowerCase())
       );
 
-  const fetchItems = async () => {
-    const data = await fetch("https://hujreh.herokuapp.com/inventory");
-    const items = await data.json();
-    console.log(items);
-    setItems(items);
-  };
-  console.log(searchInput);
-
   return (
     <Box sx={{ flexGrow: 1, margin: 20 }}>
       <Searchbar handlesearch={handlesearch} />
@@ -51,12 +48,13 @@ function ProductPage({ searchInput }) {
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
+
                 <CardMedia
                   component="img"
-                  height="350"
                   image={item.image}
                   alt={item.name}
                 />
+
               </Link>
               <CardContent>
                 <Link
