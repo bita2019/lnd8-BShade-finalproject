@@ -231,52 +231,5 @@ app.get("/seller/:id/inventory", (req, res) => {
         })
 })
 
-//GET ALL SELLERS AND ALL PRODUCTS
-app.get("/sellers/products", (req, res) => {
-
-    const sellers = [];
-    pool.query(
-        `SELECT categories.name AS cat_name, seller.name AS seller_name, 
-    first_line_address, second_line_address, postcode, products.id AS prod_id, products.*
-    FROM seller 
-    INNER JOIN products  ON products.sell_id = seller.id  
-    INNER JOIN categories ON products.cat_id = categories.id`)
-        .then((result) => {
-            for (let i = 0; i < result.rows.length; i++) {
-                let oneSeller = {};
-                if (!(sellers.some(sl => sl.seller_id === result.rows[i].sell_id))) {
-                    result.rows.filter(row => row.sell_id === result.rows[i].sell_id)
-                        .map((row, index) => {
-                            if (index === 0) {
-                                oneSeller = {
-                                    seller_id: row.sell_id,
-                                    seller_name: row.seller_name,
-                                    first_line_add: row.first_line_address,
-                                    second_line_add: row.second_line_address,
-                                    postcode: row.postcode,
-                                    products: []
-                                };
-                            }
-                            const prodForSeller = {
-                                prod_id: row.prod_id,
-                                prod_name: row.name,
-                                prod_desc: row.description,
-                                prod_cat: row.cat_name,
-                                prod_country: row.country
-                            };
-                            oneSeller.products.push(prodForSeller)
-                        })
-                    console.log(oneSeller);
-                    sellers.push(oneSeller)
-                }
-            }
-
-            res.json(sellers)
-        })
-        .catch((error) => {
-            console.error(error)
-            res.status(500).json(error)
-        })
-})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
