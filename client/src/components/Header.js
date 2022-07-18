@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import {useCart} from "../CartContext";
+import { useCart } from "../CartContext";
 // import { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
@@ -10,7 +10,7 @@ import { Button } from "@mui/material";
 // import { Container } from "@mui/system";
 
 const Header = () => {
-  const  items  = useCart();
+  const items = useCart();
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

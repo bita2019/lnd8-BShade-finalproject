@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Searchbar from "./Searchbar";
 import {
   Box,
@@ -11,13 +12,13 @@ import {
 } from "@mui/material";
 
 
-function ProductPage({ allProducts}) {
+function ProductPage({ allProducts }) {
   const [items, setItems] = useState(allProducts);
- 
 
-//function ProductPage({ handlesearch }) {
- // const [items, setItems] = useState([]);
- // useEffect(() => {
+
+  //function ProductPage({ handlesearch }) {
+  // const [items, setItems] = useState([]);
+  // useEffect(() => {
   //  fetchItems();
   //}, []);
 
@@ -29,16 +30,21 @@ function ProductPage({ allProducts}) {
   const filtered = !searchInput
     ? items
     : items.filter(
-        (item) =>
-          item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-          // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
-          item.country.toLowerCase().includes(searchInput.toLowerCase())
-      );
+      (item) =>
+        item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
+        // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
+        item.country.toLowerCase().includes(searchInput.toLowerCase())
+    );
 
   return (
     <Box sx={{ flexGrow: 1, margin: 20 }}>
-      <Searchbar handlesearch={handlesearch} />
+      <div className="inputWrapper">
+        <Searchbar handlesearch={handlesearch} />
+        <Link to={`/addProduct`}>
+          <AddCircleOutlineIcon />
+        </Link>
+      </div>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

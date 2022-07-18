@@ -15,7 +15,7 @@ import {
 
 import { useParams } from "react-router-dom";
 import formatCurrency from "format-currency";
-import {useDispatchCart} from "../CartContext";
+import { useDispatchCart } from "../CartContext";
 // import { useContext } from "react";
 // import ProductPage from "./ProductPage";
 // import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ const ProductDetails = () => {
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
     console.log(item)
-    dispatch({type: "ADD", item})
+    dispatch({ type: "ADD", item })
   }
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -80,14 +80,14 @@ const ProductDetails = () => {
                 </Typography>
               </CardContent>
 
-              <Rating className="rate"/>
+              <Rating className="rate" />
               <CardActions>
                 {console.log(value.quantity)}
                 {value.quantity === 0 && (
                   <Button disabled
                     size="small"
                   >
-   Out of Stock
+                    Out of Stock
                   </Button>
                 )}
 
