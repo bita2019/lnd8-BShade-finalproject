@@ -53,6 +53,15 @@ const Header = () => {
             <Button
               component={Link}
               style={{ textDecoration: "none", color: "white" }}
+              to="categories"
+              color="inherit"
+            >
+              Category
+            </Button>
+
+            <Button
+              component={Link}
+              style={{ textDecoration: "none", color: "white" }}
               to="register"
               color="inherit"
             >
@@ -61,9 +70,7 @@ const Header = () => {
             <Link to="cart" style={{ textDecoration: "none" }}>
               <div className="cart">
                 <ShoppingBagOutlinedIcon />
-                <span>
-                  {items.length}
-                </span>
+                <span>{items.length}</span>
               </div>
             </Link>
 

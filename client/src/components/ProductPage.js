@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 function ProductPage({ allProducts}) {
+  // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(allProducts);
  
   const [searchInput, setSearchInput] = useState("");
@@ -26,11 +27,22 @@ function ProductPage({ allProducts}) {
           item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
           // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.country.toLowerCase().includes(searchInput.toLowerCase())
-      );
+    );
+  const styles = {
+    media: {
+      display: 'block',
+      maxWidth: '20ch',
+      maxHeight: '100%',
+      width: 'auto',
+      height: 'auto',
+      marginLeft: '5rem'
+    }
+  };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Searchbar handlesearch={handlesearch} />
+    <>
+    <Searchbar handlesearch={handlesearch} />
+      <Box sx={{ flexGrow: 1, mt: 5 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -44,6 +56,7 @@ function ProductPage({ allProducts}) {
                   component="img"
                   image={item.image}
                   alt={item.name}
+                  style={styles.media}
                 />
               </Link>
               <CardContent>
@@ -65,7 +78,8 @@ function ProductPage({ allProducts}) {
           </Grid>
         ))}
       </Grid>
-    </Box>
+      </Box>
+      </>
   );
 }
 
