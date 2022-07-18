@@ -6,7 +6,7 @@ const CartDispatchContext = createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return [...state, action.item];
+      return [...state, action.item,];
     case "REMOVE":
       const newArr = [...state];
       newArr.splice(action.index, 1)

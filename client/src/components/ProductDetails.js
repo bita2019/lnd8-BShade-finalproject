@@ -9,10 +9,8 @@ import {
   Button,
   Typography,
   Rating,
-
   styled,
   Collapse,
-
 } from "@mui/material";
 
 import { useParams } from "react-router-dom";
@@ -22,7 +20,6 @@ import {useDispatchCart} from "../CartContext";
 // import ProductPage from "./ProductPage";
 // import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
-
 
 const ProductDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -44,10 +41,8 @@ const ProductDetails = () => {
   const [item, setItem] = useState([]);
 
   const fetchItem = async (id) => {
-    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
-
-    console.log(data)
-
+    const data = await fetch(`http://localhost:4444/inventory/${id}`);
+    console.log(data);
     const item = await data.json();
     console.log(item);
     setItem(item);
@@ -56,7 +51,6 @@ const ProductDetails = () => {
   let opts = { format: "%s%v", symbol: "£" };
 
   return (
-
     <Box sx={{ flexGrow: 1, pr: 5, ml: 8, mt: 5 }}>
       <Grid
         container
@@ -64,9 +58,8 @@ const ProductDetails = () => {
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
         {item.map((value, index) => (
-          
-          <Grid item xs={2} sm={4} md={4} key={index} >
-            <Card sx={{ maxWidth: 400 }} >
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Card sx={{ maxWidth: 400 }}>
               <CardMedia
                 component="img"
                 height="350"
@@ -84,9 +77,7 @@ const ProductDetails = () => {
                   commonly Oryza glaberrima. The name wild rice is usually used
                   for species of the genera Zizania.
                 </Typography>
-                
               </CardContent>
-
               <Rating className="rate"/>
               <CardActions>
                 {console.log(value.quantity)}

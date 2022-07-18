@@ -1,7 +1,5 @@
-import React from "react"
+import React from "react";
 function HomePage() {
-
-
   return (
     <div>
       <h1>Welcome To Hujreh</h1>
