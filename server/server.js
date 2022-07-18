@@ -34,20 +34,20 @@ const port = process.env.PORT || 4444;
 //postgres://oxtkkbdctjjczo:b01d249eee4e33bff06247e837e11ce2121ac279ed452b01a1ee866468cddc4e@ec2-34-248-169-69.eu-west-1.compute.amazonaws.com:5432/d5cfpib7aao768
 
 
-// const pool = new Pool({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//         rejectUnauthorized: false
-//     }
-// })
-
 const pool = new Pool({
-    user: 'codeyourfuture',
-    host: 'localhost',
-    database: 'hujreh_database',
-    password: 'codeyourfuture',
-    port: 5432,
-})
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+// const pool = new Pool({
+//     user: 'codeyourfuture',
+//     host: 'localhost',
+//     database: 'hujreh_database',
+//     password: 'codeyourfuture',
+//     port: 5432,
+// })
 
 
 let data = [
