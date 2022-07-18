@@ -2,10 +2,11 @@ import React from "react";
 //  import ProductDetails from "./ProductDetails";
 import { Input } from "@mui/material";
 
+
 const Searchbar = ({ handlesearch }) => {
   return (
     <div>
-      <label for="search"> Search product or Origin country : </label>
+      {/* <label for="search"> Search product or Origin country : </label> */}
 
       <Input
         placeholder="Type here ...."

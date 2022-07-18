@@ -9,6 +9,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 
 const Img = styled("img")({
@@ -61,8 +62,8 @@ const Cart = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button size="small" onClick={() => handleRemove()}>
-                    Remove
+                  <Button size="small" startIcon={<DeleteIcon />} onClick={() => handleRemove(index)}>
+                    Delete
                   </Button>
                 </Grid>
               </Grid>

@@ -1,9 +1,13 @@
 import React from 'react'
+import { Typography } from '@mui/material';
 
 const Checkout = () => {
   return (
-    <div>Checkout</div>
+      <Typography>
+      Thank you for shopping with us
+      </Typography>
+     
   )
 }
 
-export default Checkout
+export default Checkout;

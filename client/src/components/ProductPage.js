@@ -10,9 +10,18 @@ import {
   Typography,
 } from "@mui/material";
 
+
 function ProductPage({ allProducts}) {
+  // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(allProducts);
  
+
+//function ProductPage({ handlesearch }) {
+ // const [items, setItems] = useState([]);
+ // useEffect(() => {
+  //  fetchItems();
+  //}, []);
+
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
     console.log(value);
@@ -26,11 +35,22 @@ function ProductPage({ allProducts}) {
           item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
           // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.country.toLowerCase().includes(searchInput.toLowerCase())
-      );
+    );
+  const styles = {
+    media: {
+      display: 'block',
+      maxWidth: '20ch',
+      maxHeight: '100%',
+      width: 'auto',
+      height: 'auto',
+      marginLeft: '5rem'
+    }
+  };
 
   return (
-    <Box sx={{ flexGrow: 1, margin: 20 }}>
-      <Searchbar handlesearch={handlesearch} />
+    <>
+    <Searchbar handlesearch={handlesearch} />
+      <Box sx={{ flexGrow: 1, mt: 5 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -40,11 +60,14 @@ function ProductPage({ allProducts}) {
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Card sx={{ maxWidth: 400 }}>
               <Link to={`/productpage/${item.id}`}>
+
                 <CardMedia
                   component="img"
                   image={item.image}
                   alt={item.name}
+                  style={styles.media}
                 />
+
               </Link>
               <CardContent>
                 <Link
@@ -65,7 +88,8 @@ function ProductPage({ allProducts}) {
           </Grid>
         ))}
       </Grid>
-    </Box>
+      </Box>
+      </>
   );
 }
 
