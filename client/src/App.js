@@ -10,6 +10,7 @@ import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
+import Categories from "./components/Categories";
 
 function App() {
   //This fetches all products
@@ -19,7 +20,7 @@ function App() {
     fetchItems();
   }, []);
 
-  const urlToFetch = "https://hujreh.herokuapp.com/inventory";
+  const urlToFetch = "http://localhost:4444/inventory";
 
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </div>
   );
