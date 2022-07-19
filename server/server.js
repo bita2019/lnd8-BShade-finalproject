@@ -6,7 +6,7 @@ require('dotenv').config()
 const cors = require("cors");
 app.use(cors());
 
-const { Pool } = require("pg");
+// const { Pool } = require("pg");
 
 const port = process.env.PORT || 4444;
 
@@ -15,12 +15,12 @@ const port = process.env.PORT || 4444;
 //postgres://oxtkkbdctjjczo:b01d249eee4e33bff06247e837e11ce2121ac279ed452b01a1ee866468cddc4e@ec2-34-248-169-69.eu-west-1.compute.amazonaws.com:5432/d5cfpib7aao768
 
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-})
+// const pool = new Pool({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: {
+//         rejectUnauthorized: false
+//     }
+// })
 
 
 let data = [
@@ -181,15 +181,16 @@ let data = [
 ]
 
 // //Get inventory
-// app.get("/inventory", (req, res) => {
-//     res.send(data)
-// })
-// //Get by id
-// app.get("/inventory/:id", (req, res) => {
-//     const id = Number(req.params.id);
-//     const filteredProduct = data.filter((product) => product.id === id)
-//     res.send(filteredProduct);
-// });
+app.get("/inventory", (req, res) => {
+  res.send(data)
+  console.log(data);
+})
+//Get by id
+app.get("/inventory/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const filteredProduct = data.filter((product) => product.id === id)
+    res.send(filteredProduct);
+});
 // //Get products by seller id
 // app.get("/seller/:id/inventory", (req, res) => {
 //     const id = Number(req.params.id);
@@ -198,35 +199,35 @@ let data = [
 // })
 
 //GET ALL INVENTORY
-app.get("/inventory", (req, res) => {
-    pool.query('SELECT * FROM products')
-        .then((result) => res.json(result.rows))
-        .catch((error) => {
-            console.error(error);
-            res.status(500).json(error);
-        })
-})
+// app.get("/inventory", (req, res) => {
+//     pool.query('SELECT * FROM products')
+//         .then((result) => res.json(result.rows))
+//         .catch((error) => {
+//             console.error(error);
+//             res.status(500).json(error);
+//         })
+// })
 
-//GET INVENTORY BY ID
-app.get("/inventory/:id", (req, res) => {
-    const id = req.params.id
-    pool.query("SELECT * FROM products WHERE id = $1", [id])
-        .then((result) => res.json(result.rows))
-        .catch((error) => {
-            console.error(error);
-            res.status(500).json(error);
-        })
-})
+// //GET INVENTORY BY ID
+// app.get("/inventory/:id", (req, res) => {
+//     const id = req.params.id
+//     pool.query("SELECT * FROM products WHERE id = $1", [id])
+//         .then((result) => res.json(result.rows))
+//         .catch((error) => {
+//             console.error(error);
+//             res.status(500).json(error);
+//         })
+// })
 
-//GET INVENTORY BY SELLER ID 
-app.get("/seller/:id/inventory", (req, res) => {
-    const id = Number(req.params.id)
-    pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
-        .then((result) => res.json(result.rows))
-        .catch((error) => {
-            console.error(error)
-            res.status(500).json(error)
-        })
-})
+// //GET INVENTORY BY SELLER ID 
+// app.get("/seller/:id/inventory", (req, res) => {
+//     const id = Number(req.params.id)
+//     pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
+//         .then((result) => res.json(result.rows))
+//         .catch((error) => {
+//             console.error(error)
+//             res.status(500).json(error)
+//         })
+// })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
