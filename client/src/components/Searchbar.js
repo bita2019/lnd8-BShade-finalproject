@@ -2,7 +2,7 @@ import React from "react";
 //  import ProductDetails from "./ProductDetails";
 import { Input } from "@mui/material";
 
-
+// passed a callback function as a prop to search component
 const Searchbar = ({ handlesearch }) => {
   return (
     <div>

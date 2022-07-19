@@ -11,7 +11,6 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-
 const Img = styled("img")({
   margin: "auto",
   display: "block",
@@ -22,7 +21,10 @@ const Img = styled("img")({
 const Cart = () => {
   const items = useCart();
   const dispatch = useDispatchCart();
-  const totalPrice = items.reduce(( b, item) => { console.log(typeof item.price);return  b + parseFloat(item.price)}, 0);
+  const totalPrice = items.reduce((b, item) => {
+    console.log(typeof item.price);
+    return b + parseFloat(item.price);
+  }, 0);
 
   const handleRemove = (index) => {
     dispatch({ type: "REMOVE", index });
@@ -62,7 +64,11 @@ const Cart = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button size="small" startIcon={<DeleteIcon />} onClick={() => handleRemove(index)}>
+                  <Button
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={() => handleRemove(index)}
+                  >
                     Delete
                   </Button>
                 </Grid>

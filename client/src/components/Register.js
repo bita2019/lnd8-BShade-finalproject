@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import {
-  Grid,
-  TextField,
-  Button,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Grid, TextField, Button, Stack, Typography } from "@mui/material";
+// import DeleteIcon from "@mui/icons-material/Delete";
+// import SendIcon from "@mui/icons-material/Send";
+
+import AddProductButton from "./AddProductButton";
 
 const Register = () => {
   const [pName, setPname] = useState("");
@@ -39,6 +36,7 @@ const Register = () => {
       setPictureError(true);
     }
   };
+
   return (
     <Grid>
       <Typography />
@@ -82,17 +80,7 @@ const Register = () => {
             error={pictureError}
           />
           <Stack direction="row" alignItems="center" spacing={2}>
-            <Button variant="contained" component="label" color="success">
-              Upload
-              <input hidden accept="image/*" multiple type="file" />
-            </Button>
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="label"
-            >
-              <input hidden accept="image/*" type="file" />
-            </IconButton>
+            <AddProductButton />
           </Stack>
 
           <TextField
@@ -106,6 +94,7 @@ const Register = () => {
             rows={4}
           />
           <br />
+
           <Button
             variant="contained"
             size="medium"
@@ -117,7 +106,14 @@ const Register = () => {
         </form>
       </div>
 
-      <Stack direction="row" alignItems="center" spacing={2}></Stack>
+      <Stack direction="row" alignItems="center" spacing={2}>
+        {/* <Button variant="outlined" startIcon={<DeleteIcon />}>
+          Delete
+        </Button>
+        <Button variant="contained" endIcon={<SendIcon />}>
+          
+        </Button> */}
+      </Stack>
     </Grid>
   );
 };
