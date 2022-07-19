@@ -25,10 +25,9 @@ function App() {
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);
     const products = await data.json();
-    console.log(products);
+    console.log('products:',products);
     setAllProducts(products);
   };
-
 
   return (
     <div className="App">
@@ -50,5 +49,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
