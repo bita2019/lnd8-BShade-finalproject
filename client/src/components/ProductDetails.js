@@ -10,7 +10,7 @@ import {
   Typography,
   Rating,
   styled,
-  Collapse
+  Collapse,
 } from "@mui/material";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -38,19 +38,18 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-
 const ProductDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
-    console.log(item)
-    dispatch({type: "ADD", item})
-  }
+    console.log(item);
+    dispatch({ type: "ADD", item });
+  };
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
@@ -58,9 +57,8 @@ const { id } = useParams();
 
   const [item, setItem] = useState([]);
 
-
   const fetchItem = async (id) => {
-    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
+    const data = await fetch(`http://localhost:4444/inventory/${id}`);
     console.log(data);
     const item = await data.json();
     console.log(item);
@@ -119,7 +117,6 @@ const { id } = useParams();
                 {value.quantity === 0 && (
                   <Button disabled size="small">
                     Out of Stock
-
                   </Button>
                 )}
 
@@ -177,6 +174,6 @@ const { id } = useParams();
     //   </div>
     // })
   );
-}
+};
 
 export default ProductDetails;
