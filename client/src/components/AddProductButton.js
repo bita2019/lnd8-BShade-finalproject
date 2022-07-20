@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 
-const uploader = new Uploader({ apiKey: "free" });
+const uploader = new Uploader({
+  apiKey: "public_FW25asG7i8q9nJq99sP8jRFWCRqK",
+});
 
-const AddProductButton = ({}) => {
+const AddProductButton = ({ addHandler }) => {
   return (
     <UploadButton
       uploader={uploader} // Required.
@@ -14,11 +16,13 @@ const AddProductButton = ({}) => {
           console.log("No files selected.");
         } else {
           console.log("Files uploaded:");
-          console.log(files.map((f) => f.fileUrl));
+          const imgPath = files.map((f) => f.fileUrl);
+          addHandler(imgPath);
+          console.log(imgPath);
         }
       }}
     >
-      {({ onClick }) => <button onClick={onClick}>Upload a file...</button>}
+      {({ onClick }) => <button onClick={onClick}> Upload a file...</button>}
     </UploadButton>
   );
 };

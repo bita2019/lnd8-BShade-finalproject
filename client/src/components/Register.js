@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Grid, TextField, Button, Stack, Typography } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 // import SendIcon from "@mui/icons-material/Send";
-
 import AddProductButton from "./AddProductButton";
 
 const Register = () => {
@@ -15,6 +14,11 @@ const Register = () => {
   const [quantityError, setQuantityError] = useState(false);
   const [counttryError, setCountryError] = useState(false);
   const [pictureError, setPictureError] = useState(false);
+
+  const addHandler = (imgPath) => {
+    console.log(imgPath);
+    setPicture(imgPath);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,7 +84,7 @@ const Register = () => {
             error={pictureError}
           />
           <Stack direction="row" alignItems="center" spacing={2}>
-            <AddProductButton />
+            <AddProductButton addHandler={addHandler} />
           </Stack>
 
           <TextField
