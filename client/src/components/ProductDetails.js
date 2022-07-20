@@ -60,7 +60,7 @@ const { id } = useParams();
 
 
   const fetchItem = async (id) => {
-    const data = await fetch(`https://hujreh.herokuapp.com/inventory/${id}`);
+    const data = await fetch(`http://localhost:4444/inventory/${id}`);
     console.log(data);
     const item = await data.json();
     console.log(item);

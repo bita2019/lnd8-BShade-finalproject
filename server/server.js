@@ -10,11 +10,8 @@ const { Pool } = require("pg");
 
 const port = process.env.PORT || 4444;
 
+console.log("The fetch is happening from the database with these credentials ==> " + process.env.DATABASE_URL)
 
-//HEROKU DB CREDENTIALS
-//postgres://oxtkkbdctjjczo:b01d249eee4e33bff06247e837e11ce2121ac279ed452b01a1ee866468cddc4e@ec2-34-248-169-69.eu-west-1.compute.amazonaws.com:5432/d5cfpib7aao768
-
-console.log(process.env.DATABASE_URL)
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -231,5 +228,54 @@ app.get("/seller/:id/inventory", (req, res) => {
         })
 })
 
+//GET ALL SELLERS AND ALL PRODUCTS FOR SELLER 
+app.get("/sellers/products", (req, res) => {
 
+    const sellers = [];
+    pool.query(
+        `SELECT categories.name AS cat_name, seller.name AS sell_name, logo,
+    first_line_address, second_line_address, postcode, products.id AS prod_id, products.name AS prod_name, products.*
+    FROM seller 
+    INNER JOIN products  ON products.sell_id = seller.id  
+    INNER JOIN categories ON products.cat_id = categories.id`)
+        .then((result) => {
+            for (let i = 0; i < result.rows.length; i++) {
+                let oneSeller = {};
+                if (!(sellers.some(sl => sl.seller_id === result.rows[i].sell_id))) {
+                    result.rows.filter(row => row.sell_id === result.rows[i].sell_id)
+                        .map((row, index) => {
+                            if (index === 0) {
+                                oneSeller = {
+                                    seller_id: row.sell_id,
+                                    seller_name: row.sell_name,
+                                    first_line_add: row.first_line_address,
+                                    second_line_add: row.second_line_address,
+                                    postcode: row.postcode,
+                                    sell_logo: row.logo,
+                                    products: []
+                                };
+                            }
+                            const productsForSeller = {
+                                prod_id: row.prod_id,
+                                prod_name: row.prod_name,
+                                prod_desc: row.description,
+                                prod_info: row.information,
+                                prod_allergy: row.allergy_information,
+                                prod_storage: row.storage,
+                                prod_cat: row.cat_name,
+                                prod_country: row.country
+                            };
+                            oneSeller.products.push(productsForSeller)
+                        })
+                    sellers.push(oneSeller)
+                }
+            }
+
+            res.json(sellers)
+        })
+        .catch((error) => {
+            console.error(error)
+            res.status(500).json(error)
+        })
+})
 app.listen(port, () => console.log(`Listening on port ${port}`));
