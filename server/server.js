@@ -80,6 +80,7 @@ app.get("/sellers", (req, res) => {
     INNER JOIN products  ON products.sell_id = seller.id  
     INNER JOIN categories ON products.cat_id = categories.id`)
         .then((result) => {
+            console.log(result)
             for (let i = 0; i < result.rows.length; i++) {
                 let oneSeller = {};
                 if (!(sellers.some(sl => sl.seller_id === result.rows[i].sell_id))) {
@@ -119,16 +120,16 @@ app.get("/sellers", (req, res) => {
             res.status(500).json(error)
         })
 })
-//PUT UPDATE THE QUANTITY IN THE DATABASE AFTER PURCHASE 
+//PUT, UPDATE THE QUANTITY IN THE DATABASE AFTER PURCHASE 
 // app.put("/purchase",(req,res)=>{
 //     const purchases = req.body;
 //     purchases.forEach(purchase => {
-//         pool.query("UPATE products SET  WHERE sell_id = $1", [id])
+//         pool.query('UPDATE products SET quantity = quantity - purchase.quantity WHERE products.id = purchase.id')
 //             .then((result) => res.json(result.rows))
 //             .catch((error) => {
 //                 console.error(error)
 //                 res.status(500).json(error)
-//             })
+//             })  
 //     });
    
 // })
