@@ -6,7 +6,7 @@ require('dotenv').config()
 const cors = require("cors");
 app.use(cors());
 
-// const { Pool } = require("pg");
+const { Pool } = require("pg");
 
 const port = process.env.PORT || 4444;
 
@@ -210,26 +210,26 @@ app.get("/inventory", (req, res) => {
 })
 
 // //GET INVENTORY BY ID
-// app.get("/inventory/:id", (req, res) => {
-//     const id = req.params.id
-//     pool.query("SELECT * FROM products WHERE id = $1", [id])
-//         .then((result) => res.json(result.rows))
-//         .catch((error) => {
-//             console.error(error);
-//             res.status(500).json(error);
-//         })
-// })
+app.get("/inventory/:id", (req, res) => {
+    const id = req.params.id
+    pool.query("SELECT * FROM products WHERE id = $1", [id])
+        .then((result) => res.json(result.rows))
+        .catch((error) => {
+            console.error(error);
+            res.status(500).json(error);
+        })
+})
 
 // //GET INVENTORY BY SELLER ID 
-// app.get("/seller/:id/inventory", (req, res) => {
-//     const id = Number(req.params.id)
-//     pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
-//         .then((result) => res.json(result.rows))
-//         .catch((error) => {
-//             console.error(error)
-//             res.status(500).json(error)
-//         })
-// })
+app.get("/seller/:id/inventory", (req, res) => {
+    const id = Number(req.params.id)
+    pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
+        .then((result) => res.json(result.rows))
+        .catch((error) => {
+            console.error(error)
+            res.status(500).json(error)
+        })
+})
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
