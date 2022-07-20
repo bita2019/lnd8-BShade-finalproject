@@ -278,5 +278,4 @@ app.get("/sellers/products", (req, res) => {
             res.status(500).json(error)
         })
 })
-
 app.listen(port, () => console.log(`Listening on port ${port}`));

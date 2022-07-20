@@ -1,4 +1,4 @@
-import {useReducer, createContext, useContext } from "react";
+import { useReducer, createContext, useContext } from "react";
 
 const CartContext = createContext();
 const CartDispatchContext = createContext();
@@ -9,8 +9,8 @@ const reducer = (state, action) => {
       return [...state, action.item];
     case "REMOVE":
       console.log(action)
-      const newArr = state.filter((value, index)=>index !== action.index);
-    
+      const newArr = state.filter((value, index) => index !== action.index);
+
       return newArr;
     default:
       throw new Error(`unknown action ${action.type}`)

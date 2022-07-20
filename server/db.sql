@@ -6,7 +6,7 @@ drop table if exists seller;
 
 drop table if exists categories;
 
-CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(30));
+CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(50));
 
 CREATE TABLE seller(
   id SERIAL PRIMARY KEY,
@@ -45,11 +45,16 @@ CREATE TABLE users (
 INSERT INTO
   categories(name)
 VALUES
-  ('Food'),
-  ('Drink'),
-  ('Dairy'),
-  ('Fruits & vegetables');
-
+  ('Grocery'),
+  ('Butchery'),
+  ('Bakery'),
+  ('Homecooked'),
+  ('Sweets'),
+  ('Sandwiches'),
+  ('Restaurants'),
+  ('24 - Hour Service'),
+  ('Halal'),
+  ('Wines and Spirits')
 INSERT INTO
   seller (
     name,
@@ -62,31 +67,49 @@ INSERT INTO
   )
 VALUES
   (
-    'Drena',
+    'Best Shop',
     '12 Woodridings Close',
     'Hatch End',
     'HA4 8KJ',
-    'logo',
+    'https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B1040%2C750%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2021%2F07%2F06%2Fimpulse-buying-2000.jpg',
     'history/desc',
-    'drena@gmail.ac.uk'
+    'bestshop@gmail.ac.uk'
   ),
   (
-    'El Paso',
+    'B.W.Supermarket',
     '12 Uxbridge Road',
     'Wembly Central',
     'HG4 2LJ',
-    'logo',
+    'http://www.bestwaysupermarket.com/images/07.jpg',
     'history/desc',
-    'el_paso@gmail.ac.uk'
+    'wb.supermarket@gmail.ac.uk'
   ),
   (
-    'Kefalonia',
+    'Home cooked goodness',
     '23 Mandelae Street',
     'Barking',
     'RT4 9DJ',
-    'logo',
+    'https://i2-prod.liverpoolecho.co.uk/incoming/article15204090.ece/ALTERNATES/s615/0_LEC_EKR_260918_HOMECOOKED-1.jpg',
     'history/desc',
-    'kefalonia@gmail.ac.uk'
+    '@gmail.ac.uk'
+  ),
+  (
+    'Fresh Store',
+    '20 Wibmledon Street',
+    'Watford',
+    'JL4 2HS',
+    'https://res.cloudinary.com/mommy-nearest/image/upload/c_crop,h_800,w_1800,x_0,y_675/c_scale,f_auto,fl_lossy,q_75,w_848/pyoluqa7wayuecdihqyx',
+    'history/desc',
+    'fresh.store@gmail.ac.uk'
+  ),
+  (
+    'Seafood African Shop',
+    '2 Sidney Road',
+    'Harrow',
+    'KU4 9SI',
+    'https://lh5.googleusercontent.com/p/AF1QipMFgQMQRDz-5BKfyKh78RX3Dn4UB669MfrRvXBm=w408-h306-k-no',
+    'history/desc',
+    'fresh.store@gmail.ac.uk'
   );
 
 INSERT INTO
@@ -153,7 +176,7 @@ Onion Powder,
 Yeast Extract,
 Acid (Citric Acid),
 Garlic Powder',
-     '',
+    '',
     'Store in a dry place at room temperature.Once opened refrigerate unheated rice for up to 3 days.',
     'Mexico',
     1.25,
@@ -473,7 +496,7 @@ dry place.Once opened,
 consume within 24 hours.Freeze me: Suitable for home freezing.ideally freeze as soon as possible
 after
   purchase but always by `best before` date shown.Use within one month.',
-    'Grece',
+    'Iran',
     1.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/29a1f18d-d049-4ad5-a0b6-3626d650fa47/9c008656-0643-4106-8dae-bb14a143ce4d.jpeg?h=540&w=540',
     1
@@ -516,7 +539,7 @@ and Minerals [Vitamin B12, Iron]',
     'Allergen statement: please see ingredients in Bold.',
     'Keep refrigeated below 5 ° C.For use by date see front of pack.Do not exceed use by date.Once opened keep refrigerated
 and use within 2 days.Suitable for home freezing.Once frozen use within 1 month.',
-    'Grece',
+    'Iran',
     2.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/37e36d0c-093c-4a36-99ad-3dde9cabfd23/5641aebb-c824-40b9-8a5c-0b7ba1778b54.jpeg?h=540&w=540',
     1
@@ -544,8 +567,54 @@ Vitamins (D2, B12)',
     'Free From: Milk,
      Soya Contains: Oats',
     'Keep refrigerated.Best before: See top of pack.Once opened consume within 5 days.',
-    'Grece',
+    'Iran',
     2.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/24193c9d-99c3-440e-99dd-b6de0b9d90ea/65185b15-c6fa-47ec-8ce5-b0e39f4dbd33_1755983584.jpeg?h=540&w=540',
     1
-  );
+  ),
+  (
+  'Smoked Ham & Cheddar Sandwich',
+  1,
+  15,
+  'Smoked ham formed
+from
+  selected cuts of pork leg,
+  mature Cheddar cheese
+  and mayonnaise in malted bread.BEECHWOOD SMOKED HAM Our chefs recipe layers slices of beechwood smoked ham with mature Cheddar and mayonnaise. Carefully hand packed every day.
+BEECHWOOD SMOKED HAM Our chefs recipe layers slices of beechwood smoked ham with mature Cheddar
+  and mayonnaise.Carefully hand packed every day.',
+  'INGREDIENTS: Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin],
+Smoked Formed Ham (23 %) [Pork, Salt, Dextrose, Stabiliser (Sodium Triphosphate), Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite)],
+Water,
+Medium Mature Cheddar Cheese (Milk) (17 %),
+Malted Wheat Flakes,
+Rapeseed Oil,
+Wheat Bran,
+Cornflour,
+Wheat Gluten,
+Salt,
+White Wine Vinegar,
+Yeast,
+Pasteurised Egg Yolk,
+Malted Barley Flour,
+Emulsifiers (
+  Mono -
+  and Di - Glycerides of Fatty Acids,
+  Mono -
+  and Di - Acetyl Tartaric Acid Esters of Mono -
+  and Di - Glycerides of Fatty Acids
+),
+Spirit Vinegar,
+Malted Wheat Flour,
+Mustard Flour,
+Flour Treatment Agent (Ascorbic Acid),
+Palm Oil.',
+  'For allergens,
+including cereals containing gluten,
+see ingredients in bold.',
+'Keep refrigerated.',
+  'Iran',
+  1.30,
+  'https://digitalcontent.api.tesco.com/v2/media/ghs/ecb0b465-a954-4130-a331-417cbad08823/436282ed-b10f-4fbd-b134-98a70fd7d7af.jpeg?h=540&w=540',
+  1
+);
