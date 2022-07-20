@@ -1,5 +1,10 @@
+// import { Uploader } from "uploader";
+
 const express = require("express");
-const multer = require('multer');
+// const multer = require('multer');
+// const uploader = new Uploader({
+//     apiKey: "free"
+// });
 const app = express();
 
 app.use(express.json())
@@ -9,21 +14,21 @@ const cors = require("cors");
 app.use(cors());
 
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname);
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, './uploads/');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, new Date().toISOString() + file.originalname);
+//     }
+// });
 
-const upload = multer({
-    storage: storage,
-    limits: {
-        fileSize: 1024 * 1024 * 5
-    }
-});
+// const upload = multer({
+//     storage: storage,
+//     limits: {
+//         fileSize: 1024 * 1024 * 5
+//     }
+// });
 
 const { Pool } = require("pg");
 
@@ -255,11 +260,12 @@ app.get("/seller/:id/inventory", (req, res) => {
             res.status(500).json(error)
         })
 })
+// upload.single('image'),
 
-app.post("/sellers/:id/inventory", upload.single('image'), (request, response) => {
-    const image = request.file.path;
+app.post("/sellers/:id/inventory", (request, response) => {
+    // const image = request.file.path;
     const sell_id = Number(request.params.id);
-    const { name, quantity, description, country, price, cat_id } = request.body
+    const { name, quantity, description, country, price, image, cat_id } = request.body
 
     pool.query('INSERT INTO products (name, sell_id, quantity, description, country, price, cat_id, image) VALUES ($1, $2, $3, $4, $5,$6, $7, $8) RETURNING *', [name, sell_id, quantity, description, country, price, cat_id, image], (error, results) => {
         if (error) {

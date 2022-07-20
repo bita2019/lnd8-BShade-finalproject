@@ -34,21 +34,21 @@ function App() {
     <Routes>
       <div className="App">
         <Header />
-        <Switch>
-          <Route path="/" exact element={<HomePage />} />
-          <Route
-            path="productpage"
-            exact
-            element={<ProductPage allProducts={allProducts} />}
-          />
-          <Route path="/addProduct" component={addProduct} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/productpage/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/cart" element={<Checkout />} />
-          <Route path="/contact" element={<Contact />} />
+        {/* <Switch> */}
+        <Route path="/" exact element={<HomePage />} />
+        <Route
+          path="productpage"
+          exact
+          element={<ProductPage allProducts={allProducts} />}
+        />
+        <Route path="/addProduct" component={addProduct} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/productpage/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Checkout />} />
+        <Route path="/contact" element={<Contact />} />
 
-        </Switch>
+        {/* </Switch> */}
       </div>
     </Routes>
   );
