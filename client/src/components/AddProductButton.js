@@ -1,4 +1,4 @@
-import { Button } from "@mui/base";
+import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
@@ -22,7 +22,12 @@ const AddProductButton = ({ addHandler }) => {
         }
       }}
     >
-      {({ onClick }) => <button onClick={onClick}> Upload a file...</button>}
+      {({ onClick }) => (
+        <Button variant="contained" onClick={onClick}>
+          {" "}
+          Upload a file...
+        </Button>
+      )}
     </UploadButton>
   );
 };

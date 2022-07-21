@@ -3,29 +3,35 @@ import { Grid, TextField, Button, Stack, Typography } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 // import SendIcon from "@mui/icons-material/Send";
 import AddProductButton from "./AddProductButton";
+// import { urlencoded } from "express";
 
 const Register = () => {
   const [pName, setPname] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [counttry, setCountry] = useState("");
-  const [picture, setPicture] = useState("");
+  const [country, setCountry] = useState("");
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [pNameError, setPnameError] = useState(false);
   const [quantityError, setQuantityError] = useState(false);
-  const [counttryError, setCountryError] = useState(false);
-  const [pictureError, setPictureError] = useState(false);
+  const [priceError, setPriceError] = useState(false);
+  const [countryError, setCountryError] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [error, setError] = useState();
+  // const [error, setError] = useState(null);
 
   const addHandler = (imgPath) => {
     console.log(imgPath);
-    setPicture(imgPath);
+    setImage(imgPath);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setPname(false);
     setQuantity(false);
-    setPicture(false);
+    setImage(false);
     setCountry(false);
+    setPrice(false);
 
     if (pName === "") {
       setPnameError(true);
@@ -33,12 +39,48 @@ const Register = () => {
     if (quantity === "") {
       setQuantityError(true);
     }
-    if (counttry === "") {
+    if (country === "") {
       setCountryError(true);
     }
-    if (picture === "") {
-      setPictureError(true);
+    if (image === "") {
+      setImageError(true);
     }
+    if (price === "") {
+      setPriceError(true);
+    }
+    const newProduct = {
+      // pName: name,
+
+      quantity,
+      description,
+      country,
+      price,
+      image,
+    };
+    //url should be sellers/:seller_id/add-product //// <Route path="sellers/:sellerId/add-product">
+    fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
+      method: "POST",
+      body: JSON.stringify(newProduct),
+      headers: {
+        "Content-Type ": "application/json",
+      },
+    }).then((res) => {
+      const json = res.json();
+
+      if (!res.ok) {
+        setError(json.error);
+      }
+      if (res.ok) {
+        setPname("");
+        setQuantity("");
+        setPrice("");
+        setCountry("");
+        setDescription("");
+        setImage("");
+        setError(null);
+        console.log("New Product Added!", json);
+      }
+    });
   };
 
   return (
@@ -71,17 +113,26 @@ const Register = () => {
             label="Country"
             margin="dense"
             style={{ marginTop: "50px" }}
-            error={counttryError}
+            error={countryError}
+          />
+          <TextField
+            onChange={(e) => setPrice(e.target.value)}
+            required
+            id="outlined-required"
+            label="Price"
+            margin="dense"
+            style={{ marginTop: "50px" }}
+            error={priceError}
           />
 
           <TextField
-            onChange={(e) => setPicture(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
             required
             id="outlined-required"
             label="Product Picture"
             margin="dense"
             style={{ marginTop: "50px" }}
-            error={pictureError}
+            error={imageError}
           />
           <Stack direction="row" alignItems="center" spacing={2}>
             <AddProductButton addHandler={addHandler} />
@@ -99,14 +150,10 @@ const Register = () => {
           />
           <br />
 
-          <Button
-            variant="contained"
-            size="medium"
-            type="submit"
-            color="success"
-          >
+          <Button variant="contained" size="medium" type="submit">
             Submit
           </Button>
+          {error && <div class="error">{error}</div>}
         </form>
       </div>
 
