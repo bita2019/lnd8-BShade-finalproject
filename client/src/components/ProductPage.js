@@ -70,8 +70,7 @@ function ProductPage({ allProducts}) {
 
               </Link>
               <CardContent>
-                <Link
-                  to={`/productpage/${item.id}`}
+                <Link to={`/productpage/${item.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Typography gutterBottom variant="h6" component="div">
