@@ -1,75 +1,94 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { Box, Grid, Card, CardActions, CardContent, CardMedia, Button, Typography } from "@mui/material"
+import Searchbar from "./Searchbar";
+import {
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
 
-function ProductPage() {
-  useEffect(() => {
-    fetchItems();
-  }, []);
+function ProductPage({ allProducts}) {
+  // eslint-disable-next-line no-unused-vars
+  const [items, setItems] = useState(allProducts);
+ 
 
-  const [items, setItems] = useState([]);
+//function ProductPage({ handlesearch }) {
+ // const [items, setItems] = useState([]);
+ // useEffect(() => {
+  //  fetchItems();
+  //}, []);
 
-  const fetchItems = async () => {
-    const data = await fetch("http://localhost:4444/");
-    const items = await data.json();
-    console.log(items);
-    setItems(items);
+  const [searchInput, setSearchInput] = useState("");
+  function handlesearch(value) {
+    console.log(value);
+    setSearchInput(value);
+  }
+  const filtered = !searchInput
+    ? items
+    : items.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
+          // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
+          item.country.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  const styles = {
+    media: {
+      display: 'block',
+      maxWidth: '20ch',
+      maxHeight: '100%',
+      width: 'auto',
+      height: 'auto',
+      marginLeft: '5rem'
+    }
   };
 
   return (
-    <Box sx={{ flexGrow: 1, margin: 2 }}>
+    <>
+    <Searchbar handlesearch={handlesearch} />
+      <Box sx={{ flexGrow: 1, mt: 5 }}>
       <Grid
         container
-        spacing={{ xs: 3, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
       >
-        {items.map((item, index) => (
+        {filtered.map((item, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card sx={{ maxWidth: 345 }}>
-              <Link to={`/productpage/${item.prod_id}`}>
+            <Card sx={{ maxWidth: 400 }}>
+              <Link to={`/productpage/${item.id}`}>
+
                 <CardMedia
                   component="img"
-                  height="140"
-                  src={item.image}
-                  alt="rice"
+                  image={item.image}
+                  alt={item.name}
+                  style={styles.media}
                 />
+
               </Link>
               <CardContent>
-                <Link to={`/productpage/${item.prod_id}`}>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {item.prod_name.toUpperCase()}
+                <Link to={`/productpage/${item.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Typography gutterBottom variant="h6" component="div">
+                    {item.name}
                   </Typography>
                 </Link>
-                <Typography variant="body2" color="text.secondary">
-                  Rice is the seed of the grass species Oryza sativa or less
-                  commonly Oryza glaberrima. The name wild rice is usually used
-                  for species of the genera Zizania.
-                </Typography>
+                <Typography variant="body2" color="text.secondary"></Typography>
               </CardContent>
-
-              <CardActions>
+              {/* <CardActions>
                 <Button size="small">Add to cart</Button>
                 <Button size="small">Learn More</Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Grid>
         ))}
       </Grid>
-    </Box>
-
-    // <div>
-    //   {items.map((item) => (
-    //     <div key={item.prod_id}>
-    //       <h4>
-    //         <Link to={`/productpage/${item.prod_id}`}> {item.prod_name} </Link>
-    //       </h4>
-    //       <Link to={`/productpage/${item.prod_id}`}>
-    //         <img src={item.image} alt="" />
-    //       </Link>
-    //     </div>
-    //   ))}
-    // </div>
+      </Box>
+      </>
   );
 }
 
