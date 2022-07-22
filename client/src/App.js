@@ -11,7 +11,7 @@ import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
-import AddProduct from "./components/AddProduct";
+
 function App() {
   //This fetches all products
   const [allProducts, setAllProducts] = useState([]);
@@ -44,7 +44,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path="/categories" element={<Categories />} />
       </Routes>
     </div>
