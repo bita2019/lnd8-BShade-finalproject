@@ -5,7 +5,7 @@ import { Grid, TextField, Button, Stack, Typography } from "@mui/material";
 import AddProductButton from "./AddProductButton";
 // import { urlencoded } from "express";
 
-const Register = () => {
+const AddProduct = () => {
   const [pName, setPname] = useState("");
   const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState("");
@@ -49,7 +49,7 @@ const Register = () => {
       setPriceError(true);
     }
     const newProduct = {
-      // pName: name,
+      // name,
 
       quantity,
       description,
@@ -58,29 +58,29 @@ const Register = () => {
       image,
     };
     //url should be sellers/:seller_id/add-product //// <Route path="sellers/:sellerId/add-product">
-    fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
-      method: "POST",
-      body: JSON.stringify(newProduct),
-      headers: {
-        "Content-Type ": "application/json",
-      },
-    }).then((res) => {
-      const json = res.json();
+    // fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
+    //   method: "POST",
+    //   body: JSON.stringify(newProduct),
+    //   headers: {
+    //     "Content-Type ": "application/json",
+    //   },
+    // }).then((res) => {
+    //   const json = res.json();
 
-      if (!res.ok) {
-        setError(json.error);
-      }
-      if (res.ok) {
-        setPname("");
-        setQuantity("");
-        setPrice("");
-        setCountry("");
-        setDescription("");
-        setImage("");
-        setError(null);
-        console.log("New Product Added!", json);
-      }
-    });
+    //   if (!res.ok) {
+    //     setError(json.error);
+    //   }
+    //   if (res.ok) {
+    //     setPname("");
+    //     setQuantity("");
+    //     setPrice("");
+    //     setCountry("");
+    //     setDescription("");
+    //     setImage("");
+    //     setError(null);
+    //     console.log("New Product Added!", json);
+    //   }
+    // });
   };
 
   return (
@@ -169,4 +169,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AddProduct;

@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
@@ -11,7 +11,7 @@ import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
-
+import AddProduct from "./components/AddProduct";
 function App() {
   //This fetches all products
   const [allProducts, setAllProducts] = useState([]);
@@ -25,7 +25,7 @@ function App() {
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);
     const products = await data.json();
-    console.log('products:',products);
+    console.log("products:", products);
     setAllProducts(products);
   };
 
@@ -44,6 +44,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
+
         <Route path="/categories" element={<Categories />} />
       </Routes>
     </div>
