@@ -1,6 +1,6 @@
 // import React , {useEffect,useState} from 'react';
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -17,9 +17,14 @@ const Img = styled("img")({
 });
 
 export default function SellerProfile() {
+  useEffect(() => {
+    console.log("useEffect ran!");
+  }, []);
+
   return (
     <>
       <h3>Seller Profile :</h3>
+      {/* need to fetch data and GET them from seller table (endpoint) and display them on screen... mapping through data  seller-name , seller-product */}
       <Paper
         sx={{
           p: 2,
