@@ -19,25 +19,6 @@ const pool = new Pool({
     }
 })
 
-
-// //Get inventory
-// app.get("/inventory", (req, res) => {
-//     res.send(data)
-// })
-
-// //Get by id
-// app.get("/inventory/:id", (req, res) => {
-//     const id = Number(req.params.id);
-//     const filteredProduct = data.filter((product) => product.id === id)
-//     res.send(filteredProduct);
-// });
-// //Get products by seller id
-// app.get("/seller/:id/inventory", (req, res) => {
-//     const id = Number(req.params.id);
-//     const sellerProducts = data.filter((product) => product.sell_id === id);
-//     res.send(sellerProducts)
-// })
-
 //GET ALL INVENTORY
 app.get("/inventory", (req, res) => {
     pool.query('SELECT * FROM products')
@@ -80,6 +61,7 @@ app.get("/sellers", (req, res) => {
     INNER JOIN products  ON products.sell_id = seller.id  
     INNER JOIN categories ON products.cat_id = categories.id`)
         .then((result) => {
+            console.log(result)
             for (let i = 0; i < result.rows.length; i++) {
                 let oneSeller = {};
                 if (!(sellers.some(sl => sl.seller_id === result.rows[i].sell_id))) {
@@ -119,18 +101,18 @@ app.get("/sellers", (req, res) => {
             res.status(500).json(error)
         })
 })
-//PUT UPDATE THE QUANTITY IN THE DATABASE AFTER PURCHASE 
-// app.put("/purchase",(req,res)=>{
-//     const purchases = req.body;
-//     purchases.forEach(purchase => {
-//         pool.query("UPATE products SET  WHERE sell_id = $1", [id])
-//             .then((result) => res.json(result.rows))
-//             .catch((error) => {
-//                 console.error(error)
-//                 res.status(500).json(error)
-//             })
-//     });
+//PUT, UPDATE THE QUANTITY IN THE DATABASE AFTER PURCHASE 
+app.put("/purchase",(req,res)=>{
+    const purchases = req.body;
+    purchases.forEach(purchase => {
+        pool.query(`UPDATE products SET quantity = quantity - ${purchase.quantity} WHERE products.id = ${purchase.id}`)
+            .then((result) => res.json(result.rows))
+            .catch((error) => {
+                console.error(error)
+                res.status(500).json(error)
+            })  
+    });
    
-// })
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
