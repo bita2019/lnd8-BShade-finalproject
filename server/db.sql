@@ -1,13 +1,8 @@
 drop table if exists users;
-
 drop table if exists products;
-
 drop table if exists seller;
-
 drop table if exists categories;
-
 CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(50));
-
 CREATE TABLE seller(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
@@ -19,7 +14,6 @@ CREATE TABLE seller(
   registration_date timestamp default CURRENT_TIMESTAMP,
   email VARCHAR(50) NOT NULL
 );
-
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -32,20 +26,16 @@ CREATE TABLE products (
   country VARCHAR(50),
   price DECIMAL NOT NULL,
   cat_id INT REFERENCES categories(id),
-  image VARCHAR(500) NOT NULL
+  image TEXT NOT NULL
 );
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   location VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL
 );
-
-INSERT INTO
-  categories(name)
-VALUES
-  ('Grocery'),
+INSERT INTO categories(name)
+VALUES ('Grocery'),
   ('Butchery'),
   ('Bakery'),
   ('Homecooked'),
@@ -55,9 +45,7 @@ VALUES
   ('24 - Hour Service'),
   ('Halal'),
   ('Wines and Spirits');
-
-INSERT INTO
-  seller (
+INSERT INTO seller (
     name,
     first_line_address,
     second_line_address,
@@ -66,8 +54,7 @@ INSERT INTO
     description,
     email
   )
-VALUES
-  (
+VALUES (
     'Best Shop',
     '12 Woodridings Close',
     'Hatch End',
@@ -112,9 +99,7 @@ VALUES
     'history/desc',
     'fresh.store@gmail.ac.uk'
   );
-
-INSERT INTO
-  products (
+INSERT INTO products (
     name,
     sell_id,
     quantity,
@@ -127,8 +112,7 @@ INSERT INTO
     image,
     cat_id
   )
-VALUES
-  (
+VALUES (
     'Mister Freed Tortilla Chips Avocado & Guacamole 135G',
     1,
     10,

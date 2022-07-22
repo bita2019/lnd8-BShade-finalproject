@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
 import Register from "./components/Register";
@@ -11,7 +11,7 @@ import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
-
+// import addProduct from "./components/addProduct";
 function App() {
   //This fetches all products
   const [allProducts, setAllProducts] = useState([]);
@@ -25,28 +25,30 @@ function App() {
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);
     const products = await data.json();
-    console.log('products:',products);
+    console.log('products:', products);
     setAllProducts(products);
   };
 
   return (
-    <div className="App">
-      <Header />
-      <Routes>
+    <Routes>
+      <div className="App">
+        <Header />
+        {/* <Switch> */}
         <Route path="/" exact element={<HomePage />} />
         <Route
           path="productpage"
           exact
           element={<ProductPage allProducts={allProducts} />}
         />
-        <Route path="register" element={<Register />} />
+        {/* <Route path="/addProduct" component={addProduct} /> */}
+        <Route path="/register" element={<Register />} />
         <Route path="/productpage/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
-      </Routes>
-    </div>
+      </div>
+    </Routes>
   );
 }
 export default App;

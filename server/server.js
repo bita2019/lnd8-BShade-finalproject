@@ -1,10 +1,34 @@
+// import { Uploader } from "uploader";
+
 const express = require("express");
+// const multer = require('multer');
+// const uploader = new Uploader({
+//     apiKey: "free"
+// });
 const app = express();
+
 app.use(express.json())
-require('dotenv').config()
+require('dotenv').config();
 
 const cors = require("cors");
 app.use(cors());
+
+
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, './uploads/');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, new Date().toISOString() + file.originalname);
+//     }
+// });
+
+// const upload = multer({
+//     storage: storage,
+//     limits: {
+//         fileSize: 1024 * 1024 * 5
+//     }
+// });
 
 const { Pool } = require("pg");
 
@@ -17,7 +41,15 @@ const pool = new Pool({
     ssl: {
         rejectUnauthorized: false
     }
-})
+});
+
+// const pool = new Pool({
+//     user: 'codeyourfuture',
+//     host: 'localhost',
+//     database: 'hujreh_database',
+//     password: 'codeyourfuture',
+//     port: 5432,
+// })
 
 //GET ALL INVENTORY
 app.get("/inventory", (req, res) => {
@@ -50,6 +82,20 @@ app.get("/seller/:id/inventory", (req, res) => {
             res.status(500).json(error)
         })
 })
+// upload.single('image'),
+
+app.post("/sellers/:id/inventory", (request, response) => {
+    // const image = request.file.path;
+    const sell_id = Number(request.params.id);
+    const { name, quantity, description, country, price, image, cat_id } = request.body
+
+    pool.query('INSERT INTO products (name, sell_id, quantity, description, country, price, cat_id, image) VALUES ($1, $2, $3, $4, $5,$6, $7, $8) RETURNING *', [name, sell_id, quantity, description, country, price, cat_id, image], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send(`product added with ID: ${results.rows[0].id}`)
+    })
+});
 
 //GET ALL SELLERS AND ALL PRODUCTS FOR SELLER 
 app.get("/sellers", (req, res) => {
