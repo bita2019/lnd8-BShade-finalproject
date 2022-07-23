@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Searchbar from "./Searchbar";
 
 import Card from "@mui/material/Card";
@@ -60,29 +61,30 @@ function ProductPage({ allProducts }) {
                     style={styles.media}
                   />
                 </Link>
+                <CardContent>
+                  <Link
+                    to={`/productpage/${item.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Typography gutterBottom variant="h6" component="div">
+                      {item.name}
+                    </Typography>
+                  </Link>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                  ></Typography>
+                </CardContent>
+                {/* <CardActions>
+                <Button size="small">Add to cart</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions> */}
               </Card>
-              <CardContent>
-                <Link
-                  to={`/productpage/${item.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Typography gutterBottom variant="h6" component="div">
-                    {item.name}
-                  </Typography>
-                </Link>
-              </CardContent>
-              <CardContent>
-                <Link
-                  to={`/productpage/${item.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Typography gutterBottom variant="h6" component="div">
-                    {item.name}
-                  </Typography>
-                </Link>
-                <Typography variant="body2" color="text.secondary"></Typography>
-              </CardContent>
             </Grid>
+            // <AddCircleOutlineIcon />
+            //     <Link to={`/addProduct`}>
+            //   <AddCircleOutlineIcon />
+            // </Link>
           ))}
         </Grid>
       </Box>

@@ -24,9 +24,9 @@ import { useDispatchCart } from "../CartContext";
 // import { Link } from "react-router-dom";
 
 // eslint-disable-next-line no-unused-vars
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
+// interface ExpandMoreProps extends IconButtonProps {
+//   expand: boolean;
+// }
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
