@@ -25,7 +25,9 @@ const Header = () => {
                   title="Business Solutions"
                   id="collasible-nav-dropdown"
                 >
-                  <NavDropdown.Item href="grocery/3.1">Grocery</NavDropdown.Item>
+                  <NavDropdown.Item href="grocery/3.1">
+                    Grocery
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="bakery/3.2">Bakery</NavDropdown.Item>
                   <NavDropdown.Item href="homecooked/3.3">
                     Home Cooked
@@ -62,9 +64,7 @@ const Header = () => {
               <Link to="cart" style={{ textDecoration: "none" }}>
                 <div className="cart">
                   <ShoppingBagOutlinedIcon />
-                  <span>
-                    {items.length}
-                  </span>
+                  <span>{items.length}</span>
                 </div>
               </Link>
             </Nav>
@@ -80,4 +80,3 @@ const Header = () => {
 };
 
 export default Header;
-
