@@ -45,6 +45,7 @@ function App() {
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/sellers/:sellerId/add-product"></Route>
       </Routes>
     </div>
   );

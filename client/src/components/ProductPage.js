@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
-import {
-  Box,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+
+import Card from "@mui/material/Card";
+import { Box, Grid, CardContent, CardMedia, Typography } from "@mui/material";
 
 function ProductPage({ allProducts }) {
   // eslint-disable-next-line no-unused-vars
@@ -49,53 +44,46 @@ function ProductPage({ allProducts }) {
     <>
       <Searchbar handlesearch={handlesearch} />
       <Box sx={{ flexGrow: 1, mt: 5 }}>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 1, sm: 8, md: 12 }}
-      >
-        {filtered.map((item, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card sx={{ maxWidth: 400 }}>
-              <Link to={`/productpage/${item.id}`}>
-
-                <CardMedia
-                  component="img"
-                  image={item.image}
-                  alt={item.name}
-                  style={styles.media}
-                />
-
-              </Link>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 1, sm: 8, md: 12 }}
+        >
+          {filtered.map((item, index) => (
+            <Grid item xs={2} sm={4} md={4} key={index}>
+              <Card sx={{ maxWidth: 400 }}>
+                <Link to={`/productpage/${item.id}`}>
+                  <CardMedia
+                    component="img"
+                    image={item.image}
+                    alt={item.name}
+                    style={styles.media}
+                  />
+                </Link>
+              </Card>
               <CardContent>
-                <Link to={`/productpage/${item.id}`}
+                <Link
+                  to={`/productpage/${item.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Typography gutterBottom variant="h6" component="div">
                     {item.name}
                   </Typography>
                 </Link>
-                <CardContent>
-                  <Link
-                    to={`/productpage/${item.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Typography gutterBottom variant="h6" component="div">
-                      {item.name}
-                    </Typography>
-                  </Link>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  ></Typography>
-                </CardContent>
-                {/* <CardActions>
-                <Button size="small">Add to cart</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions> */}
-              </Card>
+              </CardContent>
+              <CardContent>
+                <Link
+                  to={`/productpage/${item.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Typography gutterBottom variant="h6" component="div">
+                    {item.name}
+                  </Typography>
+                </Link>
+                <Typography variant="body2" color="text.secondary"></Typography>
+              </CardContent>
             </Grid>
-          )}
+          ))}
         </Grid>
       </Box>
     </>

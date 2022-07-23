@@ -3,9 +3,13 @@ import { Grid, TextField, Button, Stack, Typography } from "@mui/material";
 // import DeleteIcon from "@mui/icons-material/Delete";
 // import SendIcon from "@mui/icons-material/Send";
 import AddProductButton from "./AddProductButton";
+
 // import { urlencoded } from "express";
+import { useParams } from "react-router-dom";
 
 const Register = () => {
+  const { sellerId } = useParams();
+
   const [pName, setPname] = useState("");
   const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState("");
@@ -48,7 +52,7 @@ const Register = () => {
       setPriceError(true);
     }
     const newProduct = {
-      // name,
+      name,
 
       quantity,
       description,
@@ -57,29 +61,31 @@ const Register = () => {
       image,
     };
     //url should be sellers/:seller_id/add-product //// <Route path="sellers/:sellerId/add-product">
-    // fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
-    //   method: "POST",
-    //   body: JSON.stringify(newProduct),
-    //   headers: {
-    //     "Content-Type ": "application/json",
-    //   },
-    // }).then((res) => {
-    //   const json = res.json();
+    // const Register = () => {
 
-    //   if (!res.ok) {
-    //     setError(json.error);
-    //   }
-    //   if (res.ok) {
-    //     setPname("");
-    //     setQuantity("");
-    //     setPrice("");
-    //     setCountry("");
-    //     setDescription("");
-    //     setImage("");
-    //     setError(null);
-    //     console.log("New Product Added!", json);
-    //   }
-    // });
+    fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
+      method: "POST",
+      body: JSON.stringify(newProduct),
+      headers: {
+        "Content-Type ": "application/json",
+      },
+    }).then((res) => {
+      const json = res.json();
+
+      if (!res.ok) {
+        setError(json.error);
+      }
+      if (res.ok) {
+        setPname("");
+        setQuantity("");
+        setPrice("");
+        setCountry("");
+        setDescription("");
+        setImage("");
+        setError(null);
+        console.log("New Product Added!", json);
+      }
+    });
   };
 
   return (
