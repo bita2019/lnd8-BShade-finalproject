@@ -98,6 +98,51 @@ VALUES (
     'https://lh5.googleusercontent.com/p/AF1QipMFgQMQRDz-5BKfyKh78RX3Dn4UB669MfrRvXBm=w408-h306-k-no',
     'history/desc',
     'fresh.store@gmail.ac.uk'
+  ),
+  (
+    'Tehran Supermarket',
+    '30 Vivian Ave',
+    'London',
+    'NW4 3XP',
+    'https://www.expatica.com/app/uploads/sites/10/2020/04/supermarkets-in-the-uk.jpg',
+    'history/desc',
+    'tehran.store@gmail.ac.uk'
+  ),
+  (
+    'Comptoir Libanais',
+    '65 Wigmore Street Marylebone',
+    'London',
+    'NW4 3XP',
+    'https://s3-media0.fl.yelpcdn.com/bphoto/BRX9j__aWkPxUHLEg-damg/o.jpg',
+    'history/desc',
+    'comptoir.libanais.store@gmail.ac.uk'
+  ),
+  (
+    'Afghan Bazaar',
+    '65 Burnt Oak',
+    'Edgware',
+    'HA8 0BB',
+    'https://www.supermarketnews.com/sites/supermarketnews.com/files/styles/article_featured_retina/public/Kroger_produce_department-coronavirus_measures.jpg?itok=tWbSdrmN',
+    'history/desc',
+    'afgan.bazaar.libanais.store@gmail.ac.uk'
+  ),
+  (
+    'Joshuas',
+    '10 Oak',
+    'Stanmore',
+    'HS8 7DL',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlp2LvCJntL5GNh0xmzajm6wHMyqjz4ivspg&usqp=CAU',
+    'history/desc',
+    'joshuas.store@gmail.ac.uk'
+  ),
+  (
+    'Umrah',
+    '31 Westbook Drive',
+    'Orpington',
+    'FA2 9UG',
+    'https://i2-prod.leicestermercury.co.uk/incoming/article6444351.ece/ALTERNATES/s1200c/0_umrah.jpg',
+    'history/desc',
+    'umrah.store@gmail.ac.uk'
   );
 INSERT INTO products (
     name,
