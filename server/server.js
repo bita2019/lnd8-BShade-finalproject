@@ -64,6 +64,7 @@ app.get("/inventory", (req, res) => {
 //GET INVENTORY BY ID
 app.get("/inventory/:id", (req, res) => {
     const id = req.params.id
+
     pool.query("SELECT * FROM products WHERE id = $1", [id])
         .then((result) => res.json(result.rows))
         .catch((error) => {
@@ -148,7 +149,7 @@ app.get("/sellers", (req, res) => {
         })
 })
 //PUT, UPDATE THE QUANTITY IN THE DATABASE AFTER PURCHASE 
-app.put("/purchase",(req,res)=>{
+app.put("/purchase", (req, res) => {
     const purchases = req.body;
     purchases.forEach(purchase => {
         pool.query(`UPDATE products SET quantity = quantity - ${purchase.quantity} WHERE products.id = ${purchase.id}`)
@@ -156,9 +157,9 @@ app.put("/purchase",(req,res)=>{
             .catch((error) => {
                 console.error(error)
                 res.status(500).json(error)
-            })  
+            })
     });
-   
+
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
