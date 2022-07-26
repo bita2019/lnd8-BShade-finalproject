@@ -8,8 +8,6 @@ import AddProductButton from "./AddProductButton";
 import { useParams } from "react-router-dom";
 
 const Register = () => {
-  const { sellerId } = useParams();
-
   const [pName, setPname] = useState("");
   const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState("");
@@ -27,7 +25,7 @@ const Register = () => {
     console.log(imgPath);
     setImage(imgPath);
   };
-
+  let { seller } = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
     setPname(false);
@@ -51,9 +49,8 @@ const Register = () => {
     if (price === "") {
       setPriceError(true);
     }
-    const newProduct = {
-      name,
-
+    const newproduct = {
+      name: pName,
       quantity,
       description,
       country,
@@ -62,14 +59,16 @@ const Register = () => {
     };
     //url should be sellers/:seller_id/add-product //// <Route path="sellers/:sellerId/add-product">
     // const Register = () => {
-
-    fetch(`http://localhost:4444/seller/${sellerId}/inventory`, {
+    // axios.post('http://localhost:4444/seller/${sellerId}/inventory')
+    console.log(newproduct);
+    fetch(`http://localhost:4444/sellers/${seller}/inventory`, {
       method: "POST",
-      body: JSON.stringify(newProduct),
       headers: {
-        "Content-Type ": "application/json",
+        "Content - Type ": "application/json",
       },
+      body: JSON.stringify(newproduct),
     }).then((res) => {
+      console.log("item added");
       const json = res.json();
 
       if (!res.ok) {
@@ -103,7 +102,7 @@ const Register = () => {
             error={pNameError}
           />
           <TextField
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) => setQuantity(Number(e.target.value))}
             required
             id="outlined-required"
             label="Quantity"
@@ -139,6 +138,7 @@ const Register = () => {
             style={{ margin: "20px" }}
             error={imageError}
           />
+
           <Stack direction="row" alignItems="center" spacing={2}>
             <AddProductButton addHandler={addHandler} />
           </Stack>

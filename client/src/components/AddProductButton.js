@@ -16,7 +16,7 @@ const AddProductButton = ({ addHandler }) => {
           console.log("No files selected.");
         } else {
           console.log("Files uploaded:");
-          const imgPath = files.map((f) => f.fileUrl);
+          const imgPath = files.map((f) => f.fileUrl)[0];
           addHandler(imgPath);
           console.log(imgPath);
         }

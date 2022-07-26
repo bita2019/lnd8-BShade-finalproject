@@ -50,6 +50,7 @@ function ProductPage({ allProducts }) {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 1, sm: 8, md: 12 }}
         >
+          {console.log(filtered.length)}‍
           {filtered.map((item, index) => (
             <Grid item xs={2} sm={4} md={4} key={index}>
               <Card sx={{ maxWidth: 400 }}>
