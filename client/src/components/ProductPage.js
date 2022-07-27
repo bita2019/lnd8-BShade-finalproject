@@ -6,7 +6,6 @@ import {
   Box,
   Grid,
   Card,
-  CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
@@ -64,7 +63,6 @@ function ProductPage({ allProducts }) {
 
                 </Link>
                 <Typography variant="body2" color="text.secondary"></Typography>
-              </CardContent>
             </Card>
           </Grid>
         ))}
