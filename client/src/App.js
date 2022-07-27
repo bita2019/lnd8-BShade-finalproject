@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
 import Register from "./components/Register";
@@ -36,9 +36,10 @@ function App() {
 
  
   return (
-    <Routes>
-      <div className="App">
-        <Header />
+
+    <div className="App">
+      <Header />
+      <Routes>
         {/* <Switch> */}
         <Route path="/" exact element={<HomePage />} />
         <Route
