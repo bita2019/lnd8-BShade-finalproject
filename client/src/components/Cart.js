@@ -62,7 +62,11 @@ const Cart = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button size="small" startIcon={<DeleteIcon />} onClick={() => handleRemove(index)}>
+                  <Button
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={() => handleRemove(index)}
+                  >
                     Delete
                   </Button>
                 </Grid>
@@ -84,14 +88,11 @@ const Cart = () => {
             currency: "GBP",
           })}
         </Typography>
-        <Button
-          component={Link}
-          style={{ textDecoration: "none", color: "white" }}
-          to="checkout"
-          variant="contained"
-        >
-          Buy now
-        </Button>
+        <Link to='checkout' style={{ textDecoration: "none", color: "white" }}>
+          <Button variant="contained">
+            Buy now
+          </Button>
+        </Link>
       </Stack>
     </>
   );

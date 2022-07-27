@@ -16,12 +16,6 @@ function ProductPage({ allProducts}) {
   const [items, setItems] = useState(allProducts);
  
 
-//function ProductPage({ handlesearch }) {
- // const [items, setItems] = useState([]);
- // useEffect(() => {
-  //  fetchItems();
-  //}, []);
-
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
     console.log(value);
@@ -33,7 +27,6 @@ function ProductPage({ allProducts}) {
         (item) =>
           item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-          // item.information.toLowerCase().includes(searchInput.toLowerCase()) ||
           item.country.toLowerCase().includes(searchInput.toLowerCase())
     );
   const styles = {
@@ -58,7 +51,7 @@ function ProductPage({ allProducts}) {
       >
         {filtered.map((item, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card sx={{ maxWidth: 400 }}>
+            <Card sx={{ maxWidth: 345 }}>
               <Link to={`/productpage/${item.id}`}>
 
                 <CardMedia
@@ -79,10 +72,6 @@ function ProductPage({ allProducts}) {
                 </Link>
                 <Typography variant="body2" color="text.secondary"></Typography>
               </CardContent>
-              {/* <CardActions>
-                <Button size="small">Add to cart</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions> */}
             </Card>
           </Grid>
         ))}
