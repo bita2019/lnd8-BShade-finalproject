@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
@@ -15,6 +15,7 @@ import Categories from "./components/Categories";
 function App() {
   //This fetches all products
   const [allProducts, setAllProducts] = useState([]);
+  //BrowserRouter as
 
   useEffect(() => {
     fetchItems();
@@ -25,7 +26,7 @@ function App() {
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);
     const products = await data.json();
-    console.log('products:',products);
+    console.log('products:', products);
     setAllProducts(products);
   };
 
