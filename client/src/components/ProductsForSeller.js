@@ -40,9 +40,19 @@ const ProductsForSeller = () => {
       <Box sx={{ flexGrow: 1 }}>
         {sellerItems && (
           <div>
-            <img src={sellerItems.Seller.logo} alt={sellerItems.Seller.name} className="img-cover" />
-            <h3 className="shop-info" >{sellerItems.Seller.name}</h3>{" "}
+            <div className="seller-logo">
+              <img
+                src={sellerItems.Seller.logo}
+                alt={sellerItems.Seller.name}
+                className="img-cover"
+                width="100%"
+              />
+            </div>
+            <h3 className="shop-info">{sellerItems.Seller.name}</h3>{" "}
             <p className="shop-info">{sellerItems.Seller.first_line_address}</p>
+            <p className="shop-info">
+              {sellerItems.Seller.second_line_address}
+            </p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
           </div>
         )}
