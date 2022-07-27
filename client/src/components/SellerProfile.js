@@ -18,9 +18,19 @@ const Img = styled("img")({
 
 export default function SellerProfile() {
   useEffect(() => {
+    fetchItem(id);
     console.log("useEffect ran!");
-  }, []);
+  }, [id]);
 
+  const [item, setItem] = useState([]);
+
+  const fetchItem = async (id) => {
+    const data = await fetch(`http://localhost:4444/sellers/${id}/inventory`);
+    console.log(data);
+    const item = await data.json();
+    console.log(item);
+    setItem(item);
+  };
   return (
     <>
       <h3>Seller Profile :</h3>
