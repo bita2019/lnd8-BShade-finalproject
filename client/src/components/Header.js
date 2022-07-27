@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 
 
 const Header = () => {
-  const  items  = useCart();
+  const items = useCart();
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="white" variant="dark">
@@ -61,6 +61,11 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <div className="hero-wrapper">
+        <div className="left-hero">ramla</div>
+        <div className="right-hero">ramla2</div>
+      </div>
+
   );
 };
 
