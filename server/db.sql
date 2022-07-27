@@ -1,8 +1,13 @@
 drop table if exists users;
+
 drop table if exists products;
+
 drop table if exists seller;
+
 drop table if exists categories;
+
 CREATE TABLE categories(id SERIAL PRIMARY KEY, name VARCHAR(50));
+
 CREATE TABLE seller(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
@@ -14,6 +19,7 @@ CREATE TABLE seller(
   registration_date timestamp default CURRENT_TIMESTAMP,
   email VARCHAR(50) NOT NULL
 );
+
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -28,14 +34,18 @@ CREATE TABLE products (
   cat_id INT REFERENCES categories(id),
   image TEXT NOT NULL
 );
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   location VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL
 );
-INSERT INTO categories(name)
-VALUES ('Grocery'),
+
+INSERT INTO
+  categories(name)
+VALUES
+  ('Grocery'),
   ('Butchery'),
   ('Bakery'),
   ('Homecooked'),
@@ -45,7 +55,9 @@ VALUES ('Grocery'),
   ('24 - Hour Service'),
   ('Halal'),
   ('Wines and Spirits');
-INSERT INTO seller (
+
+INSERT INTO
+  seller (
     name,
     first_line_address,
     second_line_address,
@@ -54,7 +66,8 @@ INSERT INTO seller (
     description,
     email
   )
-VALUES (
+VALUES
+  (
     'Best Shop',
     '12 Woodridings Close',
     'Hatch End',
@@ -143,8 +156,46 @@ VALUES (
     'https://i2-prod.leicestermercury.co.uk/incoming/article6444351.ece/ALTERNATES/s1200c/0_umrah.jpg',
     'history/desc',
     'umrah.store@gmail.ac.uk'
+  ),
+  (
+    'Izgara Restaurant',
+    '23 Uxbridge Road',
+    'Hatch End',
+    'HA6 8JL',
+    'https://static.designmynight.com/uploads/2019/09/AK_LONDX_Provisioners_Studio-optimised.jpg',
+    'history/desc',
+    'izgara.store@gmail.ac.uk'
+  ),
+  (
+    'Latakia Restaurant',
+    '23 Wipelton ',
+    'Kent',
+    'YHG7 9KJ',
+    'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80',
+    'history/desc',
+    'latakia.store@gmail.ac.uk'
+  ),
+  (
+    'The Florist',
+    '1 Shepherdess Walk',
+    'Barbican',
+    'NO1 7QE',
+    'https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2019/05/18094908/Circolo-Popolare-1.jpg',
+    'history/desc',
+    'theflorist.store@gmail.ac.uk'
+  ),
+  (
+    'Barracuda',
+    '43 Nile St',
+    'Stratford',
+    'N1 7LB',
+    'https://i.guim.co.uk/img/media/cb7ecc99b0a2e64b18468d655f3226b0cd71be6a/0_283_5843_3505/master/5843.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=7c9fc03d5c4f552fb624dad22adf1298',
+    'history/desc',
+    'theflorist.store@gmail.ac.uk'
   );
-INSERT INTO products (
+
+INSERT INTO
+  products (
     name,
     sell_id,
     quantity,
@@ -157,7 +208,8 @@ INSERT INTO products (
     image,
     cat_id
   )
-VALUES (
+VALUES
+  (
     'Mister Freed Tortilla Chips Avocado & Guacamole 135G',
     1,
     10,
@@ -976,5 +1028,204 @@ or by Use by date shown.',
     'Lebanon',
     1.56,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/b948082a-d429-487b-be25-3aa2c52b5abb/bd685b25-92d7-4ad5-981c-d24ca035bf9c.jpeg?h=540&w=540',
+    9
+  ),
+  (
+    'TahDig',
+    2,
+    15,
+    'TahDig literally means the bottom of the pot
+and is a side dish to mains,
+though for some,
+it is a separate meal.If you have tried it,
+you`ll understand why ! TahDig is a crispy layer of rice,
+bread
+or potatoes.',
+    '',
+    '',
+    '',
+    'Iran',
+    8.56,
+    'https://www.chefspencil.com/wp-content/uploads/179e9a55-af19-4f9a-9cbc-0dd4c5bd817e-2019-1112_samin-persian-rice-tahdig_3x2_rocky-luten_017_1--1536x1024.webp',
+    9
+  ),
+  (
+    'Khoresht - e Ghormeh Sabzi',
+    2,
+    7,
+    'Stews are one of the most common Persian foods.The most famous stew is Khoresht - e Ghormeh Sabzi,
+which is popularly served on official occasions
+and for family meals.It is rich in five kinds of herbs
+and red kidney beans,
+which gives it an unforgettable taste.',
+    '',
+    '',
+    '',
+    'Iran',
+    8.99,
+    'https://www.chefspencil.com/wp-content/uploads/Khoresht-e-Ghormeh-Sabzi.png.webp',
+    9
+  ),
+  (
+    'Chelo Kabab Koobideh',
+    2,
+    9,
+    'Kebabs
+or barbeque is one of the most famous
+and popular foods for Persians,
+with a large variety of meat
+and cooking methods.The most popular is koobideh,
+which is ground meat seasoned with onion,
+salt,
+pepper,
+and then some secret spices.',
+    '',
+    '',
+    '',
+    'Iran',
+    6.99,
+    'https://www.chefspencil.com/wp-content/uploads/Chelo-Kabab-Koobideh.png.webp',
+    9
+  ),
+  (
+    'Dollma',
+    2,
+    9,
+    'This vegetable stuffed meat recipe will make you addicted.Dolma Mahshi is the most famous version of Iraq,
+where
+  the meat is stuffed in onions.It is a good choice for the main course
+  or appetizer.',
+    '',
+    '',
+    '',
+    'Iraq',
+    7.99,
+    'https://www.lacademie.com/wp-content/uploads/2022/02/meat-and-vegetable-stuff.webp',
+    9
+  ),
+  (
+    'Tabbouleh',
+    2,
+    9,
+    'The main ingredients creating the fantastic taste are tomatoes,
+red onions,
+mint,
+lemon juice,
+and bulgur wheat.In some cases,
+cucumber
+and lettuce can change the flavor.All elements are mixed to create a whole fascinating flavor.',
+    '',
+    '',
+    '',
+    'Iraq',
+    5.99,
+    'https://www.lacademie.com/wp-content/uploads/2022/02/iraqi-salad.webp',
+    9
+  ),
+  (
+    'Ezogelin corba',
+    2,
+    9,
+    'According to legend,
+this dish was dreamed up by an unhappily married woman named Ezo who was trying to win over her mother - in - law via her stomach.She concocted a zesty soup consisting of red lentils,
+domato salca (
+  tomato paste -- sweet or hot), grated fresh tomatoes and onions, served with dried mint and pul biber (chili flakes) sprinkled on top.',
+    '',
+    '',
+    '',
+    'Turkey',
+    5.99,
+    'https://www.unicornsinthekitchen.com/wp-content/uploads/2019/09/Turkish-Red-Lentil-Soup-Recipe-SQ.jpg',
+    9
+  ),
+  (
+    'Lahmacun',
+    2,
+    9,
+    'Flat
+and crispy,
+Lahmacun is like a pizza served with a topping of minced meat,
+salad
+and lemon juice on bread
+and can be wrapped,
+folded in half,
+or pulled apart to eat.The Turkish counterpart of pizza is full of flavors.The minced lamb
+and Mediterranean spices doing a party in your mouth.It is a famous street food in Turkey that you will find all over the country.So,
+you ought to try this on your next trip to Turkey.',
+    '',
+    '',
+    '',
+    'Turkey',
+    7.99,
+    'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/08/Lahmacun-400x265.jpg',
+    9
+  ),
+  (
+    'Aushak',
+    2,
+    9,
+    'Aushak is one of the most popular Afghani dishes
+and is generally eaten during the month of Ramadan
+or other Islamic festivals.Pasta dumplings are stuffed with chives,
+tomato purée,
+kofta pashaan (minced meat sauce),
+and then topped with a special yogurt sauce
+and dried mint leaves.',
+    '',
+    '',
+    '',
+    'Afganistan',
+    5.99,
+    'https://www.chefspencil.com/wp-content/uploads/2061291681_a6e2d3c85c_c.jpg.webp',
+    9
+  ),
+  (
+    'Kabuli Pulao',
+    2,
+    9,
+    'Kabuli pulao is quite easy to make as it only consists of a handful of ingredients.It is known as the national dish of Afghanistan because of its popularity.It is a slow - cooked pulao that includes lamb
+and mutton along with meat stock called yakhni.',
+    '',
+    '',
+    '',
+    'Afganistan',
+    8.99,
+    'https://www.chefspencil.com/wp-content/uploads/Kabuli-Pulao-960x640.png.webp',
+    9
+  ),
+  (
+    'Tabbouleh-Parsley Bulgur Salad',
+    2,
+    9,
+    'Tabbouleh is a unique Lebanese salad,
+made of fresh parsley
+and mint,
+a handful of bulgur,
+finely chopped tomatoes,
+and onions,
+with a drizzle lemon juice
+and olive oil.',
+    '',
+    '',
+    '',
+    'Lebanon',
+    3.99,
+    'https://nomadparadise.com/wp-content/uploads/2020/08/lebanese-food-1-1024x683.jpg.webp',
+    9
+  ),
+  (
+    'Lahm Bi Ajin
+or Sfiha',
+    2,
+    9,
+    'Lahm Bi Ajin is very similar to Man ’ ouche,
+in that it utilizes a hearty,
+crunchy dough - base.',
+    '',
+    '',
+    '',
+    'Lebanon',
+    3.99,
+    'https://nomadparadise.com/wp-content/uploads/2020/08/lebanese-food-7-1024x683.jpg.webp',
     9
   );
