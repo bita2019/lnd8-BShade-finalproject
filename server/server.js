@@ -29,7 +29,8 @@ app.get("/inventory", (req, res) => {
             res.status(500).json(error);
         })
 })
-//GET INVENTORY BY ID
+
+// //GET INVENTORY BY ID
 app.get("/inventory/:id", (req, res) => {
     const id = Number(req.params.id)
     pool.query("SELECT * FROM products WHERE id = $1", [id])
@@ -39,15 +40,27 @@ app.get("/inventory/:id", (req, res) => {
             res.status(500).json(error);
         })
 })
-//GET INVENTORY BY SELLER ID 
-app.get("/seller/:id/inventory", (req, res) => {
+
+// //GET INVENTORY BY SELLER ID 
+app.get("/seller/:id/inventory", async (req, res) => {
     const id = Number(req.params.id)
-    pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
-        .then((result) => res.json(result.rows))
-        .catch((error) => {
-            console.error(error)
-            res.status(500).json(error)
-        })
+    if (isNaN(id)) {
+        return res.sendStatus(404)
+    } else {
+        try {
+            const result = await pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
+            const nameResult = await pool.query("SELECT logo, name, first_line_address, second_line_address, postcode FROM seller WHERE id = $1", [id])
+            res.json({
+                Products: result.rows,
+                Seller: nameResult.rows[0]
+            })
+    
+        }  catch (error){
+           console.error(error)
+           res.status(500).json(error)
+            }
+    }
+
 })
 app.post("/sellers/:id/inventory", (request, response) => {
     // const image = request.file.path;
@@ -61,6 +74,7 @@ app.post("/sellers/:id/inventory", (request, response) => {
         response.status(201).send(`Product added with ID: ${results.rows[0].id}`)
     })
 });
+
 //GET ALL SELLERS AND ALL PRODUCTS FOR SELLER 
 app.get("/sellers", (req, res) => {
     const sellers = [];
@@ -124,5 +138,7 @@ app.put("/purchase", (req, res) => {
     });
 
 })
+
+app.route("/seller/:id/inventory");
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
