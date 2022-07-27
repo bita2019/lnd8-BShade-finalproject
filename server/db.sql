@@ -242,7 +242,7 @@ and Aroma with Avocado Flavor (6 %) (
   ),
   (
     'Ben`s Original Mexican Style Microwave Rice 250G',
-    2,
+    1,
     12,
     'Steamed parboiled long grain rice with jalapeno peppers and red peppers with Mexican style spices.
 Visit BensOriginal.co.uk or BensOriginal.ie to find out more.',
@@ -331,14 +331,14 @@ Celery
 and Mustard',
     'Store in a cool,
 dry place',
-    'Iran',
+    'Iraq',
     0.69,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/b80d1689-5580-4047-83de-4e6863b7bfa0/8ec547f0-fdab-402b-87aa-1f4e91961c0e.jpeg?h=540&w=540',
     1
   ),
   (
     'Herdez Salsa Casera 240G',
-    1,
+    2,
     4,
     'Tomato and Coriander Salsa with Chilli Peppers
 Developed by Herdez, a Mexican family business with over 100 years of experience making authentic Mexican food.
@@ -361,7 +361,7 @@ dry place out of direct sunlight.Once opened,
 keep refrigerated
 and consume within 5 days.Best before
 end: see cap.',
-    'Lebanon',
+    'Iraq',
     2.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/70df78a4-7a23-4323-92e3-ca84a6849949/83fbb33c-573b-42f1-b619-0c05de763ac2_1594057614.jpeg?h=540&w=540',
     1
@@ -395,7 +395,7 @@ dry place for up to 2 weeks.',
     'Turkey',
     4.00,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/bd5376a7-2a7e-429e-aa8f-dc2e4abe8169/73a63992-0b37-488b-a98d-004edfdc7016_1372191263.jpeg?h=540&w=540',
-    1
+    8
   ),
   (
     'Galbani Burrata Cheese 150G',
@@ -412,7 +412,7 @@ Salt,
 Rennet',
     'Contains: Milk',
     'Use by: see lid.Keep refrigerated: + 4 ° C / + 8 ° C',
-    'Iran',
+    'Turkey',
     5.75,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/c6c6f88a-2c7b-4f93-9e04-d5b8bfdf54f4/00c2ea04-4581-4704-aa88-736747ab3c32.jpeg?h=540&w=540',
     1
@@ -469,7 +469,7 @@ from
   ),
   (
     'Loyd Grossman Tomato & Basil Pasta Sauce 350G',
-    1,
+    6,
     8,
     'Tomato & Basil Sauce
 For recipe ideas and inspiration visit www.loydgrossmansauces.co.uk and follow us on Twitter @LoydFood
@@ -504,7 +504,7 @@ End: See neck of jar',
   ),
   (
     'Fage Total 0%Fat Yogurt 450G',
-    2,
+    6,
     20,
     'Fage Total 0%Fat Greek Recipe Yogurt 450G
 Natural Fat Free
@@ -535,7 +535,7 @@ Live Active Yoghurt Cultures (
   ),
   (
     'Deli Kitchen 4 Flatbreads 320G',
-    1,
+    7,
     30,
     '4 Plain Flatbreads
 Here at Deli Kitchen HQ our mission is to innovate mealtimes. We start each day with a "What If?" and end with our customer (That`s You!). We asked What if sandwiches could be tastier, healthier, less boring? we asked `What if sandwiches could be, well, less bready?!` then we put our inventive, curious & slightly eccentric heads together and came up with a range of tasty, easy to use flatbreads. Start your day with a "What if?" and join us in innovating mealtimes.
@@ -581,11 +581,11 @@ after
     'Iraq',
     1.50,
     'https://digitalcontent.api.tesco.com/v2/media/ghs/29a1f18d-d049-4ad5-a0b6-3626d650fa47/9c008656-0643-4106-8dae-bb14a143ce4d.jpeg?h=540&w=540',
-    1
+    6
   ),
   (
     'Vivera Veggie Kebab 175G',
-    2,
+    9,
     30,
     'Precooked plant-based slices made from rehydrated soya protein and seasoned with Greek kebab style herbs. This product contains added iron and vitamin B12.
 You`ve Got the Power to Do Good
@@ -628,7 +628,7 @@ and use within 2 days.Suitable for home freezing.Once frozen use within 1 month.
   ),
   (
     'Oatly Oatgurt 400G',
-    4,
+    10,
     35,
     'Fermented oat product, Greek style, with added vitamins and minerals.
 So if we wanted to incorporate geography into the name of this product, why not Oatgurt Landskrona Style? It would have been more logical, since this product was both invented and manufactured in Landskrona, Sweden. And even though this amazing stuff is used in the same way as Greek yogurt, it is far from Greek yogurt — theoretically, even further from the yogurt part than from the Greek part, since it is completely free of dairy, while the Greek city of Thessaloniki is only 2,399 kilometres from our factory in Landskrona. Of course all of this is really, really far off from what we are here to tell you about on this webpage which is that Oatgurt Greek Style has a thick, smooth and creamy texture combined with a fresh and pleasantly sour flavour. Not to brag, but this is among the best* products we have ever created, if not the best webpage copy.',
@@ -656,7 +656,7 @@ Vitamins (D2, B12)',
   ),
   (
     'Smoked Ham & Cheddar Sandwich',
-    1,
+    10,
     15,
     'Smoked ham formed
 from
@@ -702,7 +702,7 @@ see ingredients in bold.',
   ),
   (
     'Butcher`s Choice Chicken Portions 2Kg',
-    1,
+    8,
     10,
     'Frozen Class A skin - on chicken drumsticks
 and thighs.100 % British Chicken A mixture of frozen Class A chicken thigh
@@ -728,7 +728,7 @@ from
   ),
   (
     'Butcher`s Choice 20 Pork Sausages 907G',
-    4,
+    9,
     7,
     'Pork sausages.Expertly seasoned Expertly seasoned Cook
 from
@@ -770,7 +770,7 @@ do not refreeze.',
   ),
   (
     'Three Cheese Bread',
-    2,
+    7,
     20,
     'Stone baked loaf made with red Leicester,
 red Cheddar,
@@ -806,7 +806,7 @@ and other allergens.',
   ),
   (
     'Panini 4 Packd',
-    2,
+    10,
     14,
     'White panini rolls.Stone baked
 and grill marked on top for a distinctive finish',
@@ -895,7 +895,7 @@ and consume within 24 hours.',
   ),
   (
     'Haribo Tangfastics 175G',
-    2,
+    7,
     30,
     'Fizzy Fruit Flavour,
 Cola Flavour
@@ -964,7 +964,7 @@ dry place.Best Before: See base.',
   ),
   (
     'Najma Halal Sliced Turkey Chorizo 80G',
-    2,
+    9,
     5,
     'Sliced Dry Cured & Smoke Flavoured Turkey Sausage with Duck Fat,
 Paprika
@@ -1000,7 +1000,7 @@ consume within 2 days.',
   ),
   (
     'Adalya Halal Turkey Pizza Salami 120G',
-    2,
+    7,
     22,
     'Sliced turkey salami with added palm fat.Packaged in protective atmosphere.',
     'Turkey,
@@ -1032,7 +1032,7 @@ or by Use by date shown.',
   ),
   (
     'TahDig',
-    2,
+    12,
     15,
     'TahDig literally means the bottom of the pot
 and is a side dish to mains,
@@ -1047,11 +1047,11 @@ or potatoes.',
     'Iran',
     8.56,
     'https://www.chefspencil.com/wp-content/uploads/179e9a55-af19-4f9a-9cbc-0dd4c5bd817e-2019-1112_samin-persian-rice-tahdig_3x2_rocky-luten_017_1--1536x1024.webp',
-    9
+    7
   ),
   (
     'Khoresht - e Ghormeh Sabzi',
-    2,
+    12,
     7,
     'Stews are one of the most common Persian foods.The most famous stew is Khoresht - e Ghormeh Sabzi,
 which is popularly served on official occasions
@@ -1064,11 +1064,11 @@ which gives it an unforgettable taste.',
     'Iran',
     8.99,
     'https://www.chefspencil.com/wp-content/uploads/Khoresht-e-Ghormeh-Sabzi.png.webp',
-    9
+    7
   ),
   (
     'Chelo Kabab Koobideh',
-    2,
+    12,
     9,
     'Kebabs
 or barbeque is one of the most famous
@@ -1085,11 +1085,11 @@ and then some secret spices.',
     'Iran',
     6.99,
     'https://www.chefspencil.com/wp-content/uploads/Chelo-Kabab-Koobideh.png.webp',
-    9
+    7
   ),
   (
     'Dollma',
-    2,
+    13,
     9,
     'This vegetable stuffed meat recipe will make you addicted.Dolma Mahshi is the most famous version of Iraq,
 where
@@ -1101,11 +1101,11 @@ where
     'Iraq',
     7.99,
     'https://www.lacademie.com/wp-content/uploads/2022/02/meat-and-vegetable-stuff.webp',
-    9
+    7
   ),
   (
     'Tabbouleh',
-    2,
+    13,
     9,
     'The main ingredients creating the fantastic taste are tomatoes,
 red onions,
@@ -1120,11 +1120,11 @@ and lettuce can change the flavor.All elements are mixed to create a whole fasci
     'Iraq',
     5.99,
     'https://www.lacademie.com/wp-content/uploads/2022/02/iraqi-salad.webp',
-    9
+    7
   ),
   (
     'Ezogelin corba',
-    2,
+    13,
     9,
     'According to legend,
 this dish was dreamed up by an unhappily married woman named Ezo who was trying to win over her mother - in - law via her stomach.She concocted a zesty soup consisting of red lentils,
@@ -1136,11 +1136,11 @@ domato salca (
     'Turkey',
     5.99,
     'https://www.unicornsinthekitchen.com/wp-content/uploads/2019/09/Turkish-Red-Lentil-Soup-Recipe-SQ.jpg',
-    9
+    7
   ),
   (
     'Lahmacun',
-    2,
+    11,
     9,
     'Flat
 and crispy,
@@ -1158,11 +1158,11 @@ you ought to try this on your next trip to Turkey.',
     'Turkey',
     7.99,
     'https://assets.traveltriangle.com/blog/wp-content/uploads/2015/08/Lahmacun-400x265.jpg',
-    9
+    7
   ),
   (
     'Aushak',
-    2,
+    12,
     9,
     'Aushak is one of the most popular Afghani dishes
 and is generally eaten during the month of Ramadan
@@ -1177,11 +1177,11 @@ and dried mint leaves.',
     'Afganistan',
     5.99,
     'https://www.chefspencil.com/wp-content/uploads/2061291681_a6e2d3c85c_c.jpg.webp',
-    9
+    7
   ),
   (
     'Kabuli Pulao',
-    2,
+    13,
     9,
     'Kabuli pulao is quite easy to make as it only consists of a handful of ingredients.It is known as the national dish of Afghanistan because of its popularity.It is a slow - cooked pulao that includes lamb
 and mutton along with meat stock called yakhni.',
@@ -1191,11 +1191,11 @@ and mutton along with meat stock called yakhni.',
     'Afganistan',
     8.99,
     'https://www.chefspencil.com/wp-content/uploads/Kabuli-Pulao-960x640.png.webp',
-    9
+    7
   ),
   (
     'Tabbouleh-Parsley Bulgur Salad',
-    2,
+    11,
     9,
     'Tabbouleh is a unique Lebanese salad,
 made of fresh parsley
@@ -1211,12 +1211,12 @@ and olive oil.',
     'Lebanon',
     3.99,
     'https://nomadparadise.com/wp-content/uploads/2020/08/lebanese-food-1-1024x683.jpg.webp',
-    9
+    7
   ),
   (
     'Lahm Bi Ajin
 or Sfiha',
-    2,
+    13,
     9,
     'Lahm Bi Ajin is very similar to Man ’ ouche,
 in that it utilizes a hearty,
@@ -1227,5 +1227,5 @@ crunchy dough - base.',
     'Lebanon',
     3.99,
     'https://nomadparadise.com/wp-content/uploads/2020/08/lebanese-food-7-1024x683.jpg.webp',
-    9
+    7
   );

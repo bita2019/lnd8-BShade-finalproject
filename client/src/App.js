@@ -30,10 +30,10 @@ function App() {
   };
 
   return (
-   
-      <div className="App">
-        <Header />
-       <Routes>
+
+    <div className="App">
+      <Header />
+      <Routes>
         {/* <Switch> */}
         <Route path="/" exact element={<HomePage />} />
         <Route
@@ -49,8 +49,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
-      </div>
-    
+    </div>
+
   );
 }
 export default App;
