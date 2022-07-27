@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Searchbar from "./Searchbar";
 import {
   Box,
@@ -11,10 +12,10 @@ import {
 } from "@mui/material";
 
 
-function ProductPage({ allProducts}) {
+function ProductPage({ allProducts }) {
   // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(allProducts);
- 
+
 
   const [searchInput, setSearchInput] = useState("");
   function handlesearch(value) {
@@ -42,7 +43,7 @@ function ProductPage({ allProducts}) {
 
   return (
     <>
-    <Searchbar handlesearch={handlesearch} />
+      <Searchbar handlesearch={handlesearch} />
       <Box sx={{ flexGrow: 1, mt: 5 }}>
       <Grid
         container
@@ -54,21 +55,13 @@ function ProductPage({ allProducts}) {
             <Card sx={{ maxWidth: 345 }}>
               <Link to={`/productpage/${item.id}`}>
 
-                <CardMedia
-                  component="img"
-                  image={item.image}
-                  alt={item.name}
-                  style={styles.media}
-                />
+                  <CardMedia
+                    component="img"
+                    image={item.image}
+                    alt={item.name}
+                    style={styles.media}
+                  />
 
-              </Link>
-              <CardContent>
-                <Link to={`/productpage/${item.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <Typography gutterBottom variant="h6" component="div">
-                    {item.name}
-                  </Typography>
                 </Link>
                 <Typography variant="body2" color="text.secondary"></Typography>
               </CardContent>
@@ -76,8 +69,9 @@ function ProductPage({ allProducts}) {
           </Grid>
         ))}
       </Grid>
+
       </Box>
-      </>
+    </>
   );
 }
 

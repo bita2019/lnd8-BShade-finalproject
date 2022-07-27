@@ -11,7 +11,7 @@
 1-In the terminal run psql postgres
 2-Run --> create database hujreh;
 3-Run --> \c hujreh;
-4-Run --> \i (copy paste the path of db.sql file inside the server.js) To populate the database from db.sql file.
+4-Run --> \i (copy paste the path of db.sql file inside the server folder) To populate the database from db.sql file.
 
 
 # HOW TO USE THE env VARIABLE TO MAKE THE CONNECTION WITH THE LOCAL DATABASE 

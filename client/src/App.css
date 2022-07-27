@@ -60,6 +60,16 @@ nav li {
   margin-left: 0.65rem;
 }
 
+.inputWrapper {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: space-between;
+
+}
+
+/* .show-products {
+width: 100%
+} */
 .container-cart{
   display: flex;
   align-items: center;
