@@ -101,11 +101,6 @@ const ProductDetails = () => {
                   <h6> {value.name.toUpperCase()} </h6>
                   <h5>{formatCurrency(`${value.price}`, opts)}</h5>
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Rice is the seed of the grass species Oryza sativa or less
-                  commonly Oryza glaberrima. The name wild rice is usually used
-                  for species of the genera Zizania.
-                </Typography>
               </CardContent>
               <Rating
                 className="rate"
