@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
+// import coverImg from './components/banner/img/bacckground.png';
 
 function App() {
   //This fetches all products
