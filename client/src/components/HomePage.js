@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Carouselcont from './banner/Carousel'
-import Banner from './banner/Banner'
-import Slide from './banner/Slide'
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Carouselcont from './banner/Carousel'
+import HeroSection from "./HeroSection";
+import Footer from "./Footer";
+import btnImg from './img/btnImg.png';
 import Button from '@mui/material/Button';
-import MyLogo1 from './banner/svgImg/result1.svg';
-import MyLogo2 from './banner/svgImg/result2.svg';
-import MyLogo3 from './banner/svgImg/result.svg';
-// import coverImg from './banner/img/bacckground.png';
-// import { makeStyles } from '@material-ui/core'
 
 
 function HomePage() {
@@ -18,69 +13,75 @@ function HomePage() {
   const hero = [
     {
       title: 'Try your local and traditional product with your comfot home',
-      img: MyLogo1,
+      // img: MyLogo1,
       text: "Lorem ipsum dolor sit amet, consectetur",
     },
     {
       title: 'Do not Strict your option and try new product',
       text: 'Lorem ipsum dolor sit amet, consectetur ',
-      img: MyLogo2,
+      // img: MyLogo2,
     },
     {
       title: 'Search your local market easily without moving',
       text: "Lorem ipsum dolor sit amet, consectetur",
-      img: MyLogo3,
+      // img: MyLogo3,
 
     }
   ]
 
   const slidesrow = hero?.map((el, i) => {
-    return <Slide slide={el} index={i} currentslide={currentslide} />
+    return <HeroSection slide={el} index={i} currentslide={currentslide} />
   })
 
-  const bannercont = {
-    html:
-      <>
-        <Carouselcont slides={slidesrow} setCurrentslide={setCurrentslide} currentslide={currentslide} />
-      </>
-  }
 
   useEffect(() => {
     setCurrentslide(0)
   }, [])
 
   return (
-    <div className='home'>
-      <div className="hero-wrapper div1">
-        <Banner
-          // name='Joshua Bitton'
-          // hr={true} 
-          html={bannercont.html}
-        // height='70vh'
-
-        />
-      </div>
-      <div className='div2'>
-        <Box
-          component="form"
-          className='containers'
-          noValidate
-          autoComplete="off"
-        >
-          {/* <img src={MyLogo3} alt="icon" /> */}
-          <TextField id="outlined-basic" label="Outlined" variant="filled" className='items item1' />
-          <Button variant="contained" color="success" className='items item2'>
-            Success
-          </Button>
-
-        </Box>
+    <div className="home">
+      <div className="hero">
+        <Carouselcont slides={slidesrow} setCurrentslide={setCurrentslide} currentslide={currentslide} />
       </div>
 
-      <div className="div3">
-        hfhjhfjhvfj
+      <div className="searchl">
+        <div className="loc-wrapper">
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" style={{
+            width: '100%',
+            flexGrow: '2'
+          }} />
+          <div className="btn-wrapper" style={{
+            backgroundImage: `url(${btnImg})`,
+            // backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top 35% right 50%',
+            // height: '10vh',
+            flexGrow: '1',
+            flexShrink: '1',
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '1em 1em'
+
+          }}>
+            <Button variant="outlined" size="large" style={{
+              padding: '0.5em 2em',
+              borderColor: 'white',
+              color: 'white'
+            }}>
+              Large
+            </Button>
+          </div>
+        </div>
       </div>
-      {/* <Aboutsection />
-        <Featuressection /> */}
+      <div className="productt">
+        <></>
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 }
