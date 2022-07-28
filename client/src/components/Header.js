@@ -1,81 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import { useCart } from "../CartContext";
-// import { useContext } from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-
+import {useCart} from "../CartContext";
+import { Navbar, Container, Nav} from "react-bootstrap";
 import { Button } from "@mui/material";
-// import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
-// import { Container } from "@mui/system";
+
 
 const Header = () => {
   const items = useCart();
 
   return (
-    <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Brand href="/">Hujreh</Navbar.Brand>
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Button>
-                <NavDropdown
-                  title="Business Solutions"
-                  id="collasible-nav-dropdown"
-                >
-                  <NavDropdown.Item href="grocery/3.1">
-                    Grocery
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="bakery/3.2">Bakery</NavDropdown.Item>
-                  <NavDropdown.Item href="homecooked/3.3">
-                    Home Cooked
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="butchery/3.4">
-                    Butchery
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Button>
-              <Button
-                component={Link}
-                to="/"
-                color="inherit"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Home
-              </Button>
-              <Button
-                component={Link}
-                style={{ textDecoration: "none", color: "white" }}
-                to="productpage"
-                color="inherit"
-              >
-                Products
-              </Button>
-              <Button
-                component={Link}
-                style={{ textDecoration: "none", color: "white" }}
-                to="register"
-                color="inherit"
-              >
-                Login
-              </Button>
-              <Link to="cart" style={{ textDecoration: "none" }}>
-                <div className="cart">
-                  <ShoppingBagOutlinedIcon />
-                  <span>{items.length}</span>
-                </div>
-              </Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <div className="hero-wrapper">
-        <div className="left-hero"></div>
-        <div className="right-hero"></div>
-      </div>
-    </>
+    <Navbar collapseOnSelect expand="lg" bg="white" variant="dark">
+      <Container>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand href="/">
+          <div className="image-container">
+          <img
+            alt=""
+            src="https://upcdn.io/FW25asGHZgPwfLWeszhum7Z/thumbnail"
+            width="100%"
+            height=""
+            className="d-inline-block align-top"
+          />
+          </div>
+        </Navbar.Brand>
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Button
+              component={Link}
+              to="/"
+              color="inherit"
+              style={{ textDecoration: "none", color: "#CC0000" }}
+            >
+              Home
+            </Button>
+            <Button
+              component={Link}
+              style={{ textDecoration: "none", color: "#CC0000" }}
+              to="categories"
+              color="inherit"
+            >
+              Categories
+            </Button>
+
+            <Button
+              component={Link}
+              style={{ textDecoration: "none", color: "#CC0000" }}
+              to="register"
+              color="inherit"
+            >
+              Login
+            </Button>
+            <Link to="cart" style={{ textDecoration: "none" }}>
+              <div className="cart">
+                <ShoppingBagOutlinedIcon />
+                <span>{items.length}</span>
+              </div>
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
   );
 };
 

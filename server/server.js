@@ -1,33 +1,12 @@
 // import { Uploader } from "uploader";
-
 const express = require("express");
-// const multer = require('multer');
-// const uploader = new Uploader({
-//     apiKey: "free"
-// });
 const app = express();
-
 app.use(express.json());
+
 require("dotenv").config();
 
 const cors = require("cors");
 app.use(cors());
-
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         cb(null, './uploads/');
-//     },
-//     filename: function (req, file, cb) {
-//         cb(null, new Date().toISOString() + file.originalname);
-//     }
-// });
-
-// const upload = multer({
-//     storage: storage,
-//     limits: {
-//         fileSize: 1024 * 1024 * 5
-//     }
-// });
 
 const { Pool } = require("pg");
 
@@ -44,15 +23,6 @@ const pool = new Pool({
     rejectUnauthorized: false,
   },
 });
-
-// const pool = new Pool({
-//     user: 'codeyourfuture',
-//     host: 'localhost',
-//     database: 'hujreh_database',
-//     password: 'codeyourfuture',
-//     port: 5432,
-// })
-
 //GET ALL INVENTORY
 app.get("/inventory", (req, res) => {
   pool
@@ -64,9 +34,9 @@ app.get("/inventory", (req, res) => {
     });
 });
 
-//GET INVENTORY BY ID
+// //GET INVENTORY BY ID
 app.get("/inventory/:id", (req, res) => {
-  const id = req.params.id;
+  const id = Number(req.params.id);
   pool
     .query("SELECT * FROM products WHERE id = $1", [id])
     .then((result) => res.json(result.rows))
@@ -76,19 +46,31 @@ app.get("/inventory/:id", (req, res) => {
     });
 });
 
-//GET INVENTORY BY SELLER ID
-app.get("/seller/:id/inventory", (req, res) => {
+// //GET INVENTORY BY SELLER ID
+app.get("/seller/:id/inventory", async (req, res) => {
   const id = Number(req.params.id);
-  pool
-    .query("SELECT * FROM products WHERE sell_id = $1", [id])
-    .then((result) => res.json(result.rows))
-    .catch((error) => {
+  if (isNaN(id)) {
+    return res.sendStatus(404);
+  } else {
+    try {
+      const result = await pool.query(
+        "SELECT * FROM products WHERE sell_id = $1",
+        [id]
+      );
+      const nameResult = await pool.query(
+        "SELECT logo, name, first_line_address, second_line_address, postcode FROM seller WHERE id = $1",
+        [id]
+      );
+      res.json({
+        Products: result.rows,
+        Seller: nameResult.rows[0],
+      });
+    } catch (error) {
       console.error(error);
       res.status(500).json(error);
-    });
+    }
+  }
 });
-// upload.single('image'),
-
 app.post("/sellers/:id/inventory", (request, response) => {
   // const image = request.file.path;
   const sell_id = Number(request.params.id);
@@ -102,7 +84,7 @@ app.post("/sellers/:id/inventory", (request, response) => {
       if (error) {
         throw error;
       }
-      response.status(201).send(`product added with ID: ${results.rows[0].id}`);
+      response.status(201).send(`Product added with ID: ${results.rows[0].id}`);
     }
   );
 });
@@ -175,5 +157,7 @@ app.put("/purchase", (req, res) => {
       });
   });
 });
+
+app.route("/seller/:id/inventory");
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
