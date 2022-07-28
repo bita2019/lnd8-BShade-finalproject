@@ -16,12 +16,12 @@ function HomePage() {
   // const classes = useStyles();
   const hero = [
     {
-      title: 'Try Your Local And Traditional Product With Your Comfot Home',
+      title: 'Try Your Local And Traditional Product With Your Comfort Home',
       img: image1,
       text: "Lorem ipsum dolor sit amet, consectetur",
     },
     {
-      title: 'Do Not Strict Your Option And Try New Product',
+      title: 'Do Not Restrict Your Option And Try New Product',
       text: 'Lorem ipsum dolor sit amet, consectetur ',
       img: image2,
     },
@@ -50,7 +50,7 @@ function HomePage() {
 
       <div className="searchl">
         <div className="loc-wrapper">
-          <h4>SEARCH NEAR PRODUCT</h4>
+          <h4>SEARCH LOCAL STORES</h4>
           <div className="input-wrapper">
             <TextField id="outlined-basic" label="Enter Your Location" variant="outlined" style={{
               maxWidth: '100%',
@@ -85,7 +85,7 @@ function HomePage() {
         </div>
       </div>
       <div className="productt">
-        <h4>OUR POPULER PRODUCT </h4>
+        <h4>OUR POPULAR PRODUCT </h4>
         <div className="card-wrapper">
           {hero && hero.map(cardRender => <ListProduct list={cardRender} />
           )}
