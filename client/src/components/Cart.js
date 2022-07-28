@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+
 
 
 const Img = styled("img")({
@@ -96,6 +98,7 @@ const Cart = () => {
                 <Grid item>
                   <Button
                     size="small"
+                    color="error"
                     startIcon={<DeleteIcon />}
                     onClick={() => handleRemove(index)}
                   >
@@ -121,7 +124,7 @@ const Cart = () => {
           })}
         </Typography>
         <Link to='checkout' style={{ textDecoration: "none", color: "white" }}>
-          <Button variant="contained" onClick={()  => handelUpdate()}>
+            <Button variant="contained" color="success" onClick={() => handelUpdate()} endIcon={<ShoppingCartCheckoutIcon />}>
             Buy now
           </Button>
         </Link>
