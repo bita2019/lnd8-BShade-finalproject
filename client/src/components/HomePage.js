@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
-import Carouselcont from './banner/Carousel'
+import Carouselcont from './Carousel'
 import HeroSection from "./HeroSection";
 import Footer from "./Footer";
 import btnImg from './img/btnImg.png';
 import Button from '@mui/material/Button';
+import image1 from './img/img1.jpg';
+import image2 from './img/img2.jpg';
+import image3 from './img/img3.jpg';
+import ListProduct from './ListProduct';
+import { Link } from 'react-router-dom';
 
 
 function HomePage() {
@@ -12,19 +17,19 @@ function HomePage() {
   // const classes = useStyles();
   const hero = [
     {
-      title: 'Try your local and traditional product with your comfot home',
-      // img: MyLogo1,
+      title: 'Try Your Local And Traditional Product With Your Comfot Home',
+      img: image1,
       text: "Lorem ipsum dolor sit amet, consectetur",
     },
     {
-      title: 'Do not Strict your option and try new product',
+      title: 'Do Not Strict Your Option And Try New Product',
       text: 'Lorem ipsum dolor sit amet, consectetur ',
-      // img: MyLogo2,
+      img: image2,
     },
     {
-      title: 'Search your local market easily without moving',
+      title: 'Search Your Local Market Easily Without Moving',
       text: "Lorem ipsum dolor sit amet, consectetur",
-      // img: MyLogo3,
+      img: image3,
 
     }
   ]
@@ -46,38 +51,46 @@ function HomePage() {
 
       <div className="searchl">
         <div className="loc-wrapper">
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" style={{
-            width: '100%',
-            flexGrow: '2'
-          }} />
-          <div className="btn-wrapper" style={{
-            backgroundImage: `url(${btnImg})`,
-            // backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundPosition: 'top 35% right 50%',
-            // height: '10vh',
-            flexGrow: '1',
-            flexShrink: '1',
-            width: '100%',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '1em 1em'
+          <h4>SEARCH NEAR PRODUCT</h4>
+          <div className="input-wrapper">
+            <TextField id="outlined-basic" label="Enter Your Location" variant="outlined" style={{
+              maxWidth: '100%',
+              // width: '80%',
+              flexGrow: '1'
+            }} />
+            <Link to='categories'>
+              <div className="btn-wrapper" style={{
+                backgroundImage: `url(${btnImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'top 35% right 50%',
+                flexShrink: '1',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '1em 1em'
 
-          }}>
-            <Button variant="outlined" size="large" style={{
-              padding: '0.5em 2em',
-              borderColor: 'white',
-              color: 'white'
-            }}>
-              Large
-            </Button>
+              }}>
+
+                <Button variant="outlined" size="large" className='btnSearch' style={{
+                  padding: '0.5em 2em',
+                  margin: '10px auto',
+                  borderColor: 'white',
+                  color: 'white'
+                }}>
+                  Find
+                </Button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
       <div className="productt">
-        <></>
+        <h4>OUR POPULER PRODUCT </h4>
+        <div className="card-wrapper">
+          {hero && hero.map(cardRender => <ListProduct list={cardRender} />
+          )}
+        </div>
       </div>
       <div className="footer">
         <Footer />
