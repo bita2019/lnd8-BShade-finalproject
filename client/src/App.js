@@ -12,11 +12,12 @@ import Contact from "./components/Contact";
 import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
 import ProductsForSeller from "./components/ProductsForSeller";
+import Footer from "./components/Footer";
 // import {useParams} from "react-router-dom";
 function App() {
   //This fetches all products
   const [allProducts, setAllProducts] = useState([]);
-// const {id} = useParams()
+  // const {id} = useParams()
   useEffect(() => {
     fetchItems();
   }, []);
@@ -27,14 +28,14 @@ function App() {
     const data = await fetch(`${urlToFetch}`);
     console.log(data)
     const products = await data.json();
-    console.log("products:", products); 
+    console.log("products:", products);
     setAllProducts(products);
   };
 
   //This is sellers state
   const [sellers, setSellers] = useState([]);
 
- 
+
   return (
 
     <div className="App">
@@ -55,8 +56,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories sellers={sellers} setSellers={setSellers} />}
         />
-        <Route path="/categories/:seller_id/inventory" element={<ProductsForSeller/>}/>
+        <Route path="/categories/:seller_id/inventory" element={<ProductsForSeller />} />
       </Routes>
+      <Footer />
     </div>
 
   );
