@@ -72,8 +72,8 @@ const Header = () => {
         </Container>
       </Navbar>
       <div className="hero-wrapper">
-        <div className="left-hero">ramla</div>
-        <div className="right-hero">ramla2</div>
+        <div className="left-hero"></div>
+        <div className="right-hero"></div>
       </div>
     </>
   );

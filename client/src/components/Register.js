@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Grid,
   TextField,
@@ -32,7 +32,7 @@ const Register = () => {
   const [countryError, setCountryError] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const addHandler = (imgPath) => {
     console.log(imgPath);
@@ -43,10 +43,10 @@ const Register = () => {
     setCategory(event.target.value);
   };
 
-  const { sellerid } = useParams();
-  useEffect(() => {
-    fetchItem(sellerid);
-  }, [sellerid]);
+  const { seller_id } = useParams();
+  // useEffect(() => {
+  //   fetchItem(seller_id);
+  // }, [seller_id]);
 
   const categories = [
     { id: 1, name: "Grocery" },
@@ -90,7 +90,7 @@ const Register = () => {
     }
     const newproduct = {
       name: pName,
-      sell_id: sellerid,
+      sell_id: Number(seller_id),
       quantity,
       description,
       country,
@@ -100,34 +100,19 @@ const Register = () => {
     };
 
     console.log(newproduct);
-    const fetchItem = async() => { const data = await fetch(  
-      `http://localhost:4444/seller/${sellerid}/inventory`,
-      {
-        method: "POST",
-        headers: {
-          "Content - Type ": "application/json",
-        },
-        body: JSON.stringify(newproduct),
-      }
-    ).then((res) => {
-      console.log("item added");
-      const json = res.json();
-
-      if (!res.ok) {
-        setError(json.error);
-      }
-      if (res.ok) {
-        setPname("");
-        setQuantity("");
-        setPrice("");
-        setCountry("");
-        setDescription("");
-        setImage("");
-        setCategory("");
-        setError(null);
-        console.log("New Product Added!", json);
-      }
-    });
+    fetch(`http://localhost:4444/sellers/${seller_id}/inventory`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newproduct),
+    })
+      .then((response) => {
+        console.log("Success:", response);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -183,11 +168,23 @@ const Register = () => {
               onChange={handleChange}
             >
               {categories.map((category) => (
-                <MenuItem value={category.id} key="cat_id">
+                <MenuItem value={category.id} key={category.id}>
                   {category.name}
                 </MenuItem>
               ))}
             </Select>
+            <br />
+            <TextField
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              id="outlined-required"
+              label="Description"
+              margin="dense"
+              style={{ margin: "20px" }}
+              multiline
+              rows={4}
+              error={descriptionError}
+            />
           </FormControl>
           <br />
           <TextField
@@ -205,23 +202,11 @@ const Register = () => {
             <AddProductButton addHandler={addHandler} />
           </Stack>
 
-          <TextField
-            onChange={(e) => setDescription(e.target.value)}
-            required
-            id="outlined-required"
-            label="Description"
-            margin="dense"
-            style={{ margin: "20px" }}
-            multiline
-            rows={4}
-            error={descriptionError}
-          />
           <br />
 
           <Button variant="contained" size="medium" type="submit">
             Submit
           </Button>
-          {error && <div class="error">{error}</div>}
         </form>
       </div>
 

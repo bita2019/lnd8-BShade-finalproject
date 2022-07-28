@@ -41,13 +41,16 @@ function App() {
           element={<ProductPage allProducts={allProducts} />}
         />
         {/* <Route path="/addProduct" component={addProduct} /> */}
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/productpage/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/sellers/:sellerId/add-product"></Route>
+        <Route
+          path="/sellers/:seller_id/add-product"
+          element={<Register />}
+        ></Route>
       </Routes>
     </div>
   );
