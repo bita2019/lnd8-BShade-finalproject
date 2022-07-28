@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Typography, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
+// import Searchbar from "./Searchbar";
+
 
 const ProductsForSeller = () => {
     
@@ -24,6 +26,19 @@ const ProductsForSeller = () => {
        console.log(item);
        setSellerItems(item);
     };
+  // const [searchInput, setSearchInput] = useState("");
+  // function handlesearch(value) {
+  //   console.log(value);
+  //   setSearchInput(value);
+  // }
+  // const filtered = !searchInput
+  //   ? sellerItems
+  //   : sellerItems.filter(
+  //       (item) =>
+  //         item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+  //         item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
+  //         item.country.toLowerCase().includes(searchInput.toLowerCase())
+  //     );
     
     const styles = {
         media: {
@@ -36,7 +51,11 @@ const ProductsForSeller = () => {
         }
     };
 
-    return (
+  return (
+    <>
+      {/* <Searchbar
+        handlesearch={handlesearch}
+      /> */}
       <Box sx={{ flexGrow: 1 }}>
         {sellerItems && (
           <div>
@@ -48,11 +67,9 @@ const ProductsForSeller = () => {
                 width="100%"
               />
             </div>
-            <h3 className="shop-info">{sellerItems.Seller.name}</h3>{" "}
+            <h1 className="shop-info">{sellerItems.Seller.name}</h1>{" "}
             <p className="shop-info">{sellerItems.Seller.first_line_address}</p>
-            <p className="shop-info">
-              {sellerItems.Seller.second_line_address}
-            </p>
+            <p className="shop-info">{sellerItems.Seller.second_line_address}</p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
           </div>
         )}
@@ -82,6 +99,7 @@ const ProductsForSeller = () => {
                         variant="h6"
                         component="div"
                         color="black"
+                        marginLeft="3.9rem"
                       >
                         {sellerProduct.name}
                       </Typography>
@@ -92,6 +110,7 @@ const ProductsForSeller = () => {
             ))}
         </Grid>
       </Box>
+      </>
     );
 }
 

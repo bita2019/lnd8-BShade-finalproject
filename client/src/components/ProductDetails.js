@@ -75,7 +75,7 @@ const ProductDetails = () => {
       maxHeight: "100%",
       width: "auto",
       height: "auto",
-      marginLeft: "5rem",
+      // marginLeft: "5rem",
     },
   };
 
