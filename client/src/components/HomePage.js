@@ -75,7 +75,8 @@ function HomePage() {
                   padding: '0.5em 2em',
                   margin: '10px auto',
                   borderColor: 'white',
-                  color: 'white'
+                  color: 'white',
+                  textDecoration: 'none'
                 }}>
                   Find
                 </Button>
