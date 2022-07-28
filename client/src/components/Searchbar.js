@@ -1,22 +1,33 @@
 import React from "react";
 //  import ProductDetails from "./ProductDetails";
-import { Input } from "@mui/material";
+import { TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
+
+
 
 
 const Searchbar = ({ handlesearch }) => {
   return (
-    <div>
+    <div className="textfield">
       {/* <label for="search"> Search product or Origin country : </label> */}
 
-      <Input
-        placeholder="Type here ...."
-        name="search"
-        type="text"
+      <TextField
+        id="search-bar"
+        className="text"
         onChange={
           (e) => handlesearch(e.target.value)
-          //
-          // })
         }
+        label="Search Products..."
+        variant="outlined"
+        size="small"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
     </div>
   );

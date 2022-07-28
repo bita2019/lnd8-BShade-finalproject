@@ -22,13 +22,13 @@ nav {
   color: white;
 }
 
-.nav-links {
-  width: 50%;
+/* .nav-links {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   list-style: none;
-}
+} */
 
 nav li {
   color: white;
@@ -42,7 +42,7 @@ nav li {
   text-align: center;
   color: #CC0000;
   margin-top: 28px;
-  margin-left: 7.5rem;
+  /* margin-left: 7.5rem; */
 }
 
 .rate{
@@ -65,7 +65,7 @@ width: 100%
   justify-content: center;
   font-size: 1.5rem;
   margin-top: 5rem;
-  margin-left: 3rem;
+  /* margin-left: 3rem; */
   padding: 3rem;
   width: 50%;
   box-shadow:rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -172,6 +172,9 @@ display: flex;
 
 .d-inline-block align-top{
   background-color: #CC0000;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
 }
 
  a.dropdown-item {
@@ -194,16 +197,47 @@ display: flex;
   width: 150px;
   height: 75px;
   padding-top: 1rem;
+  background-color: #CC3A2F;
 }
 
 .img-cover{
-  /* object-fit: cover; */
-  width: 100%;
-  height: 50%;   
+  object-fit: cover;
+  height: 100%;   
 }
 .shop-info{
   margin-left: 1rem;
   line-height: 80%;
   margin-top: 1rem;
 }
+.seller-logo{
+  height: 30vh;
+  
+}
 
+.textfield{
+  margin: 2.5rem 0rem 0rem 2.5rem;
+}
+
+.nav-bar{
+  background-color: #CC3A2F;
+}
+
+.searchbar{
+  margin-top: -1rem;
+}
+.d-flex{
+  width: 100%;
+  margin-top: -1.7rem;
+
+}
+
+@media screen and (max-width: 600px) {
+  .me-auto {
+    margin-left: 0rem;
+  }
+
+  .cart{
+    margin-left: 6rem;
+    margin-top: -2rem;
+  }
+}
