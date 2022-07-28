@@ -38,7 +38,8 @@
 
 .footer-container {
     background-color: #242424;
-    padding: 4rem 0 2rem 0;
+    padding: 1rem 0 1rem 0;
+    /* max-height: 40vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,6 +103,7 @@
 }
 
 .social-media {
+    margin-top: -3em;
     max-width: 1000px;
     width: 100%;
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Carouselcont from './Carousel'
 import HeroSection from "./HeroSection";
-import Footer from "./Footer";
 import btnImg from './img/btnImg.png';
 import Button from '@mui/material/Button';
 import image1 from './img/img1.jpg';
@@ -91,9 +90,6 @@ function HomePage() {
           {hero && hero.map(cardRender => <ListProduct list={cardRender} />
           )}
         </div>
-      </div>
-      <div className="footer">
-        <Footer />
       </div>
     </div>
   );

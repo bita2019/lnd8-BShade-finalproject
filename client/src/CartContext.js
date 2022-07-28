@@ -10,8 +10,9 @@ const reducer = (state, action) => {
     case "REMOVE":
       console.log(action)
       const newArr = state.filter((value, index) => index !== action.index);
-
       return newArr;
+    case "EMPTY":
+      return [];
     default:
       throw new Error(`unknown action ${action.type}`)
   }

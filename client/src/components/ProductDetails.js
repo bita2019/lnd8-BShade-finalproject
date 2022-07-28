@@ -24,9 +24,9 @@ import { useDispatchCart } from "../CartContext";
 // import { Link } from "react-router-dom";
 
 // eslint-disable-next-line no-unused-vars
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
+// interface ExpandMoreProps extends IconButtonProps {
+//   expand: boolean;
+// }
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -45,12 +45,12 @@ const ProductDetails = () => {
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
     console.log(item)
-    dispatch({type: "ADD", item})
+    dispatch({ type: "ADD", item })
   }
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-const { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     fetchItem(id);
@@ -100,11 +100,6 @@ const { id } = useParams();
                 <Typography gutterBottom variant="h5" component="div">
                   <h6> {value.name.toUpperCase()} </h6>
                   <h5>{formatCurrency(`${value.price}`, opts)}</h5>
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Rice is the seed of the grass species Oryza sativa or less
-                  commonly Oryza glaberrima. The name wild rice is usually used
-                  for species of the genera Zizania.
                 </Typography>
               </CardContent>
               <Rating

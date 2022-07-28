@@ -1,7 +1,9 @@
+// import { Uploader } from "uploader";
 const express = require("express");
 const app = express();
 app.use(express.json())
-require('dotenv').config()
+
+require('dotenv').config();
 
 const cors = require("cors");
 app.use(cors());
@@ -17,8 +19,7 @@ const pool = new Pool({
     ssl: {
         rejectUnauthorized: false
     }
-})
-
+});
 //GET ALL INVENTORY
 app.get("/inventory", (req, res) => {
     pool.query('SELECT * FROM products')
@@ -29,10 +30,9 @@ app.get("/inventory", (req, res) => {
         })
 })
 
-//GET INVENTORY BY ID
+// //GET INVENTORY BY ID
 app.get("/inventory/:id", (req, res) => {
-    const id = req.params.id
-
+    const id = Number(req.params.id)
     pool.query("SELECT * FROM products WHERE id = $1", [id])
         .then((result) => res.json(result.rows))
         .catch((error) => {
@@ -41,16 +41,39 @@ app.get("/inventory/:id", (req, res) => {
         })
 })
 
-//GET INVENTORY BY SELLER ID 
-app.get("/seller/:id/inventory", (req, res) => {
+// //GET INVENTORY BY SELLER ID 
+app.get("/seller/:id/inventory", async (req, res) => {
     const id = Number(req.params.id)
-    pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
-        .then((result) => res.json(result.rows))
-        .catch((error) => {
-            console.error(error)
-            res.status(500).json(error)
-        })
+    if (isNaN(id)) {
+        return res.sendStatus(404)
+    } else {
+        try {
+            const result = await pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
+            const nameResult = await pool.query("SELECT logo, name, first_line_address, second_line_address, postcode FROM seller WHERE id = $1", [id])
+            res.json({
+                Products: result.rows,
+                Seller: nameResult.rows[0]
+            })
+    
+        }  catch (error){
+           console.error(error)
+           res.status(500).json(error)
+            }
+    }
+
 })
+app.post("/sellers/:id/inventory", (request, response) => {
+    // const image = request.file.path;
+    const sell_id = Number(request.params.id);
+    const { name, quantity, description, country, price, image, cat_id } = request.body
+
+    pool.query('INSERT INTO products (name, sell_id, quantity, description, country, price, cat_id, image) VALUES ($1, $2, $3, $4, $5,$6, $7, $8) RETURNING *', [name, sell_id, quantity, description, country, price, cat_id, image], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send(`Product added with ID: ${results.rows[0].id}`)
+    })
+});
 
 //GET ALL SELLERS AND ALL PRODUCTS FOR SELLER 
 app.get("/sellers", (req, res) => {
@@ -115,5 +138,7 @@ app.put("/purchase", (req, res) => {
     });
 
 })
+
+app.route("/seller/:id/inventory");
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

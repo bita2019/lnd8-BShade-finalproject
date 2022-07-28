@@ -22,13 +22,45 @@ const Img = styled("img")({
 const Cart = () => {
   const items = useCart();
   const dispatch = useDispatchCart();
-  const totalPrice = items.reduce(( b, item) => { console.log(typeof item.price);return  b + parseFloat(item.price)}, 0);
+  const totalPrice = items.reduce((b, item) => { console.log(typeof item.price); return b + parseFloat(item.price) }, 0);
+  let opts = { format: "%s%v", symbol: "£" };
 
   const handleRemove = (index) => {
     dispatch({ type: "REMOVE", index });
   };
 
-  let opts = { format: "%s%v", symbol: "£" };
+  let purchases = [];
+  const quantities = {};
+  const handelUpdate = () => {
+    for (const product of items) {
+      quantities[product.id] = quantities[product.id] ? quantities[product.id] + 1 : 1;
+      console.log(quantities)
+    }
+    for (let id in quantities) {
+      purchases.push(
+        {
+          id: id,
+          quantity: quantities[id]
+        }
+      )
+    };
+    items.splice(0, items.length)
+    fetch(("http://localhost:4444/purchase"), {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(purchases),
+
+    })
+      .then((response) => response.json())
+      .then((data1) => {
+        dispatch({ type: "EMPTY" });
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    }
   return items.length === 0 ? (
     <div className="container-cart">Cart is Empty!</div>
   ) : (
@@ -62,7 +94,11 @@ const Cart = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button size="small" startIcon={<DeleteIcon />} onClick={() => handleRemove(index)}>
+                  <Button
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={() => handleRemove(index)}
+                  >
                     Delete
                   </Button>
                 </Grid>
@@ -84,17 +120,16 @@ const Cart = () => {
             currency: "GBP",
           })}
         </Typography>
-        <Button
-          component={Link}
-          style={{ textDecoration: "none", color: "white" }}
-          to="checkout"
-          variant="contained"
-        >
-          Buy now
-        </Button>
+        <Link to='checkout' style={{ textDecoration: "none", color: "white" }}>
+          <Button variant="contained" onClick={()  => handelUpdate()}>
+            Buy now
+          </Button>
+        </Link>
+       
       </Stack>
     </>
   );
 };
+
 
 export default Cart;

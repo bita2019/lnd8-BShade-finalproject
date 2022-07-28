@@ -7,7 +7,7 @@
 3- Amarachi
 4- Ramla
 
-# HOW TO CREATE A COPPY OF HUJREH DATABASE LOCALLY
+# HOW TO CREATE A COPY OF HUJREH DATABASE LOCALLY
 1-In the terminal run psql postgres
 2-Run --> create database hujreh;
 3-Run --> \c hujreh;
