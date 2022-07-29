@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import { Box, Grid, Card, CardMedia, Typography } from "@mui/material";
 
-import Card from "@mui/material/Card";
-import { Box, Grid, CardContent, CardMedia, Typography } from "@mui/material";
-
 function ProductPage({ allProducts }) {
   // eslint-disable-next-line no-unused-vars
   const [items, setItems] = useState(allProducts);

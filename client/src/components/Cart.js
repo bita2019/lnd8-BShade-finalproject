@@ -46,7 +46,7 @@ const Cart = () => {
       )
     };
     items.splice(0, items.length)
-    fetch(("http://localhost:4444/purchase"), {
+    fetch((`${process.env.REACT_APP_BACKEND_URL}/purchase`), {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const Cart = () => {
       .catch((error) => {
         console.log(error)
       });
-    }
+  }
   return items.length === 0 ? (
     <div className="container-cart">Cart is Empty!</div>
   ) : (
@@ -123,11 +123,11 @@ const Cart = () => {
           })}
         </Typography>
         <Link to='checkout' style={{ textDecoration: "none", color: "white" }}>
-            <Button variant="contained" color="success" onClick={() => handelUpdate()} endIcon={<ShoppingCartCheckoutIcon />}>
+          <Button variant="contained" color="success" onClick={() => handelUpdate()} endIcon={<ShoppingCartCheckoutIcon />}>
             Buy now
           </Button>
         </Link>
-       
+
       </Stack>
     </>
   );
