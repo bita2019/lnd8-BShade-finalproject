@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 import * as React from "react";
 import Box from "@mui/material/Box";
@@ -9,23 +9,23 @@ import { Link } from "react-router-dom";
 
 
 const ProductsForSeller = () => {
-    
-    const { seller_id } = useParams();
 
-     useEffect(() => {
-       fetchItem(seller_id);
-     }, [seller_id]);
+  const { seller_id } = useParams();
 
-     const [sellerItems, setSellerItems] = useState();
+  useEffect(() => {
+    fetchItem(seller_id);
+  }, [seller_id]);
 
-    const fetchItem = async (seller_id) => {
-        console.log(seller_id)
-      const data = await fetch(`${process.env.BACKEND_URL}/${seller_id}/inventory`);
-       console.log(data);
-       const item = await data.json();
-       console.log(item);
-       setSellerItems(item);
-    };
+  const [sellerItems, setSellerItems] = useState();
+
+  const fetchItem = async (seller_id) => {
+    console.log(seller_id)
+    const data = await fetch(`${process.env.REACT_APP_BACKEND_URL}/${seller_id}/inventory`);
+    console.log(data);
+    const item = await data.json();
+    console.log(item);
+    setSellerItems(item);
+  };
   // const [searchInput, setSearchInput] = useState("");
   // function handlesearch(value) {
   //   console.log(value);
@@ -39,17 +39,17 @@ const ProductsForSeller = () => {
   //         item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
   //         item.country.toLowerCase().includes(searchInput.toLowerCase())
   //     );
-    
-    const styles = {
-        media: {
-            display: "block",
-            maxWidth: "20ch",
-            maxHeight: "100%",
-            width: "auto",
-            height: "auto",
-            marginLeft: "5rem",
-        }
-    };
+
+  const styles = {
+    media: {
+      display: "block",
+      maxWidth: "20ch",
+      maxHeight: "100%",
+      width: "auto",
+      height: "auto",
+      marginLeft: "5rem",
+    }
+  };
 
   return (
     <>
@@ -110,8 +110,8 @@ const ProductsForSeller = () => {
             ))}
         </Grid>
       </Box>
-      </>
-    );
+    </>
+  );
 }
 
 export default ProductsForSeller;
