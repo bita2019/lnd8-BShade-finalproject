@@ -1,5 +1,0 @@
-
-DATABASE_URL=postgres://qquliwivvwfdon:9ae9e401e18debaff80c33f4372f6223158c61256c46a478357b9a26969a2418@ec2-44-195-100-240.compute-1.amazonaws.com:5432/ddklfphvf06e95
-BACKEND_URL=http://localhost:4444/
-
-

@@ -28,19 +28,6 @@ const ProductsForSeller = () => {
     console.log(item);
     setSellerItems(item);
   };
-  // const [searchInput, setSearchInput] = useState("");
-  // function handlesearch(value) {
-  //   console.log(value);
-  //   setSearchInput(value);
-  // }
-  // const filtered = !searchInput
-  //   ? sellerItems
-  //   : sellerItems.filter(
-  //       (item) =>
-  //         item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-  //         item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-  //         item.country.toLowerCase().includes(searchInput.toLowerCase())
-  //     );
 
   const styles = {
     media: {
@@ -55,9 +42,6 @@ const ProductsForSeller = () => {
 
   return (
     <>
-      {/* <Searchbar
-        handlesearch={handlesearch}
-      /> */}
       <Box sx={{ flexGrow: 1 }}>
         {sellerItems && (
           <div>
@@ -75,12 +59,13 @@ const ProductsForSeller = () => {
               {sellerItems.Seller.second_line_address}
             </p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
-            <Link to="/register">
+            <Link to="/addProducts">
               <Button
                 variant="outlined"
                 size="large"
                 style={{
-                  borderColor: "white",
+                  borderColor: "#8bc34a",
+                  backgroundColor: "green",
                   color: "white",
                   textDecoration: "none",
                 }}
