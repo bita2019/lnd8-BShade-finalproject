@@ -60,7 +60,7 @@ const ProductDetails = () => {
 
 
   const fetchItem = async (id) => {
-    const data = await fetch(`${process.env.BACKEND_URL}/inventory/${id}`);
+    const data = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inventory/${id}`);
     console.log(data);
     const item = await data.json();
     console.log(item);

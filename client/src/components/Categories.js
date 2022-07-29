@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from "@mui/material/Card";
@@ -13,8 +13,8 @@ const Categories = ({ sellers, setSellers }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [filteredSellers, setFilteredSellers] = useState([]);
-  
-  const sellerUrl = `${process.env.BACKEND_URL}/sellers`;
+
+  const sellerUrl = `${process.env.REACT_APP_BACKEND_URL}/sellers`;
   useEffect(() => {
     const fetchSellers = async () => {
       const data = await fetch(`${sellerUrl}`);
@@ -26,7 +26,7 @@ const Categories = ({ sellers, setSellers }) => {
     };
     fetchSellers();
   }, [setSellers]);
-  
+
 
   useEffect(() => {
     let filteredSellers = [...sellerInfo];
@@ -47,7 +47,7 @@ const Categories = ({ sellers, setSellers }) => {
       );
     }
     setFilteredSellers(filteredSellers)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory, selectedCountry])
 
   //  const [searchInput, setSearchInput] = useState("");
@@ -63,7 +63,7 @@ const Categories = ({ sellers, setSellers }) => {
   //          item.description.toLowerCase().includes(searchInput.toLowerCase()) ||
   //          item.country.toLowerCase().includes(searchInput.toLowerCase())
   //      );
-  
+
   const styles = {
     media: {
       display: "block",
