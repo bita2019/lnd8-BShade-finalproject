@@ -4,6 +4,8 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import {useCart} from "../CartContext";
 import { Navbar, Container, Nav} from "react-bootstrap";
 import { Button } from "@mui/material";
+import Searchbar from "./Searchbar";
+import Form from "react-bootstrap/Form";
 
 
 const Header = () => {
@@ -15,16 +17,19 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand href="/">
           <div className="image-container">
-          <img
-            alt=""
-            src="https://upcdn.io/FW25asGHZgPwfLWeszhum7Z/thumbnail"
-            width="100%"
-            height=""
-            className="d-inline-block align-top"
-          />
+            <img
+              alt=""
+              src="https://upcdn.io/FW25asGHZgPwfLWeszhum7Z/thumbnail"
+              width="100%"
+              height=""
+              className="d-inline-block align-top"
+            />
           </div>
         </Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
+          <Form className="d-flex">
+            <Searchbar />
+          </Form>
           <Nav className="me-auto">
             <Button
               component={Link}
@@ -61,7 +66,6 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
   );
 };
 

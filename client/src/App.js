@@ -53,13 +53,17 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart/checkout" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/categories" element={<Categories sellers={sellers} setSellers={setSellers} />}
+        <Route
+          path="/categories"
+          element={<Categories sellers={sellers} setSellers={setSellers} />}
         />
-        <Route path="/categories/:seller_id/inventory" element={<ProductsForSeller />} />
+        <Route
+          path="/categories/:seller_id/inventory"
+          element={<ProductsForSeller />}
+        />
       </Routes>
       <Footer />
     </div>
-
   );
 }
 export default App;

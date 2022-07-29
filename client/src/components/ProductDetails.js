@@ -12,7 +12,7 @@ import {
   styled,
   Collapse,
 } from "@mui/material";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useParams } from "react-router-dom";
 import formatCurrency from "format-currency";
@@ -73,7 +73,7 @@ const ProductDetails = () => {
       maxHeight: "100%",
       width: "auto",
       height: "auto",
-      marginLeft: "5rem",
+      // marginLeft: "5rem",
     },
   };
 

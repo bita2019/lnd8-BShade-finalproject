@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import './HeroSection.css'
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
 
 function HeroSection(props) {
@@ -30,12 +31,15 @@ function HeroSection(props) {
             <div className="text-wrapper">
                 <h1 style={{ overflowWrap: 'break-word' }}>{slide.title}</h1>
                 <p>{slide.text}</p>
+                <Link to="categories">
                 <Button variant="outlined" size="large" style={{
                     borderColor: 'white',
-                    color: 'white'
+                        color: 'white',
+                    textDecoration: 'none'
                 }}>
                     Learn More
                 </Button>
+                </Link>
             </div>
         </div >
     );
