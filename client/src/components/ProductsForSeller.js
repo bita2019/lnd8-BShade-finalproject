@@ -75,6 +75,19 @@ const ProductsForSeller = () => {
               {sellerItems.Seller.second_line_address}
             </p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
+            <Link to="/register">
+              <Button
+                variant="outlined"
+                size="large"
+                style={{
+                  borderColor: "white",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                ADD NEW PRODUCT
+              </Button>
+            </Link>
           </div>
         )}
         <Grid
@@ -97,19 +110,7 @@ const ProductsForSeller = () => {
                       alt={sellerProduct.name}
                       style={styles.media}
                     />
-                    <Link to="/register">
-                      <Button
-                        variant="outlined"
-                        size="large"
-                        style={{
-                          borderColor: "white",
-                          color: "white",
-                          textDecoration: "none",
-                        }}
-                      >
-                        ADD NEW PRODUCT
-                      </Button>
-                    </Link>
+
                     <CardContent>
                       <Typography
                         gutterBottom
