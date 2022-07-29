@@ -82,7 +82,7 @@ const ProductsForSeller = () => {
                 style={{
                   borderColor: "green",
                   color: "green",
-                  textDecoration: "bold",
+                  textDecoration: "none",
                 }}
               >
                 ADD NEW PRODUCT
