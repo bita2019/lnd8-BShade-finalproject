@@ -9,7 +9,8 @@ const cors = require("cors");
 app.use(cors());
 
 const { Pool } = require("pg");
-const DATABASE_URL = "postgres://qquliwivvwfdon:9ae9e401e18debaff80c33f4372f6223158c61256c46a478357b9a26969a2418@ec2-44-195-100-240.compute-1.amazonaws.com:5432/ddklfphvf06e95"
+const DATABASE_URL =
+  "postgres://qquliwivvwfdon:9ae9e401e18debaff80c33f4372f6223158c61256c46a478357b9a26969a2418@ec2-44-195-100-240.compute-1.amazonaws.com:5432/ddklfphvf06e95";
 
 const port = process.env.PORT || 4444;
 
@@ -49,22 +50,26 @@ app.get("/inventory/:id", (req, res) => {
 
 // //GET INVENTORY BY SELLER ID
 app.get("/seller/:id/inventory", async (req, res) => {
-    const id = Number(req.params.id)
-    if (isNaN(id)) {
-        return res.sendStatus(404)
-    } else {
-        try {
-            const result = await pool.query("SELECT * FROM products WHERE sell_id = $1", [id])
-            const nameResult = await pool.query("SELECT logo, name, first_line_address, second_line_address, postcode FROM seller WHERE id = $1", [id])
-            res.json({
-                Products: result.rows,
-                Seller: nameResult.rows[0]
-            })
-
-        } catch (error) {
-            console.error(error)
-            res.status(500).json(error)
-        }
+  const id = Number(req.params.id);
+  if (isNaN(id)) {
+    return res.sendStatus(404);
+  } else {
+    try {
+      const result = await pool.query(
+        "SELECT * FROM products WHERE sell_id = $1",
+        [id]
+      );
+      const nameResult = await pool.query(
+        "SELECT logo, name, first_line_address, second_line_address, postcode FROM seller WHERE id = $1",
+        [id]
+      );
+      res.json({
+        Products: result.rows,
+        Seller: nameResult.rows[0],
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json(error);
     }
   }
 });
