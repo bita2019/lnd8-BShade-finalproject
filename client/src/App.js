@@ -46,7 +46,10 @@ function App() {
           exact
           element={<ProductPage allProducts={allProducts} />}
         />
-        <Route path="/addProduct" component={addProduct} />
+        <Route
+          path="/categories/:seller_id/inventory"
+          element={<addProduct />}
+        />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/productpage/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
