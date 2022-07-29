@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+
 import { Typography, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
 // import Searchbar from "./Searchbar";
@@ -95,6 +97,19 @@ const ProductsForSeller = () => {
                       alt={sellerProduct.name}
                       style={styles.media}
                     />
+                    <Link to="/register">
+                      <Button
+                        variant="outlined"
+                        size="large"
+                        style={{
+                          borderColor: "white",
+                          color: "white",
+                          textDecoration: "none",
+                        }}
+                      >
+                        ADD NEW PRODUCT
+                      </Button>
+                    </Link>
                     <CardContent>
                       <Typography
                         gutterBottom
