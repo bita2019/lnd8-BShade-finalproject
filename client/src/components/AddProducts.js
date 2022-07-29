@@ -18,7 +18,7 @@ import AddProductButton from "./AddProductButton";
 import { useParams } from "react-router";
 // import Categories from "./Categories";
 
-const Register = () => {
+const AddProducts = () => {
   const [pName, setPname] = useState("");
   const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState("");
@@ -93,7 +93,7 @@ const Register = () => {
       cat_id: category,
       image,
     };
-
+    console.log(seller_id)
     console.log(newproduct.sell_id);
     fetch(
       `${process.env.REACT_APP_BACKEND_URL}/sellers/${seller_id}/inventory`,
@@ -220,4 +220,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AddProducts;

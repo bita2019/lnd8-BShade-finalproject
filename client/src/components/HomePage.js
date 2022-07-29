@@ -9,7 +9,7 @@ import image2 from "./img/img2.jpg";
 import image3 from "./img/img3.jpg";
 import ListProduct from "./ListProduct";
 import { Link } from "react-router-dom";
-import Register from "./Register";
+import Register from "./AddProducts";
 
 function HomePage() {
   const [currentslide, setCurrentslide] = useState(0);
@@ -49,8 +49,6 @@ function HomePage() {
           currentslide={currentslide}
         />
       </div>
-
-      <Register />
       <div className="searchl">
         <div className="loc-wrapper">
           <h4>SEARCH LOCAL STORES</h4>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
-import Register from "./components/Register";
+import Register from "./components/AddProducts";
 import "./App.css";
 import Header from "./components/Header";
 import ProductDetails from "./components/ProductDetails";
@@ -13,6 +13,7 @@ import Checkout from "./components/Checkout";
 import Categories from "./components/Categories";
 import ProductsForSeller from "./components/ProductsForSeller";
 import Footer from "./components/Footer";
+import AddProducts from "./components/AddProducts";
 // import {useParams} from "react-router-dom";
 function App() {
   //This fetches all products
@@ -46,7 +47,7 @@ function App() {
           exact
           element={<ProductPage allProducts={allProducts} />}
         />
-        {/* <Route path="/addProduct" component={addProduct} /> */}
+        <Route path="/addProducts" element={<AddProducts/>} />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/productpage/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
