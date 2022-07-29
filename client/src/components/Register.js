@@ -72,20 +72,15 @@ const Register = () => {
 
     if (pName === "") {
       setPnameError(true);
-    }
-    if (quantity === "") {
+    } else if (quantity === "") {
       setQuantityError(true);
-    }
-    if (country === "") {
+    } else if (country === "") {
       setCountryError(true);
-    }
-    if (image === "") {
+    } else if (image === "") {
       setImageError(true);
-    }
-    if (price === "") {
+    } else if (price === "") {
       setPriceError(true);
-    }
-    if (description === "") {
+    } else if (description === "") {
       setDescriptionError(true);
     }
     const newproduct = {
@@ -99,14 +94,17 @@ const Register = () => {
       image,
     };
 
-    console.log(newproduct);
-    fetch(`http://localhost:4444/sellers/${seller_id}/inventory`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newproduct),
-    })
+    console.log(newproduct.sell_id);
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/sellers/${seller_id}/inventory`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newproduct),
+      }
+    )
       .then((response) => {
         console.log("Success:", response);
       })
