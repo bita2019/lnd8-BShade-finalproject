@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 
 
-
+// passed a callback function as a prop to search component
 const Searchbar = ({ handlesearch }) => {
   return (
     <div className="textfield">

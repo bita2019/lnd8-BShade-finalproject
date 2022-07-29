@@ -10,7 +10,7 @@ import {
   Typography,
   Rating,
   styled,
-  Collapse
+  Collapse,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -38,15 +38,14 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-
 const ProductDetails = () => {
   const [expanded, setExpanded] = React.useState(false);
 
   const dispatch = useDispatchCart();
   const addToCart = (item) => {
-    console.log(item)
-    dispatch({ type: "ADD", item })
-  }
+    console.log(item);
+    dispatch({ type: "ADD", item });
+  };
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -57,7 +56,6 @@ const ProductDetails = () => {
   }, [id]);
 
   const [item, setItem] = useState([]);
-
 
   const fetchItem = async (id) => {
     const data = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inventory/${id}`);
@@ -114,7 +112,6 @@ const ProductDetails = () => {
                 {value.quantity === 0 && (
                   <Button disabled size="small">
                     Out of Stock
-
                   </Button>
                 )}
 
@@ -172,6 +169,6 @@ const ProductDetails = () => {
     //   </div>
     // })
   );
-}
+};
 
 export default ProductDetails;

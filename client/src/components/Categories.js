@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import Searchbar from "./Searchbar";
 
 const Categories = ({ sellers, setSellers }) => {
@@ -21,12 +21,11 @@ const Categories = ({ sellers, setSellers }) => {
       const sellerItems = await data.json();
       console.log("products:", sellerItems);
       setSellers(sellerItems);
-      setSellerInfo(sellerItems)
-      setFilteredSellers(sellerItems)
+      setSellerInfo(sellerItems);
+      setFilteredSellers(sellerItems);
     };
     fetchSellers();
   }, [setSellers]);
-
 
   useEffect(() => {
     let filteredSellers = [...sellerInfo];
@@ -36,7 +35,7 @@ const Categories = ({ sellers, setSellers }) => {
           (product) =>
             product.prod_cat.toLowerCase() === selectedCategory.toLowerCase()
         )
-      )
+      );
     }
     if (selectedCountry) {
       filteredSellers = filteredSellers.filter((seller) =>
@@ -46,9 +45,9 @@ const Categories = ({ sellers, setSellers }) => {
         )
       );
     }
-    setFilteredSellers(filteredSellers)
+    setFilteredSellers(filteredSellers);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategory, selectedCountry])
+  }, [selectedCategory, selectedCountry]);
 
   //  const [searchInput, setSearchInput] = useState("");
   //  function handlesearch(value) {
@@ -383,32 +382,34 @@ const Categories = ({ sellers, setSellers }) => {
             </Card>
           </Grid>
           {sellerInfo &&
-            filteredSellers.map((value, index) => (
-              <Grid item xs={3} key={index}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    src={value.sell_logo}
-                    alt="grocery"
-                  />
-                  <CardActions>
-                    <Button
-                      size="small"
-                      component={Link}
-                      style={{ textDecoration: "none" }}
-                      to={`/categories/${value.seller_id}/inventory`}
-                    >
-                      {value.seller_name}
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
+            filteredSellers.map((value, index) => {
+              return (
+                <Grid item xs={3} key={index}>
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      src={value.sell_logo}
+                      alt="grocery"
+                    />
+                    <CardActions>
+                      <Button
+                        size="small"
+                        component={Link}
+                        style={{ textDecoration: "none" }}
+                        to={`/categories/${value.seller_id}/inventory`}
+                      >
+                        {value.seller_name}
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              );
+            })}
         </Grid>
       </Box>
     </>
   );
-}
+};
 
 export default Categories;
