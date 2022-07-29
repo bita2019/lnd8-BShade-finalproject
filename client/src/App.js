@@ -22,7 +22,7 @@ function App() {
     fetchItems();
   }, []);
 
-  const urlToFetch = "http://localhost:4444/inventory";
+  const urlToFetch = `${process.env.BACKEND_URL}/inventory`;
 
   const fetchItems = async () => {
     const data = await fetch(`${urlToFetch}`);

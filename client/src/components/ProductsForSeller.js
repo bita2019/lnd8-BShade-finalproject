@@ -20,7 +20,7 @@ const ProductsForSeller = () => {
 
     const fetchItem = async (seller_id) => {
         console.log(seller_id)
-       const data = await fetch(`http://localhost:4444/seller/${seller_id}/inventory`);
+      const data = await fetch(`${process.env.BACKEND_URL}/${seller_id}/inventory`);
        console.log(data);
        const item = await data.json();
        console.log(item);

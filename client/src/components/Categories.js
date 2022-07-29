@@ -14,7 +14,7 @@ const Categories = ({ sellers, setSellers }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [filteredSellers, setFilteredSellers] = useState([]);
   
-  const sellerUrl = "http://localhost:4444/sellers";
+  const sellerUrl = `${process.env.BACKEND_URL}/sellers`;
   useEffect(() => {
     const fetchSellers = async () => {
       const data = await fetch(`${sellerUrl}`);
