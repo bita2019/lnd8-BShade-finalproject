@@ -80,8 +80,8 @@ const ProductsForSeller = () => {
                 variant="outlined"
                 size="large"
                 style={{
-                  borderColor: "white",
-                  color: "white",
+                  borderColor: "green",
+                  color: "green",
                   textDecoration: "none",
                 }}
               >
