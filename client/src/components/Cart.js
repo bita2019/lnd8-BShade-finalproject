@@ -47,7 +47,7 @@ const Cart = () => {
       )
     };
     items.splice(0, items.length)
-    fetch(("http://localhost:4444/purchase"), {
+    fetch((`${process.env.BACKEND_URL}/purchase`), {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

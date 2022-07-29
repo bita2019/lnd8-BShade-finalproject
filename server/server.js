@@ -9,6 +9,7 @@ const cors = require("cors");
 app.use(cors());
 
 const { Pool } = require("pg");
+const DATABASE_URL = "postgres://qquliwivvwfdon:9ae9e401e18debaff80c33f4372f6223158c61256c46a478357b9a26969a2418@ec2-44-195-100-240.compute-1.amazonaws.com:5432/ddklfphvf06e95"
 
 const port = process.env.PORT || 4444;
 
@@ -54,11 +55,11 @@ app.get("/seller/:id/inventory", async (req, res) => {
                 Products: result.rows,
                 Seller: nameResult.rows[0]
             })
-    
-        }  catch (error){
-           console.error(error)
-           res.status(500).json(error)
-            }
+
+        } catch (error) {
+            console.error(error)
+            res.status(500).json(error)
+        }
     }
 
 })
@@ -138,7 +139,5 @@ app.put("/purchase", (req, res) => {
     });
 
 })
-
-app.route("/seller/:id/inventory");
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
