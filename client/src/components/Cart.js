@@ -13,7 +13,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 
-
 const Img = styled("img")({
   margin: "auto",
   display: "block",

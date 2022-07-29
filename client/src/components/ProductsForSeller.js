@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+
 import { Typography, Card, CardMedia, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
 // import Searchbar from "./Searchbar";
 
-
 const ProductsForSeller = () => {
-
   const { seller_id } = useParams();
 
   useEffect(() => {
@@ -19,8 +19,10 @@ const ProductsForSeller = () => {
   const [sellerItems, setSellerItems] = useState();
 
   const fetchItem = async (seller_id) => {
-    console.log(seller_id)
-    const data = await fetch(`${process.env.REACT_APP_BACKEND_URL}/seller/${seller_id}/inventory`);
+    console.log(seller_id);
+    const data = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/seller/${seller_id}/inventory`
+    );
     console.log(data);
     const item = await data.json();
     console.log(item);
@@ -48,7 +50,7 @@ const ProductsForSeller = () => {
       width: "auto",
       height: "auto",
       marginLeft: "5rem",
-    }
+    },
   };
 
   return (
@@ -69,8 +71,23 @@ const ProductsForSeller = () => {
             </div>
             <h1 className="shop-info">{sellerItems.Seller.name}</h1>{" "}
             <p className="shop-info">{sellerItems.Seller.first_line_address}</p>
-            <p className="shop-info">{sellerItems.Seller.second_line_address}</p>
+            <p className="shop-info">
+              {sellerItems.Seller.second_line_address}
+            </p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
+            <Link to="/register">
+              <Button
+                variant="outlined"
+                size="large"
+                style={{
+                  borderColor: "white",
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                ADD NEW PRODUCT
+              </Button>
+            </Link>
           </div>
         )}
         <Grid
@@ -93,6 +110,7 @@ const ProductsForSeller = () => {
                       alt={sellerProduct.name}
                       style={styles.media}
                     />
+
                     <CardContent>
                       <Typography
                         gutterBottom
@@ -112,6 +130,6 @@ const ProductsForSeller = () => {
       </Box>
     </>
   );
-}
+};
 
 export default ProductsForSeller;
