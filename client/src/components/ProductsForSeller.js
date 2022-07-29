@@ -75,14 +75,14 @@ const ProductsForSeller = () => {
               {sellerItems.Seller.second_line_address}
             </p>
             <p className="shop-info">{sellerItems.Seller.postcode}</p>
-            <Link to="/register">
+            <Link to="/addProduct">
               <Button
                 variant="outlined"
                 size="large"
                 style={{
                   borderColor: "green",
                   color: "green",
-                  textDecoration: "none",
+                  textDecoration: "bold",
                 }}
               >
                 ADD NEW PRODUCT

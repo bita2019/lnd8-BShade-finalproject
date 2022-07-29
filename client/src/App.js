@@ -46,7 +46,7 @@ function App() {
           exact
           element={<ProductPage allProducts={allProducts} />}
         />
-        {/* <Route path="/addProduct" component={addProduct} /> */}
+        <Route path="/addProduct" component={addProduct} />
         {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/productpage/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
