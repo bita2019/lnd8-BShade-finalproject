@@ -1,10 +1,9 @@
 import React from 'react'
-import { Typography } from '@mui/material';
 
 const Checkout = () => {
   return (
-    <div>
-      <Typography>Thank you for shopping with us</Typography>
+    <div className='thank-you'>
+      <p className='thank-p'>Thank you for shopping with us!</p>
     </div>
   );
 }
