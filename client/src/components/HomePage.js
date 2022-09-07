@@ -16,7 +16,7 @@ function HomePage() {
   // const classes = useStyles();
   const hero = [
     {
-      title: "Try Your Local And Traditional Product With Your Comfort Home",
+      title: "Try Your Local And Traditional Products From The Comfort Of Your Home",
       img: image1,
       text: "Lorem ipsum dolor sit amet, consectetur",
     },
@@ -98,7 +98,7 @@ function HomePage() {
         </div>
       </div>
       <div className="productt">
-        <h4>OUR POPULAR PRODUCT </h4>
+        <h4>OUR POPULAR PRODUCTS </h4>
         <div className="card-wrapper">
           {hero && hero.map((cardRender) => <ListProduct list={cardRender} />)}
         </div>
