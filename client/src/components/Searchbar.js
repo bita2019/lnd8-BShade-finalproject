@@ -4,8 +4,6 @@ import { TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 
-
-
 // passed a callback function as a prop to search component
 const Searchbar = ({ handlesearch }) => {
   return (
@@ -15,9 +13,7 @@ const Searchbar = ({ handlesearch }) => {
       <TextField
         id="search-bar"
         className="text"
-        onChange={
-          (e) => handlesearch(e.target.value)
-        }
+        onChange={(e) => handlesearch(e.target.value)}
         label="Search Products..."
         variant="outlined"
         size="small"
@@ -33,9 +29,3 @@ const Searchbar = ({ handlesearch }) => {
   );
 };
 export default Searchbar;
-
-// if (searchTerm == "") {
-//     return video;
-// } else if (video.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-//     return video;
-// }
